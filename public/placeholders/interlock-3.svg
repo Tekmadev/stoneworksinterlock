@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b0d0f"/>
+      <stop offset="1" stop-color="#14171d"/>
+    </linearGradient>
+    <pattern id="p" width="76" height="76" patternUnits="userSpaceOnUse">
+      <rect width="76" height="76" fill="rgba(255,255,255,0.04)"/>
+      <rect x="10" y="12" width="30" height="24" rx="6" fill="rgba(255,255,255,0.07)"/>
+      <rect x="40" y="40" width="26" height="20" rx="5" fill="rgba(255,255,255,0.06)"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <rect x="70" y="70" width="1060" height="660" rx="28" fill="url(#p)" stroke="rgba(255,255,255,0.12)"/>
+  <text x="110" y="165" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="42" font-weight="700" fill="#f3f4f6">Front Entrance</text>
+  <text x="110" y="215" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="20" fill="rgba(243,244,246,0.70)">Placeholder image</text>
+</svg>
+
+
