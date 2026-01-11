@@ -41,8 +41,8 @@ export const BUSINESS: BusinessInfo = {
   siteUrl: "https://www.stoneworksinterlock.com",
   name: "Stoneworks Interlock",
   legalName: "Stoneworks Interlock",
-  phone: "+1 (613) 914-6260",
-  whatsappPhone: "+1 (613) 914-6260",
+  phone: "+1 (613) 850-8158",
+  whatsappPhone: "+1 (613) 850-8158",
   // Optional: set when you confirm the correct inbox for quote requests
   email: "stoneworksinterlock@gmail.com",
   address: {

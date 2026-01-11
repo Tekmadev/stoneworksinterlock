@@ -373,7 +373,7 @@ export function QuoteForm({ variant = "full", className, initial }: QuoteFormPro
                   value={phone}
                   onChange={(e) => setPhone(normalizeNorthAmericanPhone(e.target.value))}
                   className={inputBase}
-                  placeholder="(613) 914-6260"
+                  placeholder="(613) 850-8158"
                   inputMode="tel"
                   autoComplete="tel"
                 />

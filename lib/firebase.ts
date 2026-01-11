@@ -8,6 +8,7 @@ type FirebasePublicConfig = {
   storageBucket: string;
   messagingSenderId?: string;
   appId: string;
+  measurementId?: string;
 };
 
 function parseFirebaseConfig(): FirebasePublicConfig | null {
@@ -25,7 +26,9 @@ function parseFirebaseConfig(): FirebasePublicConfig | null {
   const storageBucket = process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET;
   const appId = process.env.NEXT_PUBLIC_FIREBASE_APP_ID;
   const authDomain = process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN;
-  const messagingSenderId = process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID;
+  const messagingSenderId =
+    process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID;
+  const measurementId = process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID;
 
   if (!apiKey || !projectId || !storageBucket || !appId) return null;
 
@@ -36,6 +39,7 @@ function parseFirebaseConfig(): FirebasePublicConfig | null {
     appId,
     authDomain,
     messagingSenderId,
+    measurementId,
   };
 }
 
@@ -56,4 +60,18 @@ export function getFirebaseStorage(): FirebaseStorage | null {
   return getStorage(app);
 }
 
+/**
+ * Analytics is browser-only and optional. This returns null on the server,
+ * when env vars aren't present, or when analytics isn't supported.
+ */
+export async function getFirebaseAnalytics() {
+  if (typeof window === "undefined") return null;
+  const app = getFirebaseApp();
+  if (!app) return null;
 
+  // Analytics can throw in non-browser contexts; `isSupported()` is the safe guard.
+  const { getAnalytics, isSupported } = await import("firebase/analytics");
+  const ok = await isSupported().catch(() => false);
+  if (!ok) return null;
+  return getAnalytics(app);
+}
