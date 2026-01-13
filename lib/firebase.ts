@@ -11,11 +11,20 @@ type FirebasePublicConfig = {
   measurementId?: string;
 };
 
+function isValidFirebaseConfig(
+  cfg: FirebasePublicConfig | null
+): cfg is FirebasePublicConfig {
+  if (!cfg) return false;
+  // Required fields for app initialization
+  return Boolean(cfg.apiKey && cfg.projectId && cfg.storageBucket && cfg.appId);
+}
+
 function parseFirebaseConfig(): FirebasePublicConfig | null {
   const json = process.env.NEXT_PUBLIC_FIREBASE_CONFIG;
   if (json) {
     try {
-      return JSON.parse(json) as FirebasePublicConfig;
+      const cfg = JSON.parse(json) as FirebasePublicConfig;
+      return isValidFirebaseConfig(cfg) ? cfg : null;
     } catch {
       return null;
     }
