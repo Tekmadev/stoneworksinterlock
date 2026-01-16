@@ -5,8 +5,7 @@ import { Loader2, Phone } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { SERVICES, type ServiceSlug } from "@/data/services";
 import { cn } from "@/lib/cn";
-import { sendQuoteLead } from "@/lib/emailjs";
-import { getFirebaseStorage, hasFirebaseConfig } from "@/lib/firebase";
+import { getFirebaseStorage, hasFirebaseConfig, saveQuoteToFirestore } from "@/lib/firebase";
 import { BUSINESS } from "@/config/business";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
@@ -161,10 +160,6 @@ export function QuoteForm({ variant = "full", className, initial }: QuoteFormPro
     try {
       setStatus("sending");
 
-      // client-side cooldown (basic rate limiting)
-      const COOLDOWN_MS = 30_000;
-      localStorage.setItem(cooldownKey, String(Date.now() + COOLDOWN_MS));
-
       let photoUrls: string[] = [];
       if (isFull && photos.length > 0) {
         if (!hasFirebaseConfig()) {
@@ -190,7 +185,8 @@ export function QuoteForm({ variant = "full", className, initial }: QuoteFormPro
         }
       }
 
-      await sendQuoteLead({
+      // Prepare the quote payload
+      const quotePayload = {
         fullName: fullName.trim(),
         phone: phone.trim(),
         email: email.trim(),
@@ -213,7 +209,14 @@ export function QuoteForm({ variant = "full", className, initial }: QuoteFormPro
         petFriendly: petFriendly || undefined,
         drainageIssues: drainageIssues || undefined,
         photoUrls,
-      });
+      };
+
+      // Save to Firestore collection "quotes"
+      await saveQuoteToFirestore(quotePayload);
+
+      // Set cooldown only after successful submission
+      const COOLDOWN_MS = 30_000;
+      localStorage.setItem(cooldownKey, String(Date.now() + COOLDOWN_MS));
 
       setStatus("sent");
     } catch {
