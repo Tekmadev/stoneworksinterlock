@@ -10,7 +10,7 @@ import { BUSINESS } from "@/config/business";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { getDownloadURL, ref as storageRef, uploadBytes } from "firebase/storage";
-import { sendQuoteLead } from "@/lib/emailjs";
+import { sendQuoteLead, type QuoteLeadPayload } from "@/lib/emailjs";
 
 type QuoteFormVariant = "short" | "full";
 
@@ -193,22 +193,22 @@ export function QuoteForm({ variant = "full", className, initial }: QuoteFormPro
         email: email.trim(),
         postalCode: postalCode.trim(),
         city: city.trim(),
-        address: address.trim() || undefined,
+        address: address.trim(),
         preferredContactMethod,
         serviceSelected,
         message: message.trim(),
 
-        approxSqFt: approxSqFt.trim() || undefined,
-        stylePreference: stylePreference || undefined,
-        timeline: timeline.trim() || undefined,
-        budgetRange: budgetRange.trim() || undefined,
-        issueType: issueType.trim() || undefined,
-        approxArea: approxArea.trim() || undefined,
-        urgency: urgency.trim() || undefined,
-        lastServiceDate: lastServiceDate.trim() || undefined,
-        weedIssue: weedIssue || undefined,
-        petFriendly: petFriendly || undefined,
-        drainageIssues: drainageIssues || undefined,
+        approxSqFt: approxSqFt.trim(),
+        stylePreference: stylePreference,
+        timeline: timeline.trim(),
+        budgetRange: budgetRange.trim(),
+        issueType: issueType.trim(),
+        approxArea: approxArea.trim(),
+        urgency: urgency.trim(),
+        lastServiceDate: lastServiceDate.trim(),
+        weedIssue: weedIssue,
+        petFriendly: petFriendly,
+        drainageIssues: drainageIssues,
         photoUrls,
       };
 
@@ -236,7 +236,7 @@ export function QuoteForm({ variant = "full", className, initial }: QuoteFormPro
         console.error("❌ QuoteForm - Email sending failed:", emailError);
         console.error("❌ QuoteForm - Email error details:", {
           message: emailError instanceof Error ? emailError.message : "Unknown error",
-          stack: emailError instanceof Error ? emailError.stack : undefined,
+          stack: emailError instanceof Error ? emailError.stack : "",
         });
         // Don't block the flow if email fails, data is already saved
         console.warn("⚠️ QuoteForm - Email failed but data was saved to Firestore");
@@ -251,7 +251,7 @@ export function QuoteForm({ variant = "full", className, initial }: QuoteFormPro
       console.error("❌ QuoteForm - Error during submission:", error);
       console.error("❌ QuoteForm - Error details:", {
         message: error instanceof Error ? error.message : "Unknown error",
-        stack: error instanceof Error ? error.stack : undefined,
+        stack: error instanceof Error ? error.stack : "",
         name: error instanceof Error ? error.name : typeof error,
       });
       setStatus("error");
