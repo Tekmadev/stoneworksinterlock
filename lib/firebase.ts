@@ -56,6 +56,8 @@ function parseFirebaseConfig(): FirebasePublicConfig | null {
   };
 }
 
+
+
 export function hasFirebaseConfig() {
   return Boolean(parseFirebaseConfig());
 }
@@ -82,7 +84,6 @@ export async function getFirebaseAnalytics() {
   const app = getFirebaseApp();
   if (!app) return null;
 
-  // Analytics can throw in non-browser contexts; `isSupported()` is the safe guard.
   const { getAnalytics, isSupported } = await import("firebase/analytics");
   const ok = await isSupported().catch(() => false);
   if (!ok) return null;
@@ -98,7 +99,7 @@ export function getFirebaseDb(): Firestore | null {
 
 export async function saveQuoteLeadToFirestore(payload: QuoteLeadPayload) {
   if (!hasFirebaseConfig()) {
-    // Firebase pas configuré => on ne bloque pas tout le flow
+
     return { ok: false as const, reason: "firebase_not_configured" as const };
   }
 
@@ -107,11 +108,10 @@ export async function saveQuoteLeadToFirestore(payload: QuoteLeadPayload) {
     return { ok: false as const, reason: "db_null" as const };
   }
 
-  // Collection: "quote_leads" (vous pouvez renommer)
   const ref = await addDoc(collection(db, "contact_data"), {
     ...payload,
 
-    // Metadonnées utiles
+
     createdAt: serverTimestamp(),
     source: "contact_free_quote",
     status: "new",
