@@ -1,12 +1,6 @@
 import { initializeApp, getApps, type FirebaseApp } from "firebase/app";
 import { getStorage, type FirebaseStorage } from "firebase/storage";
-import {
-  getFirestore,
-  type Firestore,
-  collection,
-  addDoc,
-  serverTimestamp,
-} from "firebase/firestore";
+import { getFirestore, type Firestore, collection, addDoc, serverTimestamp } from "firebase/firestore";
 import type { QuoteLeadPayload } from "@/lib/emailjs";
 
 type FirebasePublicConfig = {
@@ -28,13 +22,16 @@ function isValidFirebaseConfig(
 }
 
 function parseFirebaseConfig(): FirebasePublicConfig | null {
+  console.log("NEXT_PUBLIC_FIREBASE_CONFIG =", process.env.NEXT_PUBLIC_FIREBASE_CONFIG);
   const json = process.env.NEXT_PUBLIC_FIREBASE_CONFIG;
-  if (json) {
+
+  if (json && json.trim().length > 0) {
     try {
       const cfg = JSON.parse(json) as FirebasePublicConfig;
-      return isValidFirebaseConfig(cfg) ? cfg : null;
+      if (isValidFirebaseConfig(cfg)) return cfg;
+      // JSON présent mais incomplet -> fallback Option B
     } catch {
-      return null;
+      // JSON présent mais invalide -> fallback Option B
     }
   }
 
@@ -43,8 +40,7 @@ function parseFirebaseConfig(): FirebasePublicConfig | null {
   const storageBucket = process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET;
   const appId = process.env.NEXT_PUBLIC_FIREBASE_APP_ID;
   const authDomain = process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN;
-  const messagingSenderId =
-    process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID;
+  const messagingSenderId =process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID;
   const measurementId = process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID;
 
   if (!apiKey || !projectId || !storageBucket || !appId) return null;
@@ -77,12 +73,6 @@ export function getFirebaseStorage(): FirebaseStorage | null {
   return getStorage(app);
 }
 
-export function getFirestoreDb(): Firestore | null {
-  const app = getFirebaseApp();
-  if (!app) return null;
-  return getFirestore(app);
-}
-
 /**
  * Analytics is browser-only and optional. This returns null on the server,
  * when env vars aren't present, or when analytics isn't supported.
@@ -99,31 +89,33 @@ export async function getFirebaseAnalytics() {
   return getAnalytics(app);
 }
 
-/**
- * Saves a quote submission to Firestore collection "quotes"
- * Returns the document ID if successful, null if Firestore isn't configured or fails
- */
-export async function saveQuoteToFirestore(
-  payload: QuoteLeadPayload,
-): Promise<string | null> {
-  const db = getFirestoreDb();
+
+export function getFirebaseDb(): Firestore | null {
+  const app = getFirebaseApp();
+  if (!app) return null;
+  return getFirestore(app);
+}
+
+export async function saveQuoteLeadToFirestore(payload: QuoteLeadPayload) {
+  if (!hasFirebaseConfig()) {
+    // Firebase pas configuré => on ne bloque pas tout le flow
+    return { ok: false as const, reason: "firebase_not_configured" as const };
+  }
+
+  const db = getFirebaseDb();
   if (!db) {
-    console.warn("Firestore not configured. Quote data will not be saved to database.");
-    return null;
+    return { ok: false as const, reason: "db_null" as const };
   }
 
-  try {
-    const quoteData = {
-      ...payload,
-      createdAt: serverTimestamp(),
-      status: "pending",
-    };
+  // Collection: "quote_leads" (vous pouvez renommer)
+  const ref = await addDoc(collection(db, "contact_data"), {
+    ...payload,
 
-    const docRef = await addDoc(collection(db, "quotes"), quoteData);
-    return docRef.id;
-  } catch (error) {
-    console.error("Error saving quote to Firestore:", error);
-    // Don't throw - allow form to show success even if Firestore fails
-    return null;
-  }
+    // Metadonnées utiles
+    createdAt: serverTimestamp(),
+    source: "contact_free_quote",
+    status: "new",
+  });
+
+  return { ok: true as const, id: ref.id };
 }
