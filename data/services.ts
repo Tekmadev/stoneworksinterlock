@@ -7,7 +7,9 @@ export type ServiceSlug =
   | "uneven-pavers-leveling"
   | "pressure-washing-resanding"
   | "polymeric-sand"
-  | "turf-installation";
+  | "turf-installation"
+  | "sealant-natural-look"
+  | "sealant-wet-look";
 
 export type ServiceFaq = { question: string; answer: string };
 

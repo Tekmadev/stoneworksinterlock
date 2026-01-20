@@ -187,6 +187,43 @@ export function QuoteForm({ variant = "full", className, initial }: QuoteFormPro
       }
 
       // Prepare the quote payload
+      const selectedServiceName =
+        SERVICES.find((s) => s.slug === serviceSelected)?.name ?? serviceSelected;
+      const submittedAt = new Date().toLocaleString("en-CA", {
+        timeZone: "America/Toronto",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+
+      const addressLine = address.trim() || "—";
+
+      const detailPairs: { label: string; value: string }[] = [];
+      const addDetail = (label: string, value: string) => {
+        const v = value.trim();
+        if (!v) return;
+        detailPairs.push({ label, value: v });
+      };
+
+      addDetail("Approx. Square Footage", approxSqFt ? `${approxSqFt.trim()} sq ft` : "");
+      addDetail("Approx. Area", approxArea);
+      addDetail("Style Preference", stylePreference);
+      addDetail("Timeline", timeline);
+      addDetail("Budget Range", budgetRange);
+      addDetail("Urgency", urgency);
+      addDetail("Issue Type", issueType);
+      addDetail("Last Service Date", lastServiceDate);
+      addDetail("Weed Issue", weedIssue);
+      addDetail("Pet Friendly Required", petFriendly);
+      addDetail("Drainage Issues", drainageIssues);
+
+      const projectDetailsText =
+        detailPairs.length > 0
+          ? detailPairs.map(({ label, value }) => `${label}: ${value}`).join("\n")
+          : "No additional project details provided.";
+
       const quotePayload = {
         fullName: fullName.trim(),
         phone: phone.trim(),
@@ -194,9 +231,13 @@ export function QuoteForm({ variant = "full", className, initial }: QuoteFormPro
         postalCode: postalCode.trim(),
         city: city.trim(),
         address: address.trim(),
+        addressLine,
         preferredContactMethod,
         serviceSelected,
+        serviceName: selectedServiceName,
         message: message.trim(),
+        submittedAt,
+        projectDetailsText,
 
         approxSqFt: approxSqFt.trim(),
         stylePreference: stylePreference,
@@ -277,7 +318,7 @@ export function QuoteForm({ variant = "full", className, initial }: QuoteFormPro
               <span
                 className={cn(
                   "h-1.5 w-1.5 rounded-full",
-                  step >= 1 ? "bg-[color:var(--accent)]" : "bg-zinc-300",
+                  step >= 1 ? "bg-accent" : "bg-zinc-300",
                 )}
               />
               <span className={step === 1 ? "text-zinc-900" : ""}>Service</span>
