@@ -15,6 +15,77 @@ export function absoluteUrl(path: string) {
   return `${base}${p}`;
 }
 
+function toE164Maybe(phone: string) {
+  // Keep leading +, strip everything else.
+  const cleaned = phone.trim().replace(/[^\d+]/g, "");
+  return cleaned.startsWith("+") ? cleaned : cleaned;
+}
+
+function isTruthyString(x: unknown): x is string {
+  return typeof x === "string" && x.trim().length > 0;
+}
+
+function buildMapsQueryUrl() {
+  const a = BUSINESS.address ?? {};
+  const addressText = [a.street, a.city, a.region, a.postalCode, a.country]
+    .filter(Boolean)
+    .join(", ");
+  if (!addressText) return "";
+  return `https://www.google.com/maps?q=${encodeURIComponent(addressText)}`;
+}
+
+function openingHoursFromLabel(label: string, hours: string) {
+  // Supports simple cases like:
+  // - "Mon-Sat" + "8:00 AM - 6:00 PM" => "Mo-Sa 08:00-18:00"
+  // - "Sunday" + "Closed" => omitted
+  const h = hours.trim().toLowerCase();
+  if (h === "closed") return "";
+
+  const timeMatch = hours.match(
+    /(\d{1,2}):(\d{2})\s*(AM|PM)\s*-\s*(\d{1,2}):(\d{2})\s*(AM|PM)/i,
+  );
+  if (!timeMatch) return "";
+
+  const to24 = (hh: string, mm: string, ampm: string) => {
+    let hNum = Number.parseInt(hh, 10);
+    const mNum = Number.parseInt(mm, 10);
+    const ap = ampm.toUpperCase();
+    if (ap === "AM" && hNum === 12) hNum = 0;
+    if (ap === "PM" && hNum !== 12) hNum += 12;
+    return `${String(hNum).padStart(2, "0")}:${String(mNum).padStart(2, "0")}`;
+  };
+
+  const open = to24(timeMatch[1], timeMatch[2], timeMatch[3]);
+  const close = to24(timeMatch[4], timeMatch[5], timeMatch[6]);
+
+  const mapDay = (d: string) => {
+    const s = d.trim().toLowerCase();
+    if (s.startsWith("mon")) return "Mo";
+    if (s.startsWith("tue")) return "Tu";
+    if (s.startsWith("wed")) return "We";
+    if (s.startsWith("thu")) return "Th";
+    if (s.startsWith("fri")) return "Fr";
+    if (s.startsWith("sat")) return "Sa";
+    if (s.startsWith("sun")) return "Su";
+    return "";
+  };
+
+  const normalized = label.replace(/\s+/g, " ").trim();
+  const rangeMatch = normalized.match(
+    /^(Mon|Tue|Wed|Thu|Fri|Sat|Sun)\s*-\s*(Mon|Tue|Wed|Thu|Fri|Sat|Sun)$/i,
+  );
+  const singleMatch = normalized.match(/^(Mon|Tue|Wed|Thu|Fri|Sat|Sun)(day)?$/i);
+
+  const dayPart = rangeMatch
+    ? `${mapDay(rangeMatch[1])}-${mapDay(rangeMatch[2])}`
+    : singleMatch
+      ? mapDay(singleMatch[1])
+      : "";
+
+  if (!dayPart) return "";
+  return `${dayPart} ${open}-${close}`;
+}
+
 export function buildMetadata(seo: PageSeo): Metadata {
   const url = absoluteUrl(seo.path);
   const image = seo.image ? absoluteUrl(seo.image) : absoluteUrl("/og-default.svg");
@@ -81,18 +152,79 @@ export function localBusinessJsonLd() {
   if (a.region) address.addressRegion = a.region;
   if (a.postalCode) address.postalCode = a.postalCode;
 
+  const type = BUSINESS.schemaLocalBusinessType?.trim() || "LocalBusiness";
+  const logo = BUSINESS.logoPath ? absoluteUrl(BUSINESS.logoPath) : "";
+  const image = BUSINESS.defaultImagePath ? absoluteUrl(BUSINESS.defaultImagePath) : "";
+  const mapsUrl = BUSINESS.googleMapsUrl?.trim() || buildMapsQueryUrl();
+  const openingHours =
+    BUSINESS.hours
+      ?.map((h) => openingHoursFromLabel(h.label, h.hours))
+      .filter(isTruthyString) ?? [];
+
   const json: Record<string, unknown> = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": type,
+    "@id": absoluteUrl("/#localbusiness"),
     name: BUSINESS.legalName ?? BUSINESS.name,
     url: BUSINESS.siteUrl,
-    telephone: BUSINESS.phone,
+    telephone: toE164Maybe(BUSINESS.phone),
     areaServed: BUSINESS.serviceAreas,
     address,
     sameAs: Object.values(BUSINESS.social).filter(Boolean),
   };
   if (BUSINESS.email) json.email = BUSINESS.email;
+  if (logo) json.logo = logo;
+  if (image) json.image = image;
+  if (mapsUrl) json.hasMap = mapsUrl;
+  if (openingHours.length) json.openingHours = openingHours;
+  if (BUSINESS.priceRange) json.priceRange = BUSINESS.priceRange;
+  if (BUSINESS.geo) {
+    json.geo = {
+      "@type": "GeoCoordinates",
+      latitude: BUSINESS.geo.latitude,
+      longitude: BUSINESS.geo.longitude,
+    };
+  }
   return json;
+}
+
+export function organizationJsonLd() {
+  const a = BUSINESS.address ?? {};
+  const street = a.street?.trim();
+  const address: Record<string, string> = {
+    "@type": "PostalAddress",
+    addressCountry: a.country || "CA",
+  };
+  if (street) address.streetAddress = street;
+  if (a.city) address.addressLocality = a.city;
+  if (a.region) address.addressRegion = a.region;
+  if (a.postalCode) address.postalCode = a.postalCode;
+
+  const logo = BUSINESS.logoPath ? absoluteUrl(BUSINESS.logoPath) : "";
+  const json: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": absoluteUrl("/#organization"),
+    name: BUSINESS.legalName ?? BUSINESS.name,
+    url: BUSINESS.siteUrl,
+    telephone: toE164Maybe(BUSINESS.phone),
+    sameAs: Object.values(BUSINESS.social).filter(Boolean),
+  };
+  if (logo) json.logo = logo;
+  if (BUSINESS.email) json.email = BUSINESS.email;
+  if (street || a.city || a.region || a.postalCode) json.address = address;
+  return json;
+}
+
+export function websiteJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": absoluteUrl("/#website"),
+    url: BUSINESS.siteUrl,
+    name: BUSINESS.name,
+    publisher: { "@id": absoluteUrl("/#organization") },
+  };
 }
 
 export function serviceJsonLd(input: {
@@ -107,10 +239,7 @@ export function serviceJsonLd(input: {
     name: input.name,
     description: input.description,
     provider: {
-      "@type": "LocalBusiness",
-      name: BUSINESS.legalName ?? BUSINESS.name,
-      url: BUSINESS.siteUrl,
-      telephone: BUSINESS.phone,
+      "@id": absoluteUrl("/#localbusiness"),
     },
     areaServed: input.areaServed,
     url: input.url,

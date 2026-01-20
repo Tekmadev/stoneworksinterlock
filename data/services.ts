@@ -7,7 +7,9 @@ export type ServiceSlug =
   | "uneven-pavers-leveling"
   | "pressure-washing-resanding"
   | "polymeric-sand"
-  | "turf-installation";
+  | "turf-installation"
+  | "sealant-natural-look"
+  | "sealant-wet-look";
 
 export type ServiceFaq = { question: string; answer: string };
 
@@ -41,7 +43,7 @@ export type Service = {
     showPetFriendly?: boolean;
     showDrainageIssues?: boolean;
   };
-  tags: ("interlock" | "repair" | "washing" | "turf" | "patio")[];
+  tags: ("interlock" | "repair" | "washing" | "turf" | "patio" | "sealant")[];
 };
 
 const primaryCity = BUSINESS.primaryCity;
@@ -783,6 +785,222 @@ export const SERVICES: Service[] = [
       showDrainageIssues: true,
     },
     tags: ["turf"],
+  },
+  {
+    slug: "sealant-natural-look",
+    name: "Natural Look Sealant",
+    short:
+      "Protect and enhance your interlock with a natural-looking sealant that preserves the original appearance.",
+    seo: {
+      title: `Natural Look Sealant in ${primaryCity}`,
+      description:
+        "Professional natural look sealant application for interlock pavers. Protects against stains, weather, and wear while maintaining the original stone appearance.",
+    },
+    hero: {
+      headline: "Protection that looks natural.",
+      subheadline:
+        "Our natural look sealant protects your interlock from stains, weather, and wear while preserving the authentic appearance of your pavers.",
+    },
+    benefits: [
+      {
+        title: "Maintains natural appearance",
+        description:
+          "Enhances protection without changing the look or color of your pavers.",
+      },
+      {
+        title: "Stain resistance",
+        description:
+          "Protects against oil, grease, and other common stains that can mar your interlock.",
+      },
+      {
+        title: "Weather protection",
+        description:
+          "Shields pavers from freeze/thaw cycles, UV damage, and moisture penetration.",
+      },
+    ],
+    process: [
+      {
+        title: "Clean + prep",
+        description:
+          "We thoroughly clean the surface and ensure it's completely dry before application.",
+      },
+      {
+        title: "Apply sealant",
+        description:
+          "We apply the natural look sealant evenly using professional techniques.",
+      },
+      {
+        title: "Cure + protect",
+        description:
+          "We ensure proper curing time and provide care instructions for lasting protection.",
+      },
+    ],
+    pricingFactors: [
+      "Total square footage",
+      "Surface condition and cleaning requirements",
+      "Access and weather conditions",
+      "Number of coats needed",
+      "Curing time and protection needs",
+    ],
+    faqs: [
+      {
+        question: "Will natural look sealant change the color of my pavers?",
+        answer:
+          "No. Natural look sealant is designed to protect without altering the appearance or color of your interlock.",
+      },
+      {
+        question: "How long does sealant last?",
+        answer:
+          "Typically 2-5 years depending on traffic, weather exposure, and maintenance. We'll provide care guidelines.",
+      },
+      {
+        question: "Can sealant be applied to wet pavers?",
+        answer:
+          "No. The surface must be completely dry for proper adhesion and performance.",
+      },
+      {
+        question: "Will sealant prevent all stains?",
+        answer:
+          "It significantly reduces staining, but prompt cleanup of spills is still recommended for best results.",
+      },
+      {
+        question: "Do you clean before sealing?",
+        answer:
+          "Yes. Proper cleaning is essential for sealant performance and longevity.",
+      },
+      {
+        question: "Can I walk on it right away?",
+        answer:
+          "We'll provide a specific timeline based on the product used, typically 24-48 hours.",
+      },
+    ],
+    gallery: [
+      {
+        src: "/images/img-service/cleaned-paver.webp",
+        alt: "Natural look sealant on interlock pavers",
+      },
+      {
+        src: "/images/img-service/interlock-installation.webp",
+        alt: "Sealed interlock driveway",
+      },
+      {
+        src: "/images/img-service/cleaned-paver.webp",
+        alt: "Natural finish sealant detail",
+      },
+    ],
+    formRules: {
+      showApproxSqFt: true,
+      showLastServiceDate: true,
+    },
+    tags: ["sealant", "washing"],
+  },
+  {
+    slug: "sealant-wet-look",
+    name: "Wet Look Sealant",
+    short:
+      "Enhance your interlock with a premium wet look sealant that adds depth and richness to the stone.",
+    seo: {
+      title: `Wet Look Sealant in ${primaryCity}`,
+      description:
+        "Professional wet look sealant application for interlock pavers. Creates a rich, enhanced appearance while providing superior protection against stains and weather.",
+    },
+    hero: {
+      headline: "A rich, enhanced finish that protects.",
+      subheadline:
+        "Our wet look sealant deepens the color and adds a premium finish to your interlock while providing strong protection against stains and weather damage.",
+    },
+    benefits: [
+      {
+        title: "Enhanced appearance",
+        description:
+          "Deepens colors and adds a rich, premium finish that makes your interlock stand out.",
+      },
+      {
+        title: "Superior protection",
+        description:
+          "Provides excellent protection against stains, UV damage, and moisture penetration.",
+      },
+      {
+        title: "Easy maintenance",
+        description:
+          "Sealed surfaces are easier to clean and maintain over time.",
+      },
+    ],
+    process: [
+      {
+        title: "Clean + prep",
+        description:
+          "We thoroughly clean and ensure the surface is completely dry for optimal results.",
+      },
+      {
+        title: "Apply wet look sealant",
+        description:
+          "We apply the sealant evenly to achieve a consistent, rich finish across the surface.",
+      },
+      {
+        title: "Cure + final check",
+        description:
+          "We ensure proper curing and provide care instructions to maintain the enhanced look.",
+      },
+    ],
+    pricingFactors: [
+      "Total square footage",
+      "Surface condition and cleaning requirements",
+      "Access and weather conditions",
+      "Number of coats needed",
+      "Curing time and protection needs",
+    ],
+    faqs: [
+      {
+        question: "How does wet look differ from natural look sealant?",
+        answer:
+          "Wet look sealant enhances and deepens the color of your pavers, giving them a richer, more vibrant appearance compared to natural look which preserves the original appearance.",
+      },
+      {
+        question: "Will wet look sealant make my pavers darker?",
+        answer:
+          "Yes. Wet look sealant enhances and deepens the natural colors of your pavers, creating a richer, more vibrant finish.",
+      },
+      {
+        question: "How long does wet look sealant last?",
+        answer:
+          "Typically 2-5 years depending on traffic, weather exposure, and maintenance. We'll provide care guidelines.",
+      },
+      {
+        question: "Can wet look be applied over existing sealant?",
+        answer:
+          "Existing sealant should be removed first for best results. We can assess and prep as needed.",
+      },
+      {
+        question: "Is wet look sealant slippery when wet?",
+        answer:
+          "Quality wet look sealants are formulated to maintain traction, but we'll discuss options based on your specific needs.",
+      },
+      {
+        question: "Do you clean before applying wet look sealant?",
+        answer:
+          "Yes. Proper cleaning is essential for achieving the best wet look finish and sealant performance.",
+      },
+    ],
+    gallery: [
+      {
+        src: "/images/img-service/cleaned-paver.webp",
+        alt: "Wet look sealant on interlock pavers",
+      },
+      {
+        src: "/images/img-service/interlock-installation.webp",
+        alt: "Enhanced interlock with wet look sealant",
+      },
+      {
+        src: "/images/img-service/cleaned-paver.webp",
+        alt: "Rich finish sealant detail",
+      },
+    ],
+    formRules: {
+      showApproxSqFt: true,
+      showLastServiceDate: true,
+    },
+    tags: ["sealant", "washing"],
   },
 ];
 

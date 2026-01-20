@@ -5,6 +5,8 @@ import { BUSINESS } from "@/config/business";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { StickyCta } from "@/components/StickyCta";
+import { JsonLd } from "@/components/JsonLd";
+import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -47,6 +49,9 @@ export const metadata: Metadata = {
     title: `${BUSINESS.name} - Interlock & Hardscaping`,
     images: ["/og-default.svg"],
   },
+  verification: BUSINESS.googleSiteVerification
+    ? { google: BUSINESS.googleSiteVerification }
+    : undefined,
 };
 
 export default function RootLayout({
@@ -59,6 +64,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <JsonLd data={organizationJsonLd()} />
+        <JsonLd data={websiteJsonLd()} />
         <SiteNav />
         <div className="min-h-[calc(100svh-4rem)]">{children}</div>
         <SiteFooter />

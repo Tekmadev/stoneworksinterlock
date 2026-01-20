@@ -24,6 +24,14 @@ export type BusinessInfo = {
     postalCode?: string;
     country?: string;
   };
+  /**
+   * Optional: used to enrich Local SEO (JSON-LD).
+   * If you don't know this yet, leave it blank.
+   */
+  geo?: {
+    latitude: number;
+    longitude: number;
+  };
   primaryCity: string;
   serviceAreas: string[];
   social: SocialLinks;
@@ -31,6 +39,20 @@ export type BusinessInfo = {
     label: string;
     hours: string;
   }[];
+  /**
+   * Optional SEO fields.
+   * - googleSiteVerification: Google Search Console HTML meta value (NOT the whole meta tag)
+   * - schemaLocalBusinessType: a more specific schema.org type than "LocalBusiness"
+   * - logoPath/defaultImagePath: paths under /public (ex: "/images/logo.png")
+   * - priceRange: ex "$$", "$$$"
+   * - googleMapsUrl: preferred stable Maps URL (GBP "Directions" link or Place URL)
+   */
+  googleSiteVerification?: string;
+  schemaLocalBusinessType?: string;
+  logoPath?: string;
+  defaultImagePath?: string;
+  priceRange?: string;
+  googleMapsUrl?: string;
 };
 
 /**
@@ -52,6 +74,8 @@ export const BUSINESS: BusinessInfo = {
     postalCode: "K1K 4W3",
     country: "CA",
   },
+  // Optional: add precise coordinates for stronger LocalBusiness schema
+  // geo: { latitude: 45.4215, longitude: -75.6972 },
   primaryCity: "Ottawa",
   serviceAreas: [
     "Ottawa",
@@ -72,6 +96,13 @@ export const BUSINESS: BusinessInfo = {
     { label: "Mon-Sat", hours: "8:00 AM - 6:00 PM" },
     { label: "Sunday", hours: "Closed" },
   ],
+  // Optional: fill these for stronger SEO + rich results
+  googleSiteVerification: "",
+  schemaLocalBusinessType: "PavingContractor",
+  logoPath: "/images/swil_logo-removebg.png",
+  defaultImagePath: "/images/hero.png",
+  priceRange: "$$",
+  googleMapsUrl: "",
 };
 
 
