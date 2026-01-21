@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Quote Request - Stoneworks Interlock</title>
+  <style type="text/css">
+    /* Reset styles */
+    body, table, td, p, a, li, blockquote {
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+    table, td {
+      mso-table-lspace: 0pt;
+      mso-table-rspace: 0pt;
+    }
+    
+    /* Mobile styles */
+    @media only screen and (max-width: 600px) {
+      .email-container {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+      .email-padding {
+        padding: 20px 16px !important;
+      }
+      .email-header-padding {
+        padding: 24px 20px !important;
+      }
+      .email-section-padding {
+        padding: 0 20px 24px 20px !important;
+      }
+      .email-footer-padding {
+        padding: 20px 16px !important;
+      }
+      .email-title {
+        font-size: 20px !important;
+        line-height: 1.3 !important;
+      }
+      .email-subtitle {
+        font-size: 13px !important;
+      }
+      .email-heading {
+        font-size: 16px !important;
+        padding-bottom: 6px !important;
+        margin-bottom: 16px !important;
+      }
+      .email-label {
+        font-size: 11px !important;
+        display: block !important;
+        margin-bottom: 4px !important;
+      }
+      .email-value {
+        font-size: 14px !important;
+        margin-left: 0 !important;
+        display: block !important;
+        margin-top: 2px !important;
+      }
+      .email-link {
+        font-size: 14px !important;
+        padding: 4px 0 !important;
+        display: inline-block !important;
+      }
+      .email-message-box {
+        padding: 16px !important;
+        font-size: 14px !important;
+      }
+      .email-details-box {
+        padding: 12px !important;
+      }
+      .email-detail-row {
+        padding: 4px 0 !important;
+      }
+      .email-detail-label {
+        font-size: 11px !important;
+        display: block !important;
+        margin-bottom: 2px !important;
+      }
+      .email-detail-value {
+        font-size: 13px !important;
+        margin-left: 0 !important;
+        display: block !important;
+      }
+      .email-photo-urls {
+        font-size: 11px !important;
+        word-break: break-all !important;
+        line-height: 1.6 !important;
+      }
+      .email-footer-text {
+        font-size: 11px !important;
+      }
+    }
+  </style>
+</head>
+<body style="margin: 0; padding: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #fafafa; color: #0b0d0f;">
+  
+  <!-- Main Container -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color: #fafafa; padding: 20px 0;">
+    <tr>
+      <td align="center">
+        <table role="presentation" class="email-container" width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); max-width: 600px;">
+          
+          <!-- Header -->
+          <tr>
+            <td class="email-header-padding" style="background: linear-gradient(135deg, #c9a13b 0%, #b8902f 100%); padding: 30px 40px; text-align: center;">
+              <h1 class="email-title" style="margin: 0; color: #ffffff; font-size: 24px; font-weight: 600; letter-spacing: -0.5px;">
+                New Quote Request
+              </h1>
+              <p class="email-subtitle" style="margin: 8px 0 0 0; color: rgba(255, 255, 255, 0.95); font-size: 14px;">
+                {{fullName}} has submitted a quote request
+              </p>
+            </td>
+          </tr>
+
+          <!-- Contact Information Section -->
+          <tr>
+            <td class="email-padding" style="padding: 30px 40px;">
+              <h2 class="email-heading" style="margin: 0 0 20px 0; color: #0b0d0f; font-size: 18px; font-weight: 600; border-bottom: 2px solid #c9a13b; padding-bottom: 8px;">
+                Contact Information
+              </h2>
+              
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="padding: 8px 0;">
+                    <strong class="email-label" style="color: #52525b; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px;">Name:</strong>
+                    <span class="email-value" style="color: #0b0d0f; font-size: 15px; margin-left: 8px;">{{fullName}}</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0;">
+                    <strong class="email-label" style="color: #52525b; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px;">Phone:</strong>
+                    <a href="tel:{{phone}}" class="email-link email-value" style="color: #c9a13b; font-size: 15px; margin-left: 8px; text-decoration: none;">{{phone}}</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0;">
+                    <strong class="email-label" style="color: #52525b; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px;">Email:</strong>
+                    <a href="mailto:{{email}}" class="email-link email-value" style="color: #c9a13b; font-size: 15px; margin-left: 8px; text-decoration: none;">{{email}}</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0;">
+                    <strong class="email-label" style="color: #52525b; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px;">Preferred Contact:</strong>
+                    <span class="email-value" style="color: #0b0d0f; font-size: 15px; margin-left: 8px; text-transform: capitalize;">{{preferredContactMethod}}</span>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Location Section -->
+          <tr>
+            <td class="email-section-padding" style="padding: 0 40px 30px 40px;">
+              <h2 class="email-heading" style="margin: 0 0 20px 0; color: #0b0d0f; font-size: 18px; font-weight: 600; border-bottom: 2px solid #c9a13b; padding-bottom: 8px;">
+                Location
+              </h2>
+              
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="padding: 8px 0;">
+                    <strong class="email-label" style="color: #52525b; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px;">City:</strong>
+                    <span class="email-value" style="color: #0b0d0f; font-size: 15px; margin-left: 8px;">{{city}}</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0;">
+                    <strong class="email-label" style="color: #52525b; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px;">Address:</strong>
+                    <span class="email-value" style="color: #0b0d0f; font-size: 15px; margin-left: 8px;">{{addressLine}}</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0;">
+                    <strong class="email-label" style="color: #52525b; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px;">Postal Code:</strong>
+                    <span class="email-value" style="color: #0b0d0f; font-size: 15px; margin-left: 8px;">{{postalCode}}</span>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Service Information Section -->
+          <tr>
+            <td class="email-section-padding" style="padding: 0 40px 30px 40px;">
+              <h2 class="email-heading" style="margin: 0 0 20px 0; color: #0b0d0f; font-size: 18px; font-weight: 600; border-bottom: 2px solid #c9a13b; padding-bottom: 8px;">
+                Service Requested
+              </h2>
+              
+              <div style="background-color: #fafafa; border-left: 4px solid #c9a13b; padding: 16px 20px; border-radius: 4px;">
+                <p style="margin: 0; color: #0b0d0f; font-size: 16px; font-weight: 600; word-wrap: break-word;">
+                  {{serviceName}}
+                </p>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Project Details Section -->
+          <tr>
+            <td class="email-section-padding" style="padding: 0 40px 30px 40px;">
+              <h2 class="email-heading" style="margin: 0 0 20px 0; color: #0b0d0f; font-size: 18px; font-weight: 600; border-bottom: 2px solid #c9a13b; padding-bottom: 8px;">
+                Project Details
+              </h2>
+
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-details-box" style="background-color: #fafafa; border-radius: 4px; padding: 16px;">
+                <tr>
+                  <td class="email-detail-row" style="padding: 6px 0;">
+                    <strong class="email-detail-label" style="color: #52525b; font-size: 13px;">Approx. Square Footage (sq ft):</strong>
+                    <span class="email-detail-value" style="color: #0b0d0f; font-size: 15px; margin-left: 8px;">{{approxSqFt}}</span>
+                  </td>
+                </tr>
+                <!-- <tr>
+                  <td class="email-detail-row" style="padding: 6px 0;">
+                    <strong class="email-detail-label" style="color: #52525b; font-size: 13px;">Approx. Area:</strong>
+                    <span class="email-detail-value" style="color: #0b0d0f; font-size: 15px; margin-left: 8px;">{{approxArea}}</span>
+                  </td>
+                </tr> -->
+                <tr>
+                  <td class="email-detail-row" style="padding: 6px 0;">
+                    <strong class="email-detail-label" style="color: #52525b; font-size: 13px;">Style Preference:</strong>
+                    <span class="email-detail-value" style="color: #0b0d0f; font-size: 15px; margin-left: 8px; text-transform: capitalize;">{{stylePreference}}</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="email-detail-row" style="padding: 6px 0;">
+                    <strong class="email-detail-label" style="color: #52525b; font-size: 13px;">Budget Range:</strong>
+                    <span class="email-detail-value" style="color: #0b0d0f; font-size: 15px; margin-left: 8px;">{{budgetRange}}</span>
+                  </td>
+                </tr>
+                <tr>
+                    <td class="email-detail-row" style="padding: 6px 0;">
+                      <strong class="email-detail-label" style="color: #52525b; font-size: 13px;">Timeline:</strong>
+                      <span class="email-detail-value" style="color: #0b0d0f; font-size: 15px; margin-left: 8px;">{{timeline}}</span>
+                    </td>
+                  </tr>
+                <!-- <tr>
+                  <td class="email-detail-row" style="padding: 6px 0;">
+                    <strong class="email-detail-label" style="color: #52525b; font-size: 13px;">Issue Type:</strong>
+                    <span class="email-detail-value" style="color: #0b0d0f; font-size: 15px; margin-left: 8px;">{{issueType}}</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="email-detail-row" style="padding: 6px 0;">
+                    <strong class="email-detail-label" style="color: #52525b; font-size: 13px;">Last Service Date:</strong>
+                    <span class="email-detail-value" style="color: #0b0d0f; font-size: 15px; margin-left: 8px;">{{lastServiceDate}}</span>
+                  </td>
+                </tr> -->
+                <!-- <tr>
+                  <td class="email-detail-row" style="padding: 6px 0;">
+                    <strong class="email-detail-label" style="color: #52525b; font-size: 13px;">Weed Issue:</strong>
+                    <span class="email-detail-value" style="color: #0b0d0f; font-size: 15px; margin-left: 8px; text-transform: capitalize;">{{weedIssue}}</span>
+                  </td>
+                </tr> -->
+                <!-- <tr>
+                  <td class="email-detail-row" style="padding: 6px 0;">
+                    <strong class="email-detail-label" style="color: #52525b; font-size: 13px;">Pet Friendly Required:</strong>
+                    <span class="email-detail-value" style="color: #0b0d0f; font-size: 15px; margin-left: 8px; text-transform: capitalize;">{{petFriendly}}</span>
+                  </td>
+                </tr> -->
+                <!-- <tr>
+                  <td class="email-detail-row" style="padding: 6px 0;">
+                    <strong class="email-detail-label" style="color: #52525b; font-size: 13px;">Drainage Issues:</strong>
+                    <span class="email-detail-value" style="color: #0b0d0f; font-size: 15px; margin-left: 8px; text-transform: capitalize;">{{drainageIssues}}</span>
+                  </td>
+                </tr> -->
+              </table>
+            </td>
+          </tr>
+
+          <!-- Message Section -->
+          <tr>
+            <td class="email-section-padding" style="padding: 0 40px 30px 40px;">
+              <h2 class="email-heading" style="margin: 0 0 20px 0; color: #0b0d0f; font-size: 18px; font-weight: 600; border-bottom: 2px solid #c9a13b; padding-bottom: 8px;">
+                Message
+              </h2>
+              
+              <div class="email-message-box" style="background-color: #fafafa; padding: 20px; border-radius: 4px; border-left: 4px solid #c9a13b;">
+                <p style="margin: 0; color: #0b0d0f; font-size: 15px; line-height: 1.6; white-space: pre-wrap; word-wrap: break-word;">{{message}}</p>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Photos Section -->
+          <tr>
+            <td class="email-section-padding" style="padding: 0 40px 30px 40px;">
+              <h2 class="email-heading" style="margin: 0 0 20px 0; color: #0b0d0f; font-size: 18px; font-weight: 600; border-bottom: 2px solid #c9a13b; padding-bottom: 8px;">
+                Photos
+              </h2>
+              
+              <div style="background-color: #fafafa; padding: 16px; border-radius: 4px;">
+                <p style="margin: 0 0 12px 0; color: #52525b; font-size: 13px;">
+                  Number of photos: <strong>{{photoCount}}</strong>
+                </p>
+                <div class="email-photo-urls" style="color: #0b0d0f; font-size: 13px; line-height: 1.8; font-family: monospace; word-break: break-all;">
+                  {{photoUrls}}
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td class="email-footer-padding" style="background-color: #fafafa; padding: 24px 40px; text-align: center; border-top: 1px solid rgba(9, 9, 11, 0.1);">
+              <p class="email-footer-text" style="margin: 0 0 8px 0; color: #52525b; font-size: 12px;">
+                This email was sent from your website contact form.
+              </p>
+              <p class="email-footer-text" style="margin: 0; color: #52525b; font-size: 12px;">
+                <strong>Stoneworks Interlock</strong> | {{submittedAt}}
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

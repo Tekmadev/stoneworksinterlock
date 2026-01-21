@@ -5,11 +5,10 @@ import { buildMetadata, localBusinessJsonLd } from "@/lib/seo";
 import { toTelHref, toWhatsAppHref } from "@/lib/format";
 import { JsonLd } from "@/components/JsonLd";
 import { QuoteForm } from "@/components/QuoteForm";
+import { ContactQueryCtas } from "@/components/ContactQueryCtas";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import { Card } from "@/components/ui/Card";
-import type { ServiceSlug } from "@/data/services";
-import { SERVICES } from "@/data/services";
 
 export const metadata: Metadata = buildMetadata({
   title: "Contact & Free Quote",
@@ -18,23 +17,10 @@ export const metadata: Metadata = buildMetadata({
   path: "/contact/",
 });
 
-export default function ContactPage({
-  searchParams,
-}: {
-  searchParams?: { [key: string]: string | string[] | undefined };
-}) {
+export default function ContactPage() {
   const a = BUSINESS.address ?? {};
   const addressText = [a.street, a.city, a.region, a.postalCode].filter(Boolean).join(", ");
   const mapQuery = encodeURIComponent(addressText || `${BUSINESS.primaryCity}, ${a.region || ""}`);
-
-  const serviceParam = typeof searchParams?.service === "string" ? searchParams.service : "";
-  const postalParam = typeof searchParams?.postal === "string" ? searchParams.postal : "";
-  const initialService = SERVICES.some((s) => s.slug === serviceParam)
-    ? (serviceParam as ServiceSlug)
-    : undefined;
-  const whatsappMsg = `Hi ${BUSINESS.name}, I'd like a free quote. Service: ${
-    initialService ? SERVICES.find((s) => s.slug === initialService)?.name : "Not sure yet"
-  }. Postal code: ${postalParam || "N/A"}.`;
 
   return (
     <div>
@@ -56,16 +42,7 @@ export default function ContactPage({
                 <Phone className="h-4 w-4" />
                 Click to call
               </Button>
-              {BUSINESS.whatsappPhone ? (
-                <Button
-                  href={toWhatsAppHref(BUSINESS.whatsappPhone, whatsappMsg)}
-                  variant="secondary"
-                  className="gap-2"
-                >
-                  <MessageCircle className="h-4 w-4" />
-                  WhatsApp
-                </Button>
-              ) : null}
+              {BUSINESS.whatsappPhone ? <ContactQueryCtas /> : null}
             </div>
 
             <div className="mt-8 grid gap-4">
@@ -106,13 +83,10 @@ export default function ContactPage({
           </div>
 
           <div>
-            <QuoteForm
-              variant="full"
-              initial={{ serviceSelected: initialService, postalCode: postalParam }}
-            />
+            <QuoteForm variant="full" />
 
             <div className="mt-6 rounded-3xl border border-zinc-200 bg-white p-2 shadow-sm shadow-black/5">
-              <div className="relative aspect-[16/9] overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-50">
+              <div className="relative aspect-video overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-50">
                 <iframe
                   title="Map"
                   className="h-full w-full"
@@ -131,5 +105,3 @@ export default function ContactPage({
     </div>
   );
 }
-
-

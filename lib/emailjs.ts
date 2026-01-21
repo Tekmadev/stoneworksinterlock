@@ -8,9 +8,28 @@ export type QuoteLeadPayload = {
   postalCode: string;
   city: string;
   address?: string;
+  /**
+   * Preformatted address line for emails (so we don't show an empty address row).
+   */
+  addressLine?: string;
   preferredContactMethod: string;
+  /**
+   * The selected service slug (e.g. "interlock-installation").
+   */
   serviceSelected: string;
+  /**
+   * Human-friendly service name (e.g. "Interlock Installation").
+   */
+  serviceName?: string;
   message: string;
+  /**
+   * A timestamp string for the email footer/header (e.g. "2026-01-20 14:32").
+   */
+  submittedAt?: string;
+  /**
+   * Plain text (newline-separated) for the "Project Details" section, generated from filled fields only.
+   */
+  projectDetailsText?: string;
   // Conditional fields
   approxSqFt?: string;
   stylePreference?: string;
@@ -27,9 +46,9 @@ export type QuoteLeadPayload = {
 };
 
 export async function sendQuoteLead(payload: QuoteLeadPayload) {
-  const serviceId = requiredPublicEnv("NEXT_PUBLIC_EMAILJS_SERVICE_ID");
-  const templateId = requiredPublicEnv("NEXT_PUBLIC_EMAILJS_TEMPLATE_ID");
-  const publicKey = requiredPublicEnv("NEXT_PUBLIC_EMAILJS_PUBLIC_KEY");
+  const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "";
+  const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "";
+  const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "";
 
   const templateParams = {
     ...payload,

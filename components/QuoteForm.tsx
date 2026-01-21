@@ -5,12 +5,12 @@ import { Loader2, Phone } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { SERVICES, type ServiceSlug } from "@/data/services";
 import { cn } from "@/lib/cn";
-import { sendQuoteLead } from "@/lib/emailjs";
-import { getFirebaseStorage, hasFirebaseConfig } from "@/lib/firebase";
+import { getFirebaseStorage, hasFirebaseConfig, saveQuoteLeadToFirestore } from "@/lib/firebase";
 import { BUSINESS } from "@/config/business";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { getDownloadURL, ref as storageRef, uploadBytes } from "firebase/storage";
+import { sendQuoteLead, type QuoteLeadPayload } from "@/lib/emailjs";
 
 type QuoteFormVariant = "short" | "full";
 
@@ -161,10 +161,6 @@ export function QuoteForm({ variant = "full", className, initial }: QuoteFormPro
     try {
       setStatus("sending");
 
-      // client-side cooldown (basic rate limiting)
-      const COOLDOWN_MS = 30_000;
-      localStorage.setItem(cooldownKey, String(Date.now() + COOLDOWN_MS));
-
       let photoUrls: string[] = [];
       if (isFull && photos.length > 0) {
         if (!hasFirebaseConfig()) {
@@ -190,33 +186,115 @@ export function QuoteForm({ variant = "full", className, initial }: QuoteFormPro
         }
       }
 
-      await sendQuoteLead({
+      // Prepare the quote payload
+      const selectedServiceName =
+        SERVICES.find((s) => s.slug === serviceSelected)?.name ?? serviceSelected;
+      const submittedAt = new Date().toLocaleString("en-CA", {
+        timeZone: "America/Toronto",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+
+      const addressLine = address.trim() || "—";
+
+      const detailPairs: { label: string; value: string }[] = [];
+      const addDetail = (label: string, value: string) => {
+        const v = value.trim();
+        if (!v) return;
+        detailPairs.push({ label, value: v });
+      };
+
+      addDetail("Approx. Square Footage", approxSqFt ? `${approxSqFt.trim()} sq ft` : "");
+      addDetail("Approx. Area", approxArea);
+      addDetail("Style Preference", stylePreference);
+      addDetail("Timeline", timeline);
+      addDetail("Budget Range", budgetRange);
+      addDetail("Urgency", urgency);
+      addDetail("Issue Type", issueType);
+      addDetail("Last Service Date", lastServiceDate);
+      addDetail("Weed Issue", weedIssue);
+      addDetail("Pet Friendly Required", petFriendly);
+      addDetail("Drainage Issues", drainageIssues);
+
+      const projectDetailsText =
+        detailPairs.length > 0
+          ? detailPairs.map(({ label, value }) => `${label}: ${value}`).join("\n")
+          : "No additional project details provided.";
+
+      const quotePayload = {
         fullName: fullName.trim(),
         phone: phone.trim(),
         email: email.trim(),
         postalCode: postalCode.trim(),
         city: city.trim(),
-        address: address.trim() || undefined,
+        address: address.trim(),
+        addressLine,
         preferredContactMethod,
         serviceSelected,
+        serviceName: selectedServiceName,
         message: message.trim(),
+        submittedAt,
+        projectDetailsText,
 
-        approxSqFt: approxSqFt.trim() || undefined,
-        stylePreference: stylePreference || undefined,
-        timeline: timeline.trim() || undefined,
-        budgetRange: budgetRange.trim() || undefined,
-        issueType: issueType.trim() || undefined,
-        approxArea: approxArea.trim() || undefined,
-        urgency: urgency.trim() || undefined,
-        lastServiceDate: lastServiceDate.trim() || undefined,
-        weedIssue: weedIssue || undefined,
-        petFriendly: petFriendly || undefined,
-        drainageIssues: drainageIssues || undefined,
+        approxSqFt: approxSqFt.trim(),
+        stylePreference: stylePreference,
+        timeline: timeline.trim(),
+        budgetRange: budgetRange.trim(),
+        issueType: issueType.trim(),
+        approxArea: approxArea.trim(),
+        urgency: urgency.trim(),
+        lastServiceDate: lastServiceDate.trim(),
+        weedIssue: weedIssue,
+        petFriendly: petFriendly,
+        drainageIssues: drainageIssues,
         photoUrls,
-      });
+      };
+
+      // Save to Firestore collection "quotes"
+      console.log("💾 QuoteForm - Attempting to save to Firestore...");
+      const saved = await saveQuoteLeadToFirestore(quotePayload);
+      
+      console.log("💾 QuoteForm - Firestore save result:", saved);
+
+      if (!saved.ok) {
+        console.error("❌ QuoteForm - Firestore save failed, reason:", saved.reason);
+        setStatus("error");
+        setError("Unable to save your request. Please try again in a moment.");
+        return;
+      }
+
+      console.log("✅ QuoteForm - Successfully saved to Firestore, document ID:", saved.id);
+
+      // Send email
+      try {
+        console.log("📧 QuoteForm - Sending email via EmailJS...");
+        await sendQuoteLead(quotePayload);
+        console.log("✅ QuoteForm - Email sent successfully");
+      } catch (emailError) {
+        console.error("❌ QuoteForm - Email sending failed:", emailError);
+        console.error("❌ QuoteForm - Email error details:", {
+          message: emailError instanceof Error ? emailError.message : "Unknown error",
+          stack: emailError instanceof Error ? emailError.stack : "",
+        });
+        // Don't block the flow if email fails, data is already saved
+        console.warn("⚠️ QuoteForm - Email failed but data was saved to Firestore");
+      }
+
+      // Set cooldown only after successful submission
+      const COOLDOWN_MS = 30_000;
+      localStorage.setItem(cooldownKey, String(Date.now() + COOLDOWN_MS));
 
       setStatus("sent");
-    } catch {
+    } catch (error) {
+      console.error("❌ QuoteForm - Error during submission:", error);
+      console.error("❌ QuoteForm - Error details:", {
+        message: error instanceof Error ? error.message : "Unknown error",
+        stack: error instanceof Error ? error.stack : "",
+        name: error instanceof Error ? error.name : typeof error,
+      });
       setStatus("error");
       setError("Something went wrong. Please call us or try again in a minute.");
     }
@@ -240,7 +318,7 @@ export function QuoteForm({ variant = "full", className, initial }: QuoteFormPro
               <span
                 className={cn(
                   "h-1.5 w-1.5 rounded-full",
-                  step >= 1 ? "bg-[color:var(--accent)]" : "bg-zinc-300",
+                  step >= 1 ? "bg-accent" : "bg-zinc-300",
                 )}
               />
               <span className={step === 1 ? "text-zinc-900" : ""}>Service</span>
