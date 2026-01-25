@@ -1,7 +1,6 @@
 import { Phone } from "lucide-react";
-import { BUSINESS } from "@/config/business";
-import { toTelHref } from "@/lib/format";
 import { Button } from "@/components/ui/Button";
+import { TrackedCallButton } from "@/components/TrackedCallButton";
 
 export function StickyCta() {
   return (
@@ -9,12 +8,12 @@ export function StickyCta() {
       <div className="mx-auto w-full max-w-6xl px-4">
         <div className="pointer-events-auto rounded-2xl border border-zinc-200 bg-white/90 p-2 shadow-lg shadow-black/10 backdrop-blur">
           <div className="grid grid-cols-2 gap-2">
-            <Button href="/contact/" size="md">
-              Get Quote
-            </Button>
-            <Button href={toTelHref(BUSINESS.phone)} variant="secondary" size="md">
+            <TrackedCallButton placement="sticky" size="md" className="gap-2">
               <Phone className="h-4 w-4" />
-              Call Now
+              Call
+            </TrackedCallButton>
+            <Button href="/contact/" variant="secondary" size="md">
+              Form
             </Button>
           </div>
         </div>

@@ -563,7 +563,7 @@ export const SERVICES: Service[] = [
     ],
     gallery: [
       {
-        src: "/images/img-service/pressure-wash.webp",
+        src: "/images/B-A-polimetric-sanding.jpg",
         alt: "Pressure washing interlock",
       },
       {
@@ -571,7 +571,7 @@ export const SERVICES: Service[] = [
         alt: "Resanding paver joints",
       },
       {
-        src: "/images/img-service/pressure-wash.webp",
+        src: "/images/B-A-polimetric-sanding.jpg",
         alt: "Cleaned driveway interlock",
       },
     ],

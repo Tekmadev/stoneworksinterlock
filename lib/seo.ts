@@ -25,6 +25,14 @@ function isTruthyString(x: unknown): x is string {
   return typeof x === "string" && x.trim().length > 0;
 }
 
+function withBusinessTitle(title: string) {
+  const t = title.trim();
+  if (!t) return BUSINESS.name;
+  const nameLower = BUSINESS.name.toLowerCase();
+  const tLower = t.toLowerCase();
+  return tLower.includes(nameLower) ? t : `${t} | ${BUSINESS.name}`;
+}
+
 function buildMapsQueryUrl() {
   const a = BUSINESS.address ?? {};
   const addressText = [a.street, a.city, a.region, a.postalCode, a.country]
@@ -89,6 +97,7 @@ function openingHoursFromLabel(label: string, hours: string) {
 export function buildMetadata(seo: PageSeo): Metadata {
   const url = absoluteUrl(seo.path);
   const image = seo.image ? absoluteUrl(seo.image) : absoluteUrl("/og-default.svg");
+  const socialTitle = withBusinessTitle(seo.title);
 
   return {
     metadataBase: new URL(BUSINESS.siteUrl),
@@ -102,13 +111,13 @@ export function buildMetadata(seo: PageSeo): Metadata {
       type: "website",
       url,
       siteName: BUSINESS.name,
-      title: seo.title,
+      title: socialTitle,
       description: seo.description,
       images: [{ url: image, width: 1200, height: 630, alt: BUSINESS.name }],
     },
     twitter: {
       card: "summary_large_image",
-      title: seo.title,
+      title: socialTitle,
       description: seo.description,
       images: [image],
     },
@@ -172,6 +181,16 @@ export function localBusinessJsonLd() {
     address,
     sameAs: Object.values(BUSINESS.social).filter(Boolean),
   };
+  // Make "call to get a quote" explicit for SEO.
+  json.contactPoint = [
+    {
+      "@type": "ContactPoint",
+      telephone: toE164Maybe(BUSINESS.phone),
+      contactType: "customer service",
+      areaServed: BUSINESS.serviceAreas,
+      availableLanguage: ["en"],
+    },
+  ];
   if (BUSINESS.email) json.email = BUSINESS.email;
   if (logo) json.logo = logo;
   if (image) json.image = image;

@@ -1,6 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import type { Service } from "@/data/services";
 import { cn } from "@/lib/cn";
 import { Card } from "@/components/ui/Card";
@@ -30,12 +28,6 @@ export function ServiceCard({
           {service.name}
         </p>
         <p className="mt-2 text-sm leading-6 text-zinc-600">{service.short}</p>
-        <Link
-          href={`/services/${service.slug}/`}
-          className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--accent)] hover:text-[color:color-mix(in_oklab,var(--accent)_72%,black)]"
-        >
-          View details <ArrowRight className="h-4 w-4" />
-        </Link>
       </div>
     </Card>
   );

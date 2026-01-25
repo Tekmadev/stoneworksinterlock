@@ -19,7 +19,7 @@ type ButtonAsLink = Common & {
   href: string;
   target?: string;
   rel?: string;
-  onClick?: undefined;
+  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 };
 
 export type ButtonProps = ButtonAsButton | ButtonAsLink;
@@ -46,10 +46,12 @@ export function Button(props: ButtonProps) {
 
   const cls = cn(base, variants[variant], sizes[size], className);
 
-  if (props.href) {
-    const { href, target, rel, children } = props;
+  const isLink = (p: ButtonProps): p is ButtonAsLink => typeof (p as ButtonAsLink).href === "string";
+
+  if (isLink(props)) {
+    const { href, target, rel, onClick, children } = props;
     return (
-      <Link className={cls} href={href} target={target} rel={rel}>
+      <Link className={cls} href={href} target={target} rel={rel} onClick={onClick}>
         {children}
       </Link>
     );

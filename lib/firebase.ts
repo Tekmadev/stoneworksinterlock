@@ -22,7 +22,6 @@ function isValidFirebaseConfig(
 }
 
 function parseFirebaseConfig(): FirebasePublicConfig | null {
-  console.log("NEXT_PUBLIC_FIREBASE_CONFIG =", process.env.NEXT_PUBLIC_FIREBASE_CONFIG);
   const json = process.env.NEXT_PUBLIC_FIREBASE_CONFIG;
 
   if (json && json.trim().length > 0) {

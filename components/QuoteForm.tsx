@@ -254,33 +254,20 @@ export function QuoteForm({ variant = "full", className, initial }: QuoteFormPro
       };
 
       // Save to Firestore collection "quotes"
-      console.log("💾 QuoteForm - Attempting to save to Firestore...");
       const saved = await saveQuoteLeadToFirestore(quotePayload);
-      
-      console.log("💾 QuoteForm - Firestore save result:", saved);
 
       if (!saved.ok) {
-        console.error("❌ QuoteForm - Firestore save failed, reason:", saved.reason);
         setStatus("error");
         setError("Unable to save your request. Please try again in a moment.");
         return;
       }
 
-      console.log("✅ QuoteForm - Successfully saved to Firestore, document ID:", saved.id);
-
       // Send email
       try {
-        console.log("📧 QuoteForm - Sending email via EmailJS...");
         await sendQuoteLead(quotePayload);
-        console.log("✅ QuoteForm - Email sent successfully");
       } catch (emailError) {
-        console.error("❌ QuoteForm - Email sending failed:", emailError);
-        console.error("❌ QuoteForm - Email error details:", {
-          message: emailError instanceof Error ? emailError.message : "Unknown error",
-          stack: emailError instanceof Error ? emailError.stack : "",
-        });
         // Don't block the flow if email fails, data is already saved
-        console.warn("⚠️ QuoteForm - Email failed but data was saved to Firestore");
+        // (Optional) You can add a non-blocking UI toast here later if desired.
       }
 
       // Set cooldown only after successful submission
@@ -288,13 +275,7 @@ export function QuoteForm({ variant = "full", className, initial }: QuoteFormPro
       localStorage.setItem(cooldownKey, String(Date.now() + COOLDOWN_MS));
 
       setStatus("sent");
-    } catch (error) {
-      console.error("❌ QuoteForm - Error during submission:", error);
-      console.error("❌ QuoteForm - Error details:", {
-        message: error instanceof Error ? error.message : "Unknown error",
-        stack: error instanceof Error ? error.stack : "",
-        name: error instanceof Error ? error.name : typeof error,
-      });
+    } catch {
       setStatus("error");
       setError("Something went wrong. Please call us or try again in a minute.");
     }

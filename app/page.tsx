@@ -13,6 +13,7 @@ import { QuoteForm } from "@/components/QuoteForm";
 import { FadeIn } from "@/components/motion/FadeIn";
 import { WorkMasonry } from "@/components/WorkMasonry";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
+import { HeroCallButton } from "@/components/HeroCallButton";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
@@ -20,7 +21,7 @@ import { Card } from "@/components/ui/Card";
 export const metadata: Metadata = buildMetadata({
   title: `${BUSINESS.name} - Interlock & Hardscaping in ${BUSINESS.primaryCity}`,
   description:
-    "High-end interlock installation, repair, leveling, pressure washing/resanding, polymeric sand, patios, and turf. Fast quotes, premium finish.",
+    `Call ${BUSINESS.phone} for a free quote. High-end interlock installation, repair, leveling, pressure washing/resanding, polymeric sand, patios, and turf in ${BUSINESS.primaryCity}.`,
   path: "/",
 });
 
@@ -36,7 +37,7 @@ export default function Home() {
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <div>
               <h1 className="text-4xl font-semibold tracking-tight text-zinc-950 sm:text-5xl">
-                Premium interlock & stonework for Ottawa homes.
+                Call for a free quote on premium interlock in Ottawa.
               </h1>
               <p className="mt-4 max-w-xl text-base leading-7 text-zinc-600">
                 Interlock installation in Ottawa, repairs, and leveling. Built
@@ -44,15 +45,9 @@ export default function Home() {
                 contractors homeowners trust.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Button href="/contact/" size="lg">
-                  Get Free Quote
-                </Button>
-                <Button
-                  href={`tel:${BUSINESS.phone.replace(/[^\d+]/g, "")}`}
-                  variant="secondary"
-                  size="lg"
-                >
-                  Call Now
+                <HeroCallButton />
+                <Button href="/contact/" variant="secondary" size="lg">
+                  Get Free Quote (Form)
                 </Button>
               </div>
             </div>
@@ -60,8 +55,8 @@ export default function Home() {
             <div className="rounded-3xl border border-zinc-200 bg-white p-2 shadow-sm shadow-black/5">
               <div className="relative aspect-16/11 overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-50">
                 <Image
-                  src="/placeholders/interlock-1.svg"
-                  alt="Recent interlock project in Ottawa (placeholder)"
+                  src="/images/hero.png"
+                  alt="Recent interlock project in Ottawa"
                   fill
                   priority
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -72,9 +67,7 @@ export default function Home() {
                   <p className="text-sm font-semibold text-zinc-950">
                     Recent Interlock Project in Ottawa
                   </p>
-                  <p className="mt-1 text-sm text-zinc-600">
-                    Kanata • Placeholder image
-                  </p>
+                  <p className="mt-1 text-sm text-zinc-600">Kanata</p>
                 </div>
               </div>
             </div>
@@ -89,7 +82,7 @@ export default function Home() {
               Our work speaks for itself
             </h2>
             <p className="mt-2 text-sm leading-7 text-zinc-600">
-              A quick look at recent-style projects (placeholders for now).
+              A quick look at recent projects in Ottawa.
             </p>
           </div>
         </FadeIn>

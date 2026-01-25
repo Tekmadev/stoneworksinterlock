@@ -30,7 +30,7 @@ export const WORK_ITEMS: WorkItem[] = [
   },
   {
     id: "w4",
-    src: "/images/img-service/pressure-wash.webp",
+    src: "/images/B-A-polimetric-sanding.jpg",
     alt: "Pressure washing and resanding project in Ottawa",
     serviceLabel: "Pressure Washing",
     neighborhood: "Orleans",

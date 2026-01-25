@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { MessageCircle, Phone } from "lucide-react";
+import { Suspense } from "react";
 import { BUSINESS } from "@/config/business";
 import { buildMetadata, localBusinessJsonLd } from "@/lib/seo";
 import { toTelHref, toWhatsAppHref } from "@/lib/format";
@@ -42,7 +43,18 @@ export default function ContactPage() {
                 <Phone className="h-4 w-4" />
                 Click to call
               </Button>
-              {BUSINESS.whatsappPhone ? <ContactQueryCtas /> : null}
+              {BUSINESS.whatsappPhone ? (
+                <Suspense
+                  fallback={
+                    <Button variant="secondary" className="gap-2" disabled>
+                      <MessageCircle className="h-4 w-4" />
+                      WhatsApp
+                    </Button>
+                  }
+                >
+                  <ContactQueryCtas />
+                </Suspense>
+              ) : null}
             </div>
 
             <div className="mt-8 grid gap-4">

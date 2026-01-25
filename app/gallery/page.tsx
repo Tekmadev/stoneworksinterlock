@@ -20,7 +20,7 @@ export default function GalleryPage() {
             Gallery
           </h1>
           <p className="mt-3 text-sm leading-7 text-zinc-600">
-            Image-first: filter by service type and tap to view larger. (Placeholders for now.)
+            Image-first: filter by service type and tap to view larger.
           </p>
         </div>
 

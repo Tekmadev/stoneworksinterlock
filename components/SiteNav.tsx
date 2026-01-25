@@ -2,11 +2,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { Phone } from "lucide-react";
 import { BUSINESS } from "@/config/business";
-import { toTelHref } from "@/lib/format";
 import { cn } from "@/lib/cn";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { SiteNavLinks } from "@/components/SiteNavLinks";
+import { MobileNav } from "@/components/MobileNav";
+import { TrackedCallButton } from "@/components/TrackedCallButton";
 
 export function SiteNav({ className }: { className?: string }) {
   return (
@@ -31,20 +32,16 @@ export function SiteNav({ className }: { className?: string }) {
         </Link>
 
         <SiteNavLinks />
+        <MobileNav />
 
         <div className="flex items-center gap-2">
-          <Button href="/contact/" size="sm" className="hidden sm:inline-flex">
-            Get Free Quote
-          </Button>
-          <Button
-            href={toTelHref(BUSINESS.phone)}
-            variant="secondary"
-            size="sm"
-            className="gap-2"
-          >
+          <TrackedCallButton placement="nav" size="sm" className="gap-2">
             <Phone className="h-4 w-4" />
-            <span className="hidden sm:inline">Call</span>
+            <span className="hidden sm:inline">Call {BUSINESS.phone}</span>
             <span className="sm:hidden">Call Now</span>
+          </TrackedCallButton>
+          <Button href="/contact/" variant="secondary" size="sm" className="hidden sm:inline-flex">
+            Get Free Quote
           </Button>
         </div>
       </Container>

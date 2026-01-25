@@ -80,7 +80,6 @@ export function GalleryGrid({ items }: { items: GalleryItem[] }) {
               <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-black/0 to-transparent opacity-80" />
               <div className="absolute bottom-3 left-3 right-3 rounded-xl border border-zinc-200 bg-white/85 p-3 backdrop-blur">
                 <p className="text-sm font-semibold text-zinc-950">{it.alt}</p>
-                <p className="mt-1 text-xs text-zinc-500">Placeholder</p>
               </div>
             </div>
           </button>

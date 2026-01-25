@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { BUSINESS } from "@/config/business";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
-import { StickyCta } from "@/components/StickyCta";
 import { JsonLd } from "@/components/JsonLd";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 
@@ -21,11 +21,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(BUSINESS.siteUrl),
   title: {
-    default: `${BUSINESS.name} - Interlock & Hardscaping in ${BUSINESS.primaryCity}`,
-    template: `%s - ${BUSINESS.name}`,
+    default: `Interlock & Hardscaping in ${BUSINESS.primaryCity}`,
+    template: `%s | ${BUSINESS.name}`,
   },
   description:
-    "Premium interlock installation, repair, leveling, and outdoor hardscaping built for curb appeal and durability. Get a fast, honest quote.",
+    `Call ${BUSINESS.phone} for a free quote. Premium interlock installation, repair, leveling, and outdoor hardscaping built for curb appeal and durability.`,
   alternates: { canonical: BUSINESS.siteUrl },
   icons: {
     icon: [
@@ -39,14 +39,14 @@ export const metadata: Metadata = {
     type: "website",
     url: BUSINESS.siteUrl,
     siteName: BUSINESS.name,
-    title: `${BUSINESS.name} - Interlock & Hardscaping`,
+    title: `${BUSINESS.name} | Interlock & Hardscaping`,
     description:
-      "Premium interlock installation, repairs, leveling, and outdoor hardscaping. Request a free quote today.",
+      `Call ${BUSINESS.phone} for a free quote. Premium interlock installation, repairs, leveling, and outdoor hardscaping.`,
     images: [{ url: "/og-default.svg", width: 1200, height: 630, alt: BUSINESS.name }],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${BUSINESS.name} - Interlock & Hardscaping`,
+    title: `${BUSINESS.name} | Interlock & Hardscaping`,
     images: ["/og-default.svg"],
   },
   verification: BUSINESS.googleSiteVerification
@@ -59,17 +59,39 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // GA4 Measurement ID (G-XXXX). If you already have Firebase measurement id,
+  // you can reuse it here.
+  const gaId =
+    process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ||
+    process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID;
+
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        {gaId ? (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga-init" strategy="afterInteractive">
+              {`
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('js', new Date());
+  gtag('config', '${gaId}');
+              `}
+            </Script>
+          </>
+        ) : null}
         <JsonLd data={organizationJsonLd()} />
         <JsonLd data={websiteJsonLd()} />
         <SiteNav />
         <div className="min-h-[calc(100svh-4rem)]">{children}</div>
         <SiteFooter />
-        <StickyCta />
       </body>
     </html>
   );

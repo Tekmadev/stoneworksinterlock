@@ -156,7 +156,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       <Section className="pt-0">
         <h2 className="text-2xl font-semibold tracking-tight">Gallery</h2>
         <p className="mt-2 text-sm leading-7 text-zinc-600">
-          Project examples (placeholders for now). Swap in real photos anytime.
+          Project examples from recent-style work.
         </p>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {service.gallery.map((img) => (
