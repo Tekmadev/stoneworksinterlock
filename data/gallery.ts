@@ -11,16 +11,66 @@ export type GalleryItem = {
 };
 
 export const GALLERY_ITEMS: GalleryItem[] = [
-  { id: "g1", src: "/placeholders/interlock-1.svg", alt: "Interlock driveway", category: "interlock" },
-  { id: "g2", src: "/placeholders/interlock-2.svg", alt: "Interlock walkway", category: "interlock" },
-  { id: "g3", src: "/placeholders/patio-1.svg", alt: "Patio seating area", category: "patio" },
-  { id: "g4", src: "/placeholders/patio-2.svg", alt: "Modern slab patio", category: "patio" },
-  { id: "g5", src: "/placeholders/repair-1.svg", alt: "Interlock repair", category: "repair" },
-  { id: "g6", src: "/placeholders/leveling-1.svg", alt: "Leveling uneven pavers", category: "repair" },
-  { id: "g7", src: "/placeholders/washing-1.svg", alt: "Pressure washing", category: "washing" },
-  { id: "g8", src: "/placeholders/sand-2.svg", alt: "Polymeric sand joints", category: "washing" },
-  { id: "g9", src: "/placeholders/turf-1.svg", alt: "Turf installation", category: "turf" },
-  { id: "g10", src: "/placeholders/turf-2.svg", alt: "Turf with border", category: "turf" },
+  {
+    id: "g1",
+    src: "/images/img-service/interlock-installation.webp",
+    alt: "Interlock installation project",
+    category: "interlock",
+  },
+  {
+    id: "g2",
+    src: "/images/img-service/cleaned-paver.webp",
+    alt: "Clean interlock pavers",
+    category: "interlock",
+  },
+  {
+    id: "g3",
+    src: "/images/img-service/patio-install.webp",
+    alt: "Backyard patio installation",
+    category: "patio",
+  },
+  {
+    id: "g4",
+    src: "/images/img-service/patio-install2.webp",
+    alt: "Patio project with lighting",
+    category: "patio",
+  },
+  {
+    id: "g5",
+    src: "/images/img-service/int-repair.webp",
+    alt: "Interlock repair project",
+    category: "repair",
+  },
+  {
+    id: "g6",
+    src: "/images/img-service/leveling.webp",
+    alt: "Paver leveling and base correction",
+    category: "repair",
+  },
+  {
+    id: "g7",
+    src: "/images/B-A-polimetric-sanding.jpg",
+    alt: "Pressure washing and resanding",
+    category: "washing",
+  },
+  {
+    id: "g8",
+    src: "/images/img-service/polymeric-sand.webp",
+    alt: "Polymeric sand jointing",
+    category: "washing",
+  },
+  {
+    id: "g9",
+    src: "/images/img-service/turf-inst.webp",
+    alt: "Turf installation",
+    category: "turf",
+  },
+  // {
+  //   id: "g10",
+  //   src: "/images/img-service/turf-inst.webp",
+  //   alt: "Turf installation with clean edging",
+  //   category: "turf",
+  // },
 ];
 
 

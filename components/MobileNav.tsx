@@ -13,8 +13,8 @@ import { TrackedCallButton } from "@/components/TrackedCallButton";
 
 const LINKS = [
   { href: "/services/", label: "Services" },
-  { href: "/locations/", label: "Locations" },
   { href: "/gallery/", label: "Gallery" },
+  { href: "/blog/", label: "Blog" },
   { href: "/about/", label: "About" },
   { href: "/faq/", label: "FAQ" },
 ] as const;
@@ -95,7 +95,7 @@ export function MobileNav({ className }: { className?: string }) {
       <AnimatePresence mode="wait">
         {open ? (
           <motion.div
-            className="fixed inset-0 z-[60]"
+            className="fixed inset-0 z-60"
             role="dialog"
             aria-modal="true"
             initial={{ opacity: 0 }}

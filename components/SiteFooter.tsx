@@ -3,6 +3,7 @@ import Image from "next/image";
 import { BUSINESS } from "@/config/business";
 import { toTelHref, toWhatsAppHref } from "@/lib/format";
 import { Container } from "@/components/ui/Container";
+import { NewsletterSignup } from "@/components/NewsletterSignup";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -39,7 +40,7 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
-                <Link className="hover:text-zinc-950" href="/locations/">
+                <Link className="hover:text-zinc-950" href="/about/#service-areas">
                   Service Areas
                 </Link>
               </li>
@@ -86,11 +87,18 @@ export function SiteFooter() {
           </div>
         </div>
 
+        <div className="mt-10 border-t border-zinc-200/70 pt-8">
+          <NewsletterSignup className="max-w-md" />
+        </div>
+
         <div className="mt-10 flex flex-col gap-3 border-t border-zinc-200/70 pt-6 text-xs text-zinc-500 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {year} {BUSINESS.name}. All rights reserved.
           </p>
           <div className="flex gap-4">
+            <Link className="hover:text-zinc-950" href="/privacy/">
+              Privacy
+            </Link>
             <Link className="hover:text-zinc-950" href="/faq/">
               FAQ
             </Link>

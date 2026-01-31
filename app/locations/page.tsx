@@ -1,48 +1,56 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { LOCATIONS } from "@/data/locations";
+import { BUSINESS } from "@/config/business";
 import { buildMetadata } from "@/lib/seo";
 import { Section } from "@/components/ui/Section";
 import { Card } from "@/components/ui/Card";
 
 export const metadata: Metadata = buildMetadata({
   title: "Service Areas",
-  description:
-    "View service areas for interlock installation, repairs, leveling, washing, polymeric sand, patios, and turf.",
+  description: `Service areas for ${BUSINESS.name}. Serving Ottawa and nearby areas.`,
   path: "/locations/",
 });
 
-export default function LocationsIndexPage() {
+export default function LocationsPage() {
   return (
     <div>
       <Section className="pt-14">
-        <div className="max-w-2xl">
-          <h1 className="text-3xl font-semibold tracking-tight text-zinc-950 sm:text-4xl">
-            Service Areas
-          </h1>
-          <p className="mt-3 text-sm leading-7 text-zinc-600">
-            Select your city to see local service info, FAQs, and a quick path to a quote.
-          </p>
+        <div className="grid gap-8 lg:grid-cols-3 lg:items-end">
+          <div className="lg:col-span-2">
+            <h1 className="text-3xl font-semibold tracking-tight text-zinc-950 sm:text-4xl">
+              Service areas
+            </h1>
+            <p className="mt-3 text-sm leading-7 text-zinc-600">
+              We serve Ottawa and surrounding areas. See the full list on our About page.
+            </p>
+          </div>
+          <div className="lg:justify-self-end">
+            <Link
+              href="/about/#service-areas"
+              className="inline-flex items-center justify-center rounded-xl border border-zinc-200 bg-white px-5 py-2 text-sm font-semibold text-zinc-950 hover:bg-zinc-50"
+            >
+              View service areas
+            </Link>
+          </div>
         </div>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {LOCATIONS.map((l) => (
-            <Link key={l.slug} href={`/locations/${l.slug}/`} className="group">
-              <Card className="p-6 transition-colors group-hover:bg-zinc-50">
-                <p className="text-sm font-semibold">{l.name}</p>
-                <p className="mt-2 text-sm text-zinc-600">
-                  Interlock installation & repair, patios, washing, and more.
-                </p>
-                <p className="mt-4 text-sm font-semibold text-[color:var(--accent)]">
-                  View city page
-                </p>
-              </Card>
-            </Link>
-          ))}
+        <div className="mt-10">
+          <Card className="p-6">
+            <p className="text-sm font-semibold">Quick list</p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {BUSINESS.serviceAreas.map((c) => (
+                <span
+                  key={c}
+                  className="rounded-full border border-zinc-200 bg-white px-3 py-1 text-xs font-semibold text-zinc-700"
+                >
+                  {c}
+                </span>
+              ))}
+            </div>
+          </Card>
         </div>
       </Section>
     </div>
   );
 }
-
 

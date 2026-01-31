@@ -1,6 +1,16 @@
 import { initializeApp, getApps, type FirebaseApp } from "firebase/app";
 import { getStorage, type FirebaseStorage } from "firebase/storage";
-import { getFirestore, type Firestore, collection, addDoc, serverTimestamp } from "firebase/firestore";
+import {
+  getFirestore,
+  type Firestore,
+  collection,
+  addDoc,
+  serverTimestamp,
+  doc,
+  getDoc,
+  setDoc,
+  updateDoc,
+} from "firebase/firestore";
 import type { QuoteLeadPayload } from "@/lib/emailjs";
 
 type FirebasePublicConfig = {
@@ -117,4 +127,39 @@ export async function saveQuoteLeadToFirestore(payload: QuoteLeadPayload) {
   });
 
   return { ok: true as const, id: ref.id };
+}
+
+export async function subscribeNewsletterEmail(emailRaw: string) {
+  if (!hasFirebaseConfig()) {
+    return { ok: false as const, reason: "firebase_not_configured" as const };
+  }
+
+  const db = getFirebaseDb();
+  if (!db) return { ok: false as const, reason: "db_null" as const };
+
+  const email = emailRaw.trim().toLowerCase();
+  const id = email; // use normalized email as doc id to prevent duplicates
+  const ref = doc(db, "newsletter_emails", id);
+
+  const snap = await getDoc(ref);
+  if (snap.exists()) {
+    const data = snap.data() as { isSubscribed?: boolean; status?: string } | undefined;
+    if (data?.isSubscribed) {
+      return { ok: true as const, alreadySubscribed: true as const };
+    }
+    await updateDoc(ref, {
+      isSubscribed: true,
+      status: "active",
+    });
+    return { ok: true as const, alreadySubscribed: false as const };
+  }
+
+  await setDoc(ref, {
+    created_at: serverTimestamp(),
+    email,
+    status: "active",
+    isSubscribed: true,
+  });
+
+  return { ok: true as const, alreadySubscribed: false as const };
 }

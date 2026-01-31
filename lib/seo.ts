@@ -265,4 +265,39 @@ export function serviceJsonLd(input: {
   };
 }
 
+export function blogPostingJsonLd(input: {
+  headline: string;
+  description: string;
+  url: string;
+  image?: string;
+  datePublished: string; // ISO date
+  dateModified?: string; // ISO date
+  authorName?: string;
+}) {
+  const img = input.image ? absoluteUrl(input.image) : undefined;
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": input.url,
+    },
+    headline: input.headline,
+    description: input.description,
+    image: img ? [img] : undefined,
+    datePublished: input.datePublished,
+    dateModified: input.dateModified ?? input.datePublished,
+    author: {
+      "@type": "Organization",
+      name: input.authorName || BUSINESS.name,
+      "@id": absoluteUrl("/#organization"),
+    },
+    publisher: {
+      "@type": "Organization",
+      name: BUSINESS.name,
+      "@id": absoluteUrl("/#organization"),
+    },
+  };
+}
+
 

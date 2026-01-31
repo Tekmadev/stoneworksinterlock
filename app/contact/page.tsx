@@ -5,7 +5,7 @@ import { BUSINESS } from "@/config/business";
 import { buildMetadata, localBusinessJsonLd } from "@/lib/seo";
 import { toTelHref, toWhatsAppHref } from "@/lib/format";
 import { JsonLd } from "@/components/JsonLd";
-import { QuoteForm } from "@/components/QuoteForm";
+import { ContactQuoteForm } from "@/components/ContactQuoteForm";
 import { ContactQueryCtas } from "@/components/ContactQueryCtas";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
@@ -95,7 +95,9 @@ export default function ContactPage() {
           </div>
 
           <div>
-            <QuoteForm variant="full" />
+            <Suspense fallback={<div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">Loading form…</div>}>
+              <ContactQuoteForm />
+            </Suspense>
 
             <div className="mt-6 rounded-3xl border border-zinc-200 bg-white p-2 shadow-sm shadow-black/5">
               <div className="relative aspect-video overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-50">

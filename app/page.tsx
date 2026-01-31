@@ -192,8 +192,8 @@ export default function Home() {
               </div>
               <div className="mt-6 flex flex-col gap-2">
                 <Button href="/contact/">Get Free Quote</Button>
-                <Button href="/locations/" variant="secondary">
-                  View locations
+                <Button href="/about/#service-areas" variant="secondary">
+                  Service areas
                 </Button>
               </div>
             </div>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo";
+import { BUSINESS } from "@/config/business";
 import { Section } from "@/components/ui/Section";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
@@ -90,6 +91,27 @@ export default function AboutPage() {
                 Final clean, walkthrough, and care guidance.
               </p>
             </Card>
+          </div>
+        </div>
+      </Section>
+
+      <Section className="pt-0">
+        <div className="rounded-3xl border border-zinc-200 bg-white p-8 shadow-sm shadow-black/5 sm:p-10">
+          <h2 id="service-areas" className="text-2xl font-semibold tracking-tight">
+            Service areas
+          </h2>
+          <p className="mt-2 text-sm leading-7 text-zinc-600">
+            We’re based in {BUSINESS.primaryCity} and serve nearby Ottawa-area neighborhoods.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-2">
+            {BUSINESS.serviceAreas.map((c) => (
+              <span
+                key={c}
+                className="rounded-full border border-zinc-200 bg-white px-3 py-1 text-xs font-semibold text-zinc-700"
+              >
+                {c}
+              </span>
+            ))}
           </div>
         </div>
       </Section>

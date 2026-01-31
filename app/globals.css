@@ -35,3 +35,39 @@ body {
 ::selection {
   background: color-mix(in oklab, var(--accent) 25%, transparent);
 }
+
+/* Newsletter Subscribe button – matches Call/Continue (rounded, shadow, hover) */
+.newsletter-subscribe-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.75rem;
+  min-width: 6rem;
+  padding: 0 1.25rem;
+  border: none;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #0b0d0f;
+  background-color: var(--accent);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s ease, filter 0.2s ease;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.newsletter-subscribe-btn:hover:not(:disabled) {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  filter: brightness(1.08);
+}
+.newsletter-subscribe-btn:active:not(:disabled) {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  filter: brightness(0.95);
+}
+.newsletter-subscribe-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.newsletter-subscribe-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}

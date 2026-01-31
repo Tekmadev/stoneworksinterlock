@@ -5,6 +5,7 @@ import { Loader2, Phone } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { SERVICES, type ServiceSlug } from "@/data/services";
 import { cn } from "@/lib/cn";
+import { trackGaEvent } from "@/lib/ga";
 import { getFirebaseStorage, hasFirebaseConfig, saveQuoteLeadToFirestore } from "@/lib/firebase";
 import { BUSINESS } from "@/config/business";
 import { Button } from "@/components/ui/Button";
@@ -25,25 +26,29 @@ type QuoteFormProps = {
 
 export function QuoteForm({ variant = "full", className, initial }: QuoteFormProps) {
   const router = useRouter();
+
+  const initialService: ServiceSlug =
+    initial?.serviceSelected ?? "interlock-installation";
+  const initialPostal = (initial?.postalCode ?? "").trim().toUpperCase();
+  const startAtStep2 =
+    variant === "full" &&
+    Boolean(initial?.serviceSelected && initial?.postalCode?.trim());
+
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [error, setError] = useState<string>("");
-  const [step, setStep] = useState<1 | 2 | 3>(variant === "short" ? 1 : 1);
+  const [step, setStep] = useState<1 | 2 | 3>(variant === "short" ? 1 : startAtStep2 ? 2 : 1);
 
   // Basic fields
   const [fullName, setFullName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
-  const [postalCode, setPostalCode] = useState(() =>
-    initial?.postalCode ? initial.postalCode.toUpperCase().trim() : "",
-  );
+  const [postalCode, setPostalCode] = useState(initialPostal);
   const [city, setCity] = useState(BUSINESS.primaryCity);
   const [address, setAddress] = useState("");
   const [preferredContactMethod, setPreferredContactMethod] = useState<
     "call" | "text" | "email"
   >("call");
-  const [serviceSelected, setServiceSelected] = useState<ServiceSlug>(
-    initial?.serviceSelected ?? "interlock-installation",
-  );
+  const [serviceSelected, setServiceSelected] = useState<ServiceSlug>(initialService);
   const [message, setMessage] = useState("");
 
   // Honeypot
@@ -274,8 +279,15 @@ export function QuoteForm({ variant = "full", className, initial }: QuoteFormPro
       const COOLDOWN_MS = 30_000;
       localStorage.setItem(cooldownKey, String(Date.now() + COOLDOWN_MS));
 
+      trackGaEvent("quote_form_submit_success", {
+        placement: "contact_form",
+        service: serviceSelected,
+        has_photos: photoUrls.length ? 1 : 0,
+      });
+
       setStatus("sent");
     } catch {
+      trackGaEvent("quote_form_submit_error", { placement: "contact_form" });
       setStatus("error");
       setError("Something went wrong. Please call us or try again in a minute.");
     }

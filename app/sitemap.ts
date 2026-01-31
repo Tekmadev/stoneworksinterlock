@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { BUSINESS } from "@/config/business";
 import { SERVICES } from "@/data/services";
-import { LOCATIONS } from "@/data/locations";
+import { BLOG_POSTS } from "@/data/blog";
 
 export const dynamic = "force-static";
 
@@ -12,17 +12,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     "/",
     "/services/",
-    "/locations/",
     "/gallery/",
+    "/blog/",
     "/about/",
+    "/privacy/",
     "/contact/",
     "/faq/",
+    "/locations/",
   ];
 
   const serviceRoutes = SERVICES.map((s) => `/services/${s.slug}/`);
-  const locationRoutes = LOCATIONS.map((l) => `/locations/${l.slug}/`);
+  const blogRoutes = BLOG_POSTS.map((p) => `/blog/${p.slug}/`);
 
-  return [...routes, ...serviceRoutes, ...locationRoutes].map((path) => ({
+  return [...routes, ...serviceRoutes, ...blogRoutes].map((path) => ({
     url: `${base}${path}`,
     lastModified: now,
     changeFrequency: "weekly",
