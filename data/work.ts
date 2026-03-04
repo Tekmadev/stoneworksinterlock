@@ -9,7 +9,7 @@ export type WorkItem = {
 export const WORK_ITEMS: WorkItem[] = [
   {
     id: "w1",
-    src: "/images/img-service/interlock-installation.webp",
+    src: "/images/workexample/work1done.jpeg",
     alt: "Interlock installation project in Ottawa",
     serviceLabel: "Interlock Installation",
     neighborhood: "Kanata",
@@ -23,7 +23,7 @@ export const WORK_ITEMS: WorkItem[] = [
   },
   {
     id: "w3",
-    src: "/images/img-service/int-repair.webp",
+    src: "/images/workexample/work2done.jpeg",
     alt: "Interlock repair project in Ottawa",
     serviceLabel: "Interlock Repair",
     neighborhood: "Barrhaven",
@@ -37,7 +37,7 @@ export const WORK_ITEMS: WorkItem[] = [
   },
   {
     id: "w5",
-    src: "/images/img-service/polymeric-sand.webp",
+    src: "/images/workexample/work3done.jpeg",
     alt: "Polymeric sand jointing project in Ottawa",
     serviceLabel: "Polymeric Sand",
     neighborhood: "Stittsville",

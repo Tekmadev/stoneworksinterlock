@@ -14,7 +14,7 @@ import { Card } from "@/components/ui/Card";
 export const metadata: Metadata = buildMetadata({
   title: "Contact & Free Quote",
   description:
-    "Request a free quote for interlock installation, repairs, leveling, washing, polymeric sand, patios, or turf. Fast response.",
+    "Request a free quote for interlock installation, repairs, leveling, retaining walls, staircases, washing, polymeric sand, patios, or turf. Fast response.",
   path: "/contact/",
 });
 
@@ -90,6 +90,18 @@ export default function ContactPage() {
                     Service-based business. No public storefront.
                   </p>
                 )}
+                {BUSINESS.hours && BUSINESS.hours.length > 0 ? (
+                  <div className="mt-4 border-t border-zinc-200 pt-4">
+                    <p className="text-sm font-semibold text-zinc-900">Hours</p>
+                    <ul className="mt-2 space-y-1 text-sm text-zinc-600">
+                      {BUSINESS.hours.map((h) => (
+                        <li key={h.label}>
+                          {h.label}: {h.hours}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
               </Card>
             </div>
           </div>

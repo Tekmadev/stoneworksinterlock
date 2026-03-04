@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BUSINESS } from "@/config/business";
 import { getAllBlogPosts, getBlogPostBySlug } from "@/data/blog";
+import { getServiceBySlug } from "@/data/services";
 import { absoluteUrl, blogPostingJsonLd, breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
 import { Section } from "@/components/ui/Section";
@@ -16,12 +17,13 @@ export function generateStaticParams() {
   return getAllBlogPosts().map((p) => ({ slug: p.slug }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
-}): Metadata {
-  const post = getBlogPostBySlug(params.slug);
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getBlogPostBySlug(slug);
   if (!post) return {};
   return buildMetadata({
     title: post.title,
@@ -41,8 +43,9 @@ function formatBlogDate(iso: string) {
   }).format(d);
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post = getBlogPostBySlug(params.slug);
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = getBlogPostBySlug(slug);
   if (!post) notFound();
 
   const url = absoluteUrl(`/blog/${post.slug}/`);
@@ -144,7 +147,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             </div>
           </div>
 
-          <aside className="lg:sticky lg:top-24">
+          <aside className="space-y-6 lg:sticky lg:top-24">
             <Card className="p-6">
               <p className="text-sm font-semibold text-zinc-950">More help</p>
               <p className="mt-2 text-sm leading-7 text-zinc-600">
@@ -158,9 +161,69 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                   href="/services/"
                   className="inline-flex items-center justify-center rounded-xl border border-zinc-200 bg-white px-5 py-2 text-sm font-semibold text-zinc-950 hover:bg-zinc-50"
                 >
-                  View services
+                  View all services
                 </Link>
               </div>
+            </Card>
+
+            {/* Related services — internal links */}
+            {post.relatedServices && post.relatedServices.length > 0 && (
+              <Card className="p-6">
+                <p className="text-sm font-semibold text-zinc-950">Related services</p>
+                <ul className="mt-3 space-y-2">
+                  {post.relatedServices.map((serviceSlug) => {
+                    const svc = getServiceBySlug(serviceSlug);
+                    if (!svc) return null;
+                    return (
+                      <li key={serviceSlug}>
+                        <Link
+                          href={`/services/${svc.slug}/`}
+                          className="text-sm text-accent hover:text-zinc-950 hover:underline"
+                        >
+                          {svc.name}
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </Card>
+            )}
+
+            {/* More from the blog — internal links */}
+            {(() => {
+              const otherPosts = getAllBlogPosts().filter((p) => p.slug !== post.slug).slice(0, 3);
+              if (otherPosts.length === 0) return null;
+              return (
+                <Card className="p-6">
+                  <p className="text-sm font-semibold text-zinc-950">More from the blog</p>
+                  <ul className="mt-3 space-y-2">
+                    {otherPosts.map((p) => (
+                      <li key={p.slug}>
+                        <Link
+                          href={`/blog/${p.slug}/`}
+                          className="text-sm text-accent hover:text-zinc-950 hover:underline"
+                        >
+                          {p.title}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </Card>
+              );
+            })()}
+
+            {/* FAQ link */}
+            <Card className="p-6">
+              <p className="text-sm font-semibold text-zinc-950">Have questions?</p>
+              <p className="mt-2 text-sm leading-7 text-zinc-600">
+                Check our FAQ for answers about our services.
+              </p>
+              <Link
+                href="/faq/"
+                className="mt-3 inline-block text-sm font-semibold text-accent hover:text-zinc-950 hover:underline"
+              >
+                View FAQ &rarr;
+              </Link>
             </Card>
           </aside>
         </div>

@@ -7,7 +7,7 @@ import { ServiceCard } from "@/components/ServiceCard";
 export const metadata: Metadata = buildMetadata({
   title: "Services",
   description:
-    "Explore our interlock and hardscaping services including installation, repairs, leveling, washing, polymeric sand, and turf.",
+    "Explore our interlock and hardscaping services including installation, repairs, leveling, retaining walls, staircases, washing, polymeric sand, and turf.",
   path: "/services/",
 });
 

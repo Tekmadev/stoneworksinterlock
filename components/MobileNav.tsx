@@ -4,20 +4,104 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/cn";
 import { BUSINESS } from "@/config/business";
+import { SERVICES } from "@/data/services";
 import { Button } from "@/components/ui/Button";
 import { TrackedCallButton } from "@/components/TrackedCallButton";
 
 const LINKS = [
-  { href: "/services/", label: "Services" },
+  { href: "/services/", label: "Services", hasDropdown: true },
   { href: "/gallery/", label: "Gallery" },
   { href: "/blog/", label: "Blog" },
   { href: "/about/", label: "About" },
   { href: "/faq/", label: "FAQ" },
 ] as const;
+
+function MobileNavList({ activeHref }: { activeHref: string }) {
+  const [servicesExpanded, setServicesExpanded] = useState(false);
+
+  return (
+    <ul className="space-y-2">
+      {LINKS.map((l) => {
+        const hasDropdown = "hasDropdown" in l && l.hasDropdown;
+
+        if (hasDropdown) {
+          return (
+            <li key={l.href}>
+              <div className="flex overflow-hidden rounded-2xl border border-zinc-200 shadow-sm shadow-black/5">
+                <Link
+                  href={l.href}
+                  className={cn(
+                    "flex-1 bg-white/80 px-4 py-3 text-base font-semibold text-zinc-950 backdrop-blur hover:bg-white",
+                    activeHref === l.href && "border-zinc-300 bg-white",
+                  )}
+                >
+                  {l.label}
+                </Link>
+                <button
+                  type="button"
+                  aria-label={servicesExpanded ? "Collapse services" : "Expand services"}
+                  aria-expanded={servicesExpanded}
+                  onClick={() => setServicesExpanded((v) => !v)}
+                  className="flex items-center justify-center border-l border-zinc-200 bg-white/80 px-3 backdrop-blur hover:bg-white"
+                >
+                  <ChevronDown
+                    className={cn(
+                      "h-4 w-4 text-zinc-500 transition-transform duration-200",
+                      servicesExpanded && "rotate-180",
+                    )}
+                  />
+                </button>
+              </div>
+              <AnimatePresence>
+                {servicesExpanded && (
+                  <motion.ul
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.2, ease: "easeInOut" }}
+                    className="overflow-hidden"
+                  >
+                    <div className="ml-3 mt-1 space-y-1 border-l-2 border-zinc-200 pl-3">
+                      {SERVICES.map((s) => (
+                        <li key={s.slug}>
+                          <Link
+                            href={`/services/${s.slug}/`}
+                            className="block rounded-xl px-3 py-2 text-sm text-zinc-700 hover:bg-zinc-50 hover:text-zinc-950"
+                          >
+                            {s.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </div>
+                  </motion.ul>
+                )}
+              </AnimatePresence>
+            </li>
+          );
+        }
+
+        return (
+          <li key={l.href}>
+            <Link
+              href={l.href}
+              className={cn(
+                "block rounded-2xl border border-zinc-200 bg-white/80 px-4 py-3 text-base font-semibold text-zinc-950 shadow-sm shadow-black/5 backdrop-blur",
+                "hover:bg-white",
+                activeHref === l.href && "border-zinc-300 bg-white",
+              )}
+            >
+              {l.label}
+            </Link>
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
 
 export function MobileNav({ className }: { className?: string }) {
   const [open, setOpen] = useState(false);
@@ -155,22 +239,7 @@ export function MobileNav({ className }: { className?: string }) {
                     Browse
                   </p>
                   <nav className="mt-3">
-                    <ul className="space-y-2">
-                      {LINKS.map((l) => (
-                        <li key={l.href}>
-                          <Link
-                            href={l.href}
-                            className={cn(
-                              "block rounded-2xl border border-zinc-200 bg-white/80 px-4 py-3 text-base font-semibold text-zinc-950 shadow-sm shadow-black/5 backdrop-blur",
-                              "hover:bg-white",
-                              activeHref === l.href && "border-zinc-300 bg-white",
-                            )}
-                          >
-                            {l.label}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
+                    <MobileNavList activeHref={activeHref} />
                   </nav>
 
                   <div className="mt-5 grid gap-2">

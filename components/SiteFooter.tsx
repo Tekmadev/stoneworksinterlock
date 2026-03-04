@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { BUSINESS } from "@/config/business";
+import { SERVICES } from "@/data/services";
 import { toTelHref, toWhatsAppHref } from "@/lib/format";
 import { Container } from "@/components/ui/Container";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
@@ -84,11 +85,34 @@ export function SiteFooter() {
                 </li>
               ) : null}
             </ul>
+            {BUSINESS.hours && BUSINESS.hours.length > 0 ? (
+              <div className="mt-5">
+                <p className="text-sm font-semibold text-zinc-900">Hours</p>
+                <ul className="mt-2 space-y-1 text-sm text-zinc-600">
+                  {BUSINESS.hours.map((h) => (
+                    <li key={h.label}>
+                      {h.label}: {h.hours}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
           </div>
         </div>
 
         <div className="mt-10 border-t border-zinc-200/70 pt-8">
           <NewsletterSignup className="max-w-md" />
+        </div>
+
+        <div className="mt-8 border-t border-zinc-200/70 pt-6">
+          <p className="text-sm font-semibold">All Services</p>
+          <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm text-zinc-600">
+            {SERVICES.map((s) => (
+              <Link key={s.slug} className="hover:text-zinc-950 hover:underline" href={`/services/${s.slug}/`}>
+                {s.name}
+              </Link>
+            ))}
+          </div>
         </div>
 
         <div className="mt-10 flex flex-col gap-3 border-t border-zinc-200/70 pt-6 text-xs text-zinc-500 sm:flex-row sm:items-center sm:justify-between">
@@ -97,7 +121,10 @@ export function SiteFooter() {
           </p>
           <div className="flex gap-4">
             <Link className="hover:text-zinc-950" href="/privacy/">
-              Privacy
+              Privacy Policy
+            </Link>
+            <Link className="hover:text-zinc-950" href="/terms/">
+              Terms of Service
             </Link>
             <Link className="hover:text-zinc-950" href="/faq/">
               FAQ

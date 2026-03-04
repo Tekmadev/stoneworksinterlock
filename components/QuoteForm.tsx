@@ -275,6 +275,19 @@ export function QuoteForm({ variant = "full", className, initial }: QuoteFormPro
         // (Optional) You can add a non-blocking UI toast here later if desired.
       }
 
+      // Forward to n8n webhook (fire-and-forget, does not block or affect flow)
+      const n8nWebhookUrl = process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL;
+      if (n8nWebhookUrl) {
+        fetch(n8nWebhookUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(quotePayload),
+          mode: "cors",
+        }).catch(() => {
+          /* ignore; webhook is optional */
+        });
+      }
+
       // Set cooldown only after successful submission
       const COOLDOWN_MS = 30_000;
       localStorage.setItem(cooldownKey, String(Date.now() + COOLDOWN_MS));

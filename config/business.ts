@@ -92,10 +92,7 @@ export const BUSINESS: BusinessInfo = {
     facebook: "",
     googleBusinessProfile: "",
   },
-  hours: [
-    { label: "Mon-Sat", hours: "8:00 AM - 6:00 PM" },
-    { label: "Sunday", hours: "Closed" },
-  ],
+  hours: [{ label: "Mon-Sun", hours: "9:00 AM - 9:00 PM" }],
   // Optional: fill these for stronger SEO + rich results
   googleSiteVerification: "",
   schemaLocalBusinessType: "PavingContractor",

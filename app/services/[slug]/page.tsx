@@ -1,8 +1,10 @@
 import Image from "next/image";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BUSINESS } from "@/config/business";
 import { SERVICES, getServiceBySlug } from "@/data/services";
+import { getAllBlogPosts } from "@/data/blog";
 import { absoluteUrl, breadcrumbJsonLd, buildMetadata, faqJsonLd, serviceJsonLd } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
 import { Accordion } from "@/components/ui/Accordion";
@@ -17,12 +19,13 @@ export function generateStaticParams() {
   return SERVICES.map((s) => ({ slug: s.slug }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
-}): Metadata {
-  const service = getServiceBySlug(params.slug);
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const service = getServiceBySlug(slug);
   if (!service) return {};
   return buildMetadata({
     title: service.seo.title,
@@ -31,8 +34,9 @@ export function generateMetadata({
   });
 }
 
-export default function ServicePage({ params }: { params: { slug: string } }) {
-  const service = getServiceBySlug(params.slug);
+export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const service = getServiceBySlug(slug);
   if (!service) notFound();
 
   const breadcrumbs = breadcrumbJsonLd([
@@ -66,10 +70,21 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
               {service.hero.subheadline}
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <Button href="/contact/">Get Free Quote</Button>
+              <Button href={`/contact/?service=${service.slug}`}>
+                Get Free Quote
+              </Button>
               <Button href="/services/" variant="secondary">
                 View all services
               </Button>
+            </div>
+
+            <div className="mt-10">
+              <h2 className="text-xl font-semibold tracking-tight text-zinc-950">
+                What is {service.name.toLowerCase()}?
+              </h2>
+              <p className="mt-3 text-sm leading-7 text-zinc-600">
+                {service.description}
+              </p>
             </div>
 
             <div className="mt-10 grid gap-4 sm:grid-cols-2">
@@ -145,7 +160,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
               <p className="mt-2 text-sm leading-7 text-zinc-600">
                 Share your address/city, photos, and approximate size. We will respond quickly.
               </p>
-              <Button className="mt-5 w-full" href="/contact/">
+              <Button className="mt-5 w-full" href={`/contact/?service=${service.slug}`}>
                 Request Quote
               </Button>
             </div>
@@ -182,7 +197,100 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
           <Accordion items={service.faqs} />
         </div>
         <div className="mt-8 flex justify-center">
-          <Button href="/contact/">Get Free Quote</Button>
+          <Button href={`/contact/?service=${service.slug}`}>
+            Get Free Quote for {service.name}
+          </Button>
+        </div>
+      </Section>
+
+      {/* Related services — internal cross-links for SEO */}
+      {(() => {
+        const related = SERVICES.filter((s) => s.slug !== service.slug).slice(0, 4);
+        return (
+          <Section className="pt-0">
+            <h2 className="text-2xl font-semibold tracking-tight">Other services</h2>
+            <p className="mt-2 text-sm leading-7 text-zinc-600">
+              Explore our full range of interlock and outdoor services in {BUSINESS.primaryCity}.
+            </p>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {related.map((s) => (
+                <Link
+                  key={s.slug}
+                  href={`/services/${s.slug}/`}
+                  className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm shadow-black/5 transition-shadow hover:shadow-md"
+                >
+                  <p className="text-sm font-semibold text-zinc-950">{s.name}</p>
+                  <p className="mt-1 text-xs leading-5 text-zinc-500 line-clamp-2">{s.short}</p>
+                </Link>
+              ))}
+            </div>
+            <div className="mt-4 text-center">
+              <Link
+                href="/services/"
+                className="text-sm font-semibold text-accent hover:text-zinc-950 hover:underline"
+              >
+                View all services &rarr;
+              </Link>
+            </div>
+          </Section>
+        );
+      })()}
+
+      {/* Related blog posts — internal links */}
+      {(() => {
+        const relatedPosts = getAllBlogPosts()
+          .filter((p) => p.relatedServices?.includes(service.slug))
+          .slice(0, 3);
+        if (relatedPosts.length === 0) return null;
+        return (
+          <Section className="pt-0">
+            <h2 className="text-2xl font-semibold tracking-tight">Related articles</h2>
+            <p className="mt-2 text-sm leading-7 text-zinc-600">
+              Tips and expert advice related to {service.name.toLowerCase()}.
+            </p>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {relatedPosts.map((p) => (
+                <Link
+                  key={p.slug}
+                  href={`/blog/${p.slug}/`}
+                  className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm shadow-black/5 transition-shadow hover:shadow-md"
+                >
+                  <p className="text-xs font-semibold uppercase text-zinc-500">{p.category}</p>
+                  <p className="mt-2 text-sm font-semibold text-zinc-950 line-clamp-2">{p.title}</p>
+                  <p className="mt-1 text-xs leading-5 text-zinc-500 line-clamp-2">{p.description}</p>
+                </Link>
+              ))}
+            </div>
+            <div className="mt-4 text-center">
+              <Link
+                href="/blog/"
+                className="text-sm font-semibold text-accent hover:text-zinc-950 hover:underline"
+              >
+                Read more on our blog &rarr;
+              </Link>
+            </div>
+          </Section>
+        );
+      })()}
+
+      {/* Cross-page links */}
+      <Section className="pt-0">
+        <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm">
+          <Link href="/gallery/" className="font-semibold text-accent hover:text-zinc-950 hover:underline">
+            View gallery
+          </Link>
+          <span className="text-zinc-300">|</span>
+          <Link href="/faq/" className="font-semibold text-accent hover:text-zinc-950 hover:underline">
+            FAQ
+          </Link>
+          <span className="text-zinc-300">|</span>
+          <Link href="/about/" className="font-semibold text-accent hover:text-zinc-950 hover:underline">
+            About us
+          </Link>
+          <span className="text-zinc-300">|</span>
+          <Link href="/blog/" className="font-semibold text-accent hover:text-zinc-950 hover:underline">
+            Blog
+          </Link>
         </div>
       </Section>
     </div>

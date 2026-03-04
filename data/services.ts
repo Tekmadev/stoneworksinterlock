@@ -9,7 +9,9 @@ export type ServiceSlug =
   | "polymeric-sand"
   | "turf-installation"
   | "sealant-natural-look"
-  | "sealant-wet-look";
+  | "sealant-wet-look"
+  | "retaining-walls"
+  | "staircases";
 
 export type ServiceFaq = { question: string; answer: string };
 
@@ -17,6 +19,7 @@ export type Service = {
   slug: ServiceSlug;
   name: string;
   short: string;
+  description: string;
   seo: {
     title: string;
     description: string;
@@ -54,6 +57,8 @@ export const SERVICES: Service[] = [
     name: "Interlock Installation",
     short:
       "New driveways, walkways, and front entrances with a strong base and premium finish.",
+    description:
+      "Interlock installation is one of the most effective ways to upgrade your home's curb appeal and add lasting value to your property. We handle every step—from removing old surfaces and excavating the site, to building a properly compacted granular base that prevents settling and shifting over time. Our team lays each paver with precision, cutting clean edges at borders, curves, and transitions. We use quality edge restraints and polymeric sand to lock everything in place. Whether it's a driveway that needs to handle vehicle traffic, a front walkway that sets the tone for your home, or a side path connecting your backyard, we build it to look sharp and hold up through Ottawa's freeze-thaw cycles. Every project includes a final walkthrough so you know exactly how to care for your new surface.",
     seo: {
       title: `Interlock Installation in ${primaryCity}`,
       description:
@@ -145,7 +150,7 @@ export const SERVICES: Service[] = [
     ],
     gallery: [
       {
-        src: "/images/img-service/cleaned-paver.webp",
+        src: "/images/workexample/work2done.jpeg",
         alt: "Clean interlock pavers in Ottawa",
       },
       {
@@ -153,8 +158,8 @@ export const SERVICES: Service[] = [
         alt: "Interlock walkway project",
       },
       {
-        src: "/images/img-service/interlock-installation.webp",
-        alt: "Front entrance interlock",
+        src: "/images/workexample/work1done.jpeg",
+        alt: "Completed interlock driveway installation",
       },
     ],
     formRules: {
@@ -170,6 +175,8 @@ export const SERVICES: Service[] = [
     name: "Patio Installation",
     short:
       "Backyard patios designed for hosting, lounging, and clean outdoor flow.",
+    description:
+      "A well-built patio transforms your backyard into a functional living space—perfect for entertaining, relaxing, or simply enjoying the outdoors. We design and install patios using premium interlocking pavers with layouts tailored to your yard's shape, slope, and how you plan to use the space. The process starts with careful site assessment, grading for drainage, and building a solid compacted base. From there, we lay the pavers in your chosen pattern (running bond, herringbone, or custom), cut precise edges, and finish with polymeric sand joints. We can also integrate steps, retaining walls, fire pit pads, or lighting conduit if you're planning those down the road. The result is a clean, level surface that drains properly, holds up to weather, and looks great for years.",
     seo: {
       title: `Patio Installation in ${primaryCity}`,
       description:
@@ -283,6 +290,8 @@ export const SERVICES: Service[] = [
     name: "Interlock Repair",
     short:
       "Fix sunken areas, shifting borders, and loose pavers to restore a clean, safe surface.",
+    description:
+      "Over time, interlock surfaces can develop sunken spots, shifted pavers, cracked edges, or loose border stones—often caused by base erosion, tree roots, poor drainage, or normal wear. Our repair service addresses the root cause, not just the surface. We lift and remove affected pavers, assess and rebuild the base where needed, re-compact, and re-lay the stones so the surface is level, stable, and safe again. We also replace damaged pavers, tighten edge restraints, and resand joints. Whether it's a small trip hazard on a walkway or a larger section of driveway that's settled, we'll restore it to look and perform like it should. Repairs are usually completed in a day or two depending on scope.",
     seo: {
       title: `Interlock Repair in ${primaryCity}`,
       description:
@@ -369,10 +378,13 @@ export const SERVICES: Service[] = [
         src: "/images/img-service/int-repair.webp",
         alt: "Interlock repair work",
       },
-      { src: "/images/img-service/int-repair.webp", alt: "Re-leveled pavers" },
       {
-        src: "/images/img-service/int-repair.webp",
-        alt: "Fixed border and edge restraint",
+        src: "/images/workexample/work2.jpeg",
+        alt: "Pavers before repair",
+      },
+      {
+        src: "/images/workexample/work2done.jpeg",
+        alt: "Pavers after repair and re-leveling",
       },
     ],
     formRules: { showIssueType: true, showApproxArea: true, showUrgency: true },
@@ -383,6 +395,8 @@ export const SERVICES: Service[] = [
     name: "Uneven Pavers Leveling",
     short:
       "Lift and re-level uneven pavers to eliminate trip hazards and restore clean lines.",
+    description:
+      "Uneven pavers aren't just an eyesore—they're a trip hazard and a sign that the base underneath has shifted. Our leveling service targets the problem at its source. We carefully lift the affected pavers, dig out and re-grade the base material, compact it properly, and re-lay the stones so the surface is flat and stable again. We also check for drainage issues that may have contributed to the settling and address those at the same time. This service is ideal for walkways, driveways, and patios where sections have sunk, tilted, or separated over the years. Most leveling jobs can be completed in a single day, and the result is a surface that's safe, even, and visually consistent with the rest of your interlock.",
     seo: {
       title: `Uneven Pavers Leveling in ${primaryCity}`,
       description:
@@ -481,6 +495,8 @@ export const SERVICES: Service[] = [
     slug: "pressure-washing-resanding",
     name: "Pressure Washing + Resanding",
     short: "Deep clean interlock and refresh joints for a sharp, renewed look.",
+    description:
+      "Dirt, moss, algae, and years of weathering can make even quality interlock look tired and worn. Our pressure washing service uses professional-grade equipment to deep clean your pavers without damaging the surface or displacing the base. After washing, we sweep out the old sand from the joints and refill with fresh kiln-dried or polymeric sand to stabilize the surface and reduce weed growth. The result is a dramatic before-and-after difference—your interlock looks refreshed, the colour comes back, and the joints are tight and clean. This service is a great option if your interlock is structurally sound but just needs a facelift. We recommend pressure washing and resanding every few years to keep your surface looking its best.",
     seo: {
       title: `Pressure Washing & Resanding in ${primaryCity}`,
       description:
@@ -587,6 +603,8 @@ export const SERVICES: Service[] = [
     name: "Polymeric Sand",
     short:
       "Lock in joints, reduce weeds, and upgrade the look with polymeric sand finishing.",
+    description:
+      "Polymeric sand is a binding material that fills the joints between interlocking pavers and hardens when activated with water. It's a major upgrade over regular sand—it resists washout from rain, prevents weeds and ants from pushing through the joints, and gives the surface a cleaner, more finished look. Our polymeric sand service includes cleaning the joints, removing old sand, sweeping in the new product, compacting it into the gaps, and activating it with a controlled mist. We use premium-grade polymeric sand that's flexible enough to handle expansion and contraction through seasons. This service works great on its own or as the final step after a pressure wash, and it's one of the most cost-effective ways to refresh an aging interlock surface.",
     seo: {
       title: `Polymeric Sand in ${primaryCity}`,
       description:
@@ -672,12 +690,12 @@ export const SERVICES: Service[] = [
         alt: "Polymeric sand installation",
       },
       {
-        src: "/images/img-service/polymeric-sand.webp",
-        alt: "Finished paver joints",
+        src: "/images/workexample/work3.jpeg",
+        alt: "Paver joints before polymeric sand",
       },
       {
-        src: "/images/img-service/polymeric-sand.webp",
-        alt: "Clean border detail with sand joints",
+        src: "/images/workexample/work3done.jpeg",
+        alt: "Finished paver joints with polymeric sand",
       },
     ],
     formRules: {
@@ -692,6 +710,8 @@ export const SERVICES: Service[] = [
     name: "Turf Installation",
     short:
       "Low-maintenance, always-green turf with proper base prep and drainage.",
+    description:
+      "Artificial turf gives you a lush, green lawn year-round without the watering, mowing, or seasonal brown patches that come with natural grass. We install turf over a properly prepared base that includes grading for drainage, compacted aggregate, and a weed barrier. The turf itself is UV-resistant, pet-friendly, and soft underfoot. We secure the edges cleanly against interlock borders, garden beds, or fencing, and infill with sand for a natural feel and added stability. Turf is a great fit for backyards, side yards, pet areas, and rooftop terraces—anywhere you want a clean, low-maintenance green surface. We handle everything from removing the existing lawn or soil to the final brushing and infill.",
     seo: {
       title: `Turf Installation in ${primaryCity}`,
       description:
@@ -774,10 +794,13 @@ export const SERVICES: Service[] = [
         alt: "Backyard turf installation",
       },
       {
-        src: "/images/img-service/turf-inst.webp",
-        alt: "Turf with interlock border",
+        src: "/images/workexample/work1.jpeg",
+        alt: "Yard before turf installation",
       },
-      { src: "/images/img-service/turf-inst.webp", alt: "Turf detail closeup" },
+      {
+        src: "/images/workexample/work1done.jpeg",
+        alt: "Completed turf and interlock border",
+      },
     ],
     formRules: {
       showApproxSqFt: true,
@@ -791,6 +814,8 @@ export const SERVICES: Service[] = [
     name: "Natural Look Sealant",
     short:
       "Protect and enhance your interlock with a natural-looking sealant that preserves the original appearance.",
+    description:
+      "A natural look sealant protects your interlock without changing its appearance. It penetrates the paver surface to guard against stains, UV fading, oil spills, and moisture absorption—while keeping the original colour and texture of the stone. This is the preferred option if you want protection without a glossy or darkened finish. Our application process starts with a thorough cleaning and drying of the surface, followed by an even coat of a breathable, high-quality sealant. It dries clear and doesn't leave a film or sheen. We recommend reapplying every 3–5 years depending on traffic and exposure. Natural look sealant is ideal for driveways, walkways, patios, and pool decks where you want to preserve the original aesthetic while extending the life of the stone.",
     seo: {
       title: `Natural Look Sealant in ${primaryCity}`,
       description:
@@ -876,12 +901,12 @@ export const SERVICES: Service[] = [
     ],
     gallery: [
       {
-        src: "/images/img-service/cleaned-paver.webp",
+        src: "/images/workexample/work3done.jpeg",
         alt: "Natural look sealant on interlock pavers",
       },
       {
-        src: "/images/img-service/interlock-installation.webp",
-        alt: "Sealed interlock driveway",
+        src: "/images/workexample/work1done.jpeg",
+        alt: "Sealed interlock driveway with natural finish",
       },
       {
         src: "/images/img-service/cleaned-paver.webp",
@@ -899,6 +924,8 @@ export const SERVICES: Service[] = [
     name: "Wet Look Sealant",
     short:
       "Enhance your interlock with a premium wet look sealant that adds depth and richness to the stone.",
+    description:
+      "A wet look sealant enhances the natural colour of your pavers and gives the surface a rich, slightly glossy finish—similar to how the stone looks when it's just been rained on. It deepens the tones in the stone, brings out texture and pattern detail, and provides strong protection against stains, oil, UV fading, and moisture penetration. We clean and prep the surface thoroughly before applying the sealant in even coats. The result is a striking, polished look that makes driveways, walkways, and patios stand out. Wet look sealant is a popular choice for homeowners who want their interlock to make a visual impact. We recommend reapplication every 3–5 years depending on exposure and use.",
     seo: {
       title: `Wet Look Sealant in ${primaryCity}`,
       description:
@@ -988,11 +1015,11 @@ export const SERVICES: Service[] = [
         alt: "Wet look sealant on interlock pavers",
       },
       {
-        src: "/images/img-service/interlock-installation.webp",
+        src: "/images/workexample/work3done.jpeg",
         alt: "Enhanced interlock with wet look sealant",
       },
       {
-        src: "/images/img-service/cleaned-paver.webp",
+        src: "/images/img-service/interlock-installation.webp",
         alt: "Rich finish sealant detail",
       },
     ],
@@ -1001,6 +1028,244 @@ export const SERVICES: Service[] = [
       showLastServiceDate: true,
     },
     tags: ["sealant", "washing"],
+  },
+  {
+    slug: "retaining-walls",
+    name: "Retaining Walls",
+    short:
+      "Engineered retaining walls for grade support, drainage control, and a clean finished landscape.",
+    description:
+      "Retaining walls are built to hold back soil, manage elevation changes, and make sloped yards functional and safe. A properly built wall does more than look good; it protects your property from washout, erosion, and long-term movement. We start by assessing grade, load, and drainage so the wall is designed for your site conditions. Then we excavate, prepare a stable base, install drainage stone and relief paths, and build with quality wall systems that are installed to manufacturer standards. Whether you need a low garden wall, a multi-tier backyard wall, or structural support along a driveway or walkway, we focus on clean lines, reliable stability, and a finish that integrates with your interlock and landscaping.",
+    seo: {
+      title: `Retaining Walls in ${primaryCity}`,
+      description:
+        "Professional retaining wall installation with proper base prep, drainage, and structural detailing for long-term stability and curb appeal.",
+    },
+    hero: {
+      headline: "Retaining walls that look sharp and hold strong.",
+      subheadline:
+        "Built with proper base, drainage, and alignment so your wall stays stable and your landscape stays protected.",
+    },
+    benefits: [
+      {
+        title: "Slope control + safety",
+        description:
+          "Stabilize elevation changes and reduce erosion or washout risk.",
+      },
+      {
+        title: "Drainage-minded build",
+        description:
+          "We design with drainage behind the wall to reduce hydrostatic pressure.",
+      },
+      {
+        title: "Premium curb appeal",
+        description:
+          "Clean wall lines and integrated finishes that elevate the whole property.",
+      },
+    ],
+    process: [
+      {
+        title: "Site assessment + layout",
+        description:
+          "We evaluate grade, loads, and drainage, then map the wall alignment and height.",
+      },
+      {
+        title: "Excavate + base prep",
+        description:
+          "We dig to depth, compact the base, and establish proper leveling for stability.",
+      },
+      {
+        title: "Wall build + drainage",
+        description:
+          "We install courses, backfill with drainage stone, and include relief as required.",
+      },
+      {
+        title: "Finish + tie-ins",
+        description:
+          "We cap and detail the wall, then blend transitions into steps, patio, or interlock.",
+      },
+    ],
+    pricingFactors: [
+      "Total wall length, height, and complexity",
+      "Site access and excavation conditions",
+      "Drainage requirements and backfill volume",
+      "Wall block system and cap style",
+      "Engineering/permitting requirements for taller walls",
+      "Tie-ins with stairs, patios, or walkways",
+    ],
+    faqs: [
+      {
+        question: "Do retaining walls need drainage?",
+        answer:
+          "Yes. Proper drainage behind the wall is essential to reduce pressure and improve long-term performance.",
+      },
+      {
+        question: "Do I need a permit for a retaining wall?",
+        answer:
+          "It depends on wall height and local code requirements. We can guide you on what is needed for your project.",
+      },
+      {
+        question: "How long do retaining walls last?",
+        answer:
+          "With proper base prep, drainage, and installation, retaining walls can last for decades.",
+      },
+      {
+        question: "Can you build retaining walls on sloped backyards?",
+        answer:
+          "Yes. Sloped yards are one of the most common use cases and often benefit the most from properly designed walls.",
+      },
+      {
+        question: "Can retaining walls be combined with steps or patios?",
+        answer:
+          "Absolutely. We regularly integrate retaining walls with staircases, patio areas, and walkways for a cohesive layout.",
+      },
+      {
+        question: "What type of blocks do you use?",
+        answer:
+          "We use quality retaining wall systems selected for your project height, load conditions, and desired look.",
+      },
+    ],
+    gallery: [
+      {
+        src: "/images/workexample/work1done.jpeg",
+        alt: "Retaining wall with clean stone finish in Ottawa",
+      },
+      {
+        src: "/images/img-service/interlock-installation.webp",
+        alt: "Backyard retaining wall integrated with interlock",
+      },
+      {
+        src: "/images/workexample/work2done.jpeg",
+        alt: "Tiered retaining wall and walkway transition",
+      },
+    ],
+    formRules: {
+      showApproxSqFt: true,
+      showStylePreference: true,
+      showTimeline: true,
+      showBudgetRange: true,
+      showDrainageIssues: true,
+    },
+    tags: ["interlock", "patio"],
+  },
+  {
+    slug: "staircases",
+    name: "Interlock Staircases",
+    short:
+      "Custom outdoor staircases built for safe access, clean transitions, and premium visual impact.",
+    description:
+      "Outdoor staircases connect levels, improve access, and create a finished architectural look across your front entrance, side yard, or backyard. A quality staircase needs precise rise/run consistency, proper foundation support, and clean tie-ins to surrounding interlock or landscape features. We design and build interlock and block stair systems that are both durable and comfortable to use, with attention to tread depth, edge alignment, and long-term stability. Whether you need a small front entry staircase, wide backyard terrace steps, or stairs integrated into a retaining wall design, we build with safety, drainage, and visual balance in mind so the result feels intentional and high-end.",
+    seo: {
+      title: `Interlock Staircases in ${primaryCity}`,
+      description:
+        "Custom outdoor staircases built with proper rise/run, stable base support, and clean interlock integration for safe, long-lasting access.",
+    },
+    hero: {
+      headline: "Outdoor staircases that feel solid and look premium.",
+      subheadline:
+        "Built for safe daily use with precise dimensions, strong support, and clean design continuity.",
+    },
+    benefits: [
+      {
+        title: "Safe elevation transitions",
+        description:
+          "Consistent step geometry and stable construction for confident footing.",
+      },
+      {
+        title: "Integrated design",
+        description:
+          "Stairs that tie in seamlessly with your driveway, walkway, patio, or wall.",
+      },
+      {
+        title: "Durable through seasons",
+        description:
+          "Proper base and drainage reduce shifting through Ottawa freeze/thaw cycles.",
+      },
+    ],
+    process: [
+      {
+        title: "Measure + stair design",
+        description:
+          "We calculate rise/run and layout based on code-minded, comfortable stair geometry.",
+      },
+      {
+        title: "Excavation + structural prep",
+        description:
+          "We build a stable base and supports to handle daily traffic and seasonal movement.",
+      },
+      {
+        title: "Install treads/risers + edges",
+        description:
+          "We install step components with tight alignment and clean side transitions.",
+      },
+      {
+        title: "Detail + final walkthrough",
+        description:
+          "We complete finishing details, confirm consistency, and review care guidance with you.",
+      },
+    ],
+    pricingFactors: [
+      "Number of steps and overall staircase width",
+      "Material system (blocks, slabs, coping, accent borders)",
+      "Site access and existing structure removal",
+      "Need for retaining wall integration or landings",
+      "Lighting conduit, rail prep, or additional finishes",
+      "Drainage and grading corrections around stairs",
+    ],
+    faqs: [
+      {
+        question: "Do outdoor stairs settle over time?",
+        answer:
+          "They can if base prep is weak. With proper excavation, compaction, and support, movement is minimized.",
+      },
+      {
+        question: "Can you match the staircase to existing interlock?",
+        answer:
+          "Yes. We can often match or closely blend materials, colours, and edge details for a cohesive look.",
+      },
+      {
+        question: "How do you make sure stairs are safe?",
+        answer:
+          "We focus on consistent rise/run dimensions, stable treads, and proper drainage to reduce slip and trip risk.",
+      },
+      {
+        question: "Can stairs be combined with retaining walls?",
+        answer:
+          "Yes. Many projects integrate walls and stairs together for both function and visual balance.",
+      },
+      {
+        question: "Do you offer front entrance staircase upgrades?",
+        answer:
+          "Absolutely. Front steps are one of the most common projects and a major curb-appeal upgrade.",
+      },
+      {
+        question: "How long does a staircase project take?",
+        answer:
+          "Most projects are completed in a few days depending on size, access, and complexity.",
+      },
+    ],
+    gallery: [
+      {
+        src: "/images/workexample/work2done.jpeg",
+        alt: "Interlock staircase with clean front entry finish",
+      },
+      {
+        src: "/images/workexample/work3done.jpeg",
+        alt: "Backyard staircase connecting patio levels",
+      },
+      {
+        src: "/images/img-service/interlock-installation.webp",
+        alt: "Outdoor stone staircase integrated with walkway",
+      },
+    ],
+    formRules: {
+      showApproxSqFt: true,
+      showStylePreference: true,
+      showTimeline: true,
+      showBudgetRange: true,
+      showApproxArea: true,
+    },
+    tags: ["interlock", "patio"],
   },
 ];
 

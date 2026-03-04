@@ -52,6 +52,10 @@ Option B (split vars):
 - `NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID`
 - `NEXT_PUBLIC_FIREBASE_APP_ID`
 
+#### n8n webhook (optional)
+
+- `NEXT_PUBLIC_N8N_WEBHOOK_URL` — If set, form submissions are also forwarded to this webhook via POST (JSON body). Does not block or affect the main flow.
+
 ## EmailJS template variables expected
 
 The quote form sends these template params:

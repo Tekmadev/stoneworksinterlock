@@ -6,6 +6,7 @@ import { BUSINESS } from "@/config/business";
 import { SERVICES } from "@/data/services";
 import { TESTIMONIALS } from "@/data/testimonials";
 import { WORK_ITEMS } from "@/data/work";
+import { getAllBlogPosts } from "@/data/blog";
 import { buildMetadata, localBusinessJsonLd } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
 import { ServiceCard } from "@/components/ServiceCard";
@@ -21,7 +22,7 @@ import { Card } from "@/components/ui/Card";
 export const metadata: Metadata = buildMetadata({
   title: `${BUSINESS.name} - Interlock & Hardscaping in ${BUSINESS.primaryCity}`,
   description:
-    `Call ${BUSINESS.phone} for a free quote. High-end interlock installation, repair, leveling, pressure washing/resanding, polymeric sand, patios, and turf in ${BUSINESS.primaryCity}.`,
+    `Call ${BUSINESS.phone} for a free quote. High-end interlock installation, repair, leveling, retaining walls, staircases, pressure washing/resanding, polymeric sand, patios, and turf in ${BUSINESS.primaryCity}.`,
   path: "/",
 });
 
@@ -116,8 +117,8 @@ export default function Home() {
         <FadeIn delay={0.08}>
           <div className="mt-8">
             <BeforeAfterSlider
-              beforeSrc="/images/img-service/before.webp"
-              afterSrc="/images/img-service/after.webp"
+              beforeSrc="/images/img-service/after.webp"
+              afterSrc="/images/img-service/before.webp"
               alt="Uneven pavers leveled"
             />
           </div>
@@ -248,6 +249,58 @@ export default function Home() {
                 </div>
               </Card>
             ))}
+          </div>
+        </FadeIn>
+      </Section>
+
+      {/* Blog highlights + cross-links for SEO */}
+      <Section className="pt-0">
+        <FadeIn>
+          <div className="flex items-end justify-between gap-6">
+            <div className="max-w-2xl">
+              <h2 className="text-2xl font-semibold tracking-tight">
+                Tips &amp; expert advice
+              </h2>
+              <p className="mt-2 text-sm leading-7 text-zinc-600">
+                Practical guides from Ottawa interlock pros to help you make better decisions.
+              </p>
+            </div>
+            <Link
+              className="hidden text-sm font-semibold text-accent hover:text-zinc-950 sm:inline"
+              href="/blog/"
+            >
+              All articles
+            </Link>
+          </div>
+        </FadeIn>
+        <FadeIn delay={0.08}>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            {getAllBlogPosts().slice(0, 3).map((post) => (
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}/`}
+                className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm shadow-black/5 transition-shadow hover:shadow-md"
+              >
+                <p className="text-xs font-semibold uppercase text-zinc-500">{post.category}</p>
+                <p className="mt-2 text-sm font-semibold text-zinc-950 line-clamp-2">{post.title}</p>
+                <p className="mt-1 text-xs leading-5 text-zinc-500 line-clamp-2">{post.description}</p>
+              </Link>
+            ))}
+          </div>
+        </FadeIn>
+        <FadeIn delay={0.12}>
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm">
+            <Link href="/gallery/" className="font-semibold text-accent hover:text-zinc-950 hover:underline">
+              View gallery
+            </Link>
+            <span className="text-zinc-300">|</span>
+            <Link href="/faq/" className="font-semibold text-accent hover:text-zinc-950 hover:underline">
+              FAQ
+            </Link>
+            <span className="text-zinc-300">|</span>
+            <Link href="/about/" className="font-semibold text-accent hover:text-zinc-950 hover:underline">
+              About us
+            </Link>
           </div>
         </FadeIn>
       </Section>
