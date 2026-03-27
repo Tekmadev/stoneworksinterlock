@@ -34,10 +34,7 @@ export type Service = {
   faqs: ServiceFaq[];
   gallery: { src: string; alt: string }[];
   formRules: {
-    showApproxSqFt?: boolean;
     showStylePreference?: boolean;
-    showTimeline?: boolean;
-    showBudgetRange?: boolean;
     showIssueType?: boolean;
     showApproxArea?: boolean;
     showUrgency?: boolean;
@@ -58,16 +55,16 @@ export const SERVICES: Service[] = [
     short:
       "New driveways, walkways, and front entrances with a strong base and premium finish.",
     description:
-      "Interlock installation is one of the most effective ways to upgrade your home's curb appeal and add lasting value to your property. We handle every step—from removing old surfaces and excavating the site, to building a properly compacted granular base that prevents settling and shifting over time. Our team lays each paver with precision, cutting clean edges at borders, curves, and transitions. We use quality edge restraints and polymeric sand to lock everything in place. Whether it's a driveway that needs to handle vehicle traffic, a front walkway that sets the tone for your home, or a side path connecting your backyard, we build it to look sharp and hold up through Ottawa's freeze-thaw cycles. Every project includes a final walkthrough so you know exactly how to care for your new surface.",
+      "Interlock installation is one of the most effective ways to upgrade your home's curb appeal and add lasting value to your property. We handle every step, from removing old surfaces and excavating the site, to building a properly compacted granular base that prevents settling and shifting over time. Our team lays each paver with precision, cutting clean edges at borders, curves, and transitions. We use quality edge restraints and polymeric sand to lock everything in place. Whether it's a driveway that needs to handle vehicle traffic, a front walkway that sets the tone for your home, or a side path connecting your backyard, we build it to look sharp and hold up through Ottawa's freeze-thaw cycles. Every project includes a final walkthrough so you know exactly how to care for your new surface.",
     seo: {
       title: `Interlock Installation in ${primaryCity}`,
       description:
-        "Premium interlock installation with proper excavation, base prep, and tight clean edges. Built to look sharp and last for years.",
+        "Driveway, walkway, and patio interlock installation in Ottawa. Premium pavers, excavation, base prep, and edges built for freeze-thaw.",
     },
     hero: {
-      headline: "Interlock installation that looks premium and stays level.",
+      headline: "Interlock installation in Ottawa that looks premium and stays level.",
       subheadline:
-        "We build from the base up: excavation, compaction, and clean edges for a crisp finish that holds up through freeze/thaw.",
+        "We build from the base up for Ottawa homes: excavation, compaction, and clean edges for a crisp finish through freeze-thaw cycles.",
     },
     benefits: [
       {
@@ -120,32 +117,32 @@ export const SERVICES: Service[] = [
       {
         question: "How long does interlock installation take?",
         answer:
-          "Most projects take 1-5 days depending on size, access, and complexity.",
+          "Most interlock installation projects in Ottawa take between 1 and 5 days. Smaller walkways can sometimes be done in a single day, while larger driveways with curves or borders usually take 3 to 5 days. Weather and access to the site can also affect timing.",
       },
       {
         question: "Do you handle permits?",
         answer:
-          "If a permit is required for your scope, we’ll guide you through what’s needed and help with documentation.",
+          "Most standard interlock work like driveways and walkways doesn't require a permit, but certain projects near property lines or involving grade changes might. If a permit is needed for your scope, we'll walk you through the process and help with any documentation the city requires.",
       },
       {
         question: "Will my interlock shift in winter?",
         answer:
-          "With proper base prep and edge restraints, movement is minimized and the surface stays stable.",
+          "Ottawa's freeze-thaw cycles can be tough on outdoor surfaces, but a properly built base is the best defense. We excavate to the right depth, compact in lifts, and install solid edge restraints so the pavers stay locked in place. Some minor seasonal movement is normal, but a well-built system handles it without noticeable shifting.",
       },
       {
         question: "What pattern is best for driveways?",
         answer:
-          "Herringbone patterns are a popular choice for strength and visual impact.",
+          "For driveways, herringbone is the go-to pattern because it distributes vehicle weight really well and resists shifting under traffic. Running bond is another option that gives a cleaner, more modern look. We can walk you through samples and help you pick something that fits your home's style and the way the space will be used.",
       },
       {
         question: "Can you improve drainage?",
         answer:
-          "Yes. We can regrade areas, add drains, and direct water away from foundations.",
+          "Yes, drainage is something we factor into every project. We can regrade the surface to direct water away from your foundation, add catch basins or channel drains where needed, and tie into existing downspouts. Poor drainage is one of the biggest reasons interlock fails early, so getting it right up front saves you money down the road.",
       },
       {
         question: "Do you offer a warranty?",
         answer:
-          "We stand behind our workmanship; warranty details depend on scope and materials.",
+          "Yes, we stand behind our work. Warranty details depend on the scope of the project and the materials used, so we'll go over everything with you before we start. The paver manufacturers also offer their own product warranties, and we make sure to install according to their specifications so those stay valid.",
       },
     ],
     gallery: [
@@ -163,10 +160,7 @@ export const SERVICES: Service[] = [
       },
     ],
     formRules: {
-      showApproxSqFt: true,
       showStylePreference: true,
-      showTimeline: true,
-      showBudgetRange: true,
     },
     tags: ["interlock"],
   },
@@ -176,16 +170,16 @@ export const SERVICES: Service[] = [
     short:
       "Backyard patios designed for hosting, lounging, and clean outdoor flow.",
     description:
-      "A well-built patio transforms your backyard into a functional living space—perfect for entertaining, relaxing, or simply enjoying the outdoors. We design and install patios using premium interlocking pavers with layouts tailored to your yard's shape, slope, and how you plan to use the space. The process starts with careful site assessment, grading for drainage, and building a solid compacted base. From there, we lay the pavers in your chosen pattern (running bond, herringbone, or custom), cut precise edges, and finish with polymeric sand joints. We can also integrate steps, retaining walls, fire pit pads, or lighting conduit if you're planning those down the road. The result is a clean, level surface that drains properly, holds up to weather, and looks great for years.",
+      "A well-built patio transforms your backyard into a functional living space, perfect for entertaining, relaxing, or simply enjoying the outdoors. We design and install patios using premium interlocking pavers with layouts tailored to your yard's shape, slope, and how you plan to use the space. The process starts with careful site assessment, grading for drainage, and building a solid compacted base. From there, we lay the pavers in your chosen pattern (running bond, herringbone, or custom), cut precise edges, and finish with polymeric sand joints. We can also integrate steps, retaining walls, fire pit pads, or lighting conduit if you're planning those down the road. The result is a clean, level surface that drains properly, holds up to weather, and looks great for years.",
     seo: {
       title: `Patio Installation in ${primaryCity}`,
       description:
-        "Custom patio installation with thoughtful layout, drainage, and premium finishing details. Built for outdoor living.",
+        "Ottawa patio contractors for backyard patio design and install. Interlock, drainage, and finishes built for Canadian seasons.",
     },
     hero: {
-      headline: "Patios that feel like an outdoor living room.",
+      headline: "Ottawa patios built for outdoor living.",
       subheadline:
-        "From modern clean lines to classic warm textures, we build patios with comfort, durability, and flow in mind.",
+        "Backyard patio design and install in Ottawa with layout, drainage, and interlock details suited to Canadian seasons.",
     },
     benefits: [
       {
@@ -208,7 +202,7 @@ export const SERVICES: Service[] = [
       {
         title: "Design + layout",
         description:
-          "We confirm shape, borders, steps, and how you’ll use the space.",
+          "We confirm shape, borders, steps, and how you'll use the space.",
       },
       {
         title: "Excavation + drainage",
@@ -235,32 +229,32 @@ export const SERVICES: Service[] = [
       {
         question: "Can you build around an existing deck?",
         answer:
-          "Yes. We can tie in cleanly and address grading at the transition.",
+          "Absolutely. We regularly build patios that tie into existing decks, and we pay close attention to the transition point so drainage flows properly and the two surfaces sit at the right height relative to each other. We'll also make sure the grading around the deck posts doesn't create pooling issues.",
       },
       {
         question: "Do patios need a slope?",
         answer:
-          "Yes. A subtle slope helps water drain and keeps the patio dry and safe.",
+          "Yes, every patio needs a slight slope to move water away from your house and off the surface. The standard is about a quarter inch per foot, which is barely noticeable when you're walking on it but makes a big difference for drainage. Without it, you'd end up with standing water that can freeze in winter and create slippery spots.",
       },
       {
-        question: "What’s better: slabs or pavers?",
+        question: "What's better: slabs or pavers?",
         answer:
-          "Slabs give a modern look; pavers offer pattern options and easy spot repairs.",
+          "It depends on the look you're going for and how you plan to use the space. Slabs give you a sleek, modern feel with fewer joint lines, while pavers offer more pattern variety and are easier to repair since you can pull out individual pieces. Pavers also tend to handle Ottawa's freeze-thaw cycles a bit better because the joints give them room to flex.",
       },
       {
         question: "Do you add steps?",
         answer:
-          "We can include steps where needed for safe, comfortable access.",
+          "Yes, we build steps as part of the patio project whenever there's a grade change to deal with. This is pretty common in Ottawa backyards where the ground slopes away from the house. We make sure the rise and run on each step is consistent so they're comfortable and safe to use, and we match them to your patio material for a clean, unified look.",
       },
       {
         question: "Will weeds grow through?",
         answer:
-          "With proper base and jointing, weeds are minimized; maintenance keeps it looking fresh.",
+          "A solid base layer and properly filled joints go a long way toward preventing weeds. Polymeric sand is especially effective because it hardens in the joints and makes it tough for seeds to take root. You may still see the occasional weed pop up over the years, but regular sweeping and a quick spot treatment keeps things under control.",
       },
       {
         question: "How do I maintain a patio?",
         answer:
-          "Routine sweeping, occasional wash, and joint sand upkeep keeps it crisp.",
+          "Patios are pretty low maintenance overall. Regular sweeping keeps debris from building up in the joints, and a pressure wash every couple of years brings the colour back. You'll also want to keep an eye on the joint sand and top it up if you notice it wearing down. If you go with polymeric sand, it lasts longer but should still be checked every few years.",
       },
     ],
     gallery: [
@@ -278,10 +272,7 @@ export const SERVICES: Service[] = [
       },
     ],
     formRules: {
-      showApproxSqFt: true,
       showStylePreference: true,
-      showTimeline: true,
-      showBudgetRange: true,
     },
     tags: ["patio"],
   },
@@ -291,16 +282,16 @@ export const SERVICES: Service[] = [
     short:
       "Fix sunken areas, shifting borders, and loose pavers to restore a clean, safe surface.",
     description:
-      "Over time, interlock surfaces can develop sunken spots, shifted pavers, cracked edges, or loose border stones—often caused by base erosion, tree roots, poor drainage, or normal wear. Our repair service addresses the root cause, not just the surface. We lift and remove affected pavers, assess and rebuild the base where needed, re-compact, and re-lay the stones so the surface is level, stable, and safe again. We also replace damaged pavers, tighten edge restraints, and resand joints. Whether it's a small trip hazard on a walkway or a larger section of driveway that's settled, we'll restore it to look and perform like it should. Repairs are usually completed in a day or two depending on scope.",
+      "Over time, interlock surfaces can develop sunken spots, shifted pavers, cracked edges, or loose border stones, often caused by base erosion, tree roots, poor drainage, or normal wear. Our repair service addresses the root cause, not just the surface. We lift and remove affected pavers, assess and rebuild the base where needed, re-compact, and re-lay the stones so the surface is level, stable, and safe again. We also replace damaged pavers, tighten edge restraints, and resand joints. Whether it's a small trip hazard on a walkway or a larger section of driveway that's settled, we'll restore it to look and perform like it should. Repairs are usually completed in a day or two depending on scope.",
     seo: {
       title: `Interlock Repair in ${primaryCity}`,
       description:
-        "Interlock repair for sinking, shifting, and damaged pavers. We re-level, rebuild weak areas, and restore clean lines.",
+        "Local Ottawa interlock repair for driveways, walkways, and patios. Sinking, shifting, and loose pavers fixed with base and edge work.",
     },
     hero: {
-      headline: "Repair work that blends in and holds up.",
+      headline: "Interlock repair in Ottawa that blends in and holds up.",
       subheadline:
-        "We diagnose the cause (base, edge restraint, drainage) and fix it correctly so the issue doesn’t return.",
+        "We diagnose base, edges, and drainage on Ottawa properties and fix problems so your surface stays level and safe.",
     },
     benefits: [
       {
@@ -346,31 +337,32 @@ export const SERVICES: Service[] = [
       {
         question: "Why does interlock sink?",
         answer:
-          "Common causes are poor base compaction, drainage issues, or failing edge restraints.",
+          "The most common reason is that the base underneath wasn't compacted properly when it was originally installed, so over time it settles unevenly. Water is another big factor, especially in Ottawa where freeze-thaw cycles can wash out base material and create voids under the pavers. Failing edge restraints can also let the whole system shift outward, which creates gaps and low spots.",
       },
       {
         question: "Can you match existing pavers?",
         answer:
-          "Often yes. If the product is still available; otherwise we suggest a close match or feature border.",
+          "In most cases, yes. If the original paver is still being manufactured, we can source the same product for a seamless repair. If it's been discontinued, we'll find the closest match available or we can use a contrasting paver as a feature border to make the transition look intentional rather than patched.",
       },
       {
         question: "Is re-leveling better than replacing?",
         answer:
-          "If the pavers are in good shape, re-leveling is usually the best value.",
+          "If your pavers are still in good condition and just the base has failed, re-leveling is almost always the smarter move. It costs less than a full replacement and gives you a solid result. We'll assess the pavers during the repair and let you know honestly if any need to be swapped out.",
       },
       {
         question: "How long do repairs take?",
         answer:
-          "Most repairs are completed in a few hours to 1-2 days depending on scope.",
+          "Small repairs like a sunken section of walkway can often be done in a few hours. Larger areas that need base rebuilding or drainage corrections might take 1 to 2 days. We'll give you a clear timeline after the initial assessment so you know what to expect.",
       },
       {
         question: "Will the repaired area look different?",
         answer:
-          "We aim for a seamless blend; cleaning/sealing can help unify the overall look.",
+          "We do our best to blend the repair into the surrounding surface so it's not obvious. There can be some slight colour variation if the existing pavers have weathered over the years, but a good cleaning or sealing of the full area usually brings everything together. Most homeowners are surprised at how well it matches.",
       },
       {
         question: "Do you fix pooling water?",
-        answer: "Yes. We can regrade and adjust slope to improve drainage.",
+        answer:
+          "Yes, pooling water is one of the most common issues we deal with. We can regrade the affected area to create proper slope, add drainage features if needed, and make sure water is moving away from your home's foundation. Fixing the drainage is important because standing water is usually what caused the damage in the first place.",
       },
     ],
     gallery: [
@@ -396,16 +388,16 @@ export const SERVICES: Service[] = [
     short:
       "Lift and re-level uneven pavers to eliminate trip hazards and restore clean lines.",
     description:
-      "Uneven pavers aren't just an eyesore—they're a trip hazard and a sign that the base underneath has shifted. Our leveling service targets the problem at its source. We carefully lift the affected pavers, dig out and re-grade the base material, compact it properly, and re-lay the stones so the surface is flat and stable again. We also check for drainage issues that may have contributed to the settling and address those at the same time. This service is ideal for walkways, driveways, and patios where sections have sunk, tilted, or separated over the years. Most leveling jobs can be completed in a single day, and the result is a surface that's safe, even, and visually consistent with the rest of your interlock.",
+      "Uneven pavers aren't just an eyesore. They're a trip hazard and a sign that the base underneath has shifted. Our leveling service targets the problem at its source. We carefully lift the affected pavers, dig out and re-grade the base material, compact it properly, and re-lay the stones so the surface is flat and stable again. We also check for drainage issues that may have contributed to the settling and address those at the same time. This service is ideal for walkways, driveways, and patios where sections have sunk, tilted, or separated over the years. Most leveling jobs can be completed in a single day, and the result is a surface that's safe, even, and visually consistent with the rest of your interlock.",
     seo: {
       title: `Uneven Pavers Leveling in ${primaryCity}`,
       description:
-        "Professional paver leveling to correct sinking and shifting. Restore a smooth, safe surface with proper base correction.",
+        "Ottawa paver leveling for uneven driveways, walkways, and patios. We correct the base and slope for a safe, even surface.",
     },
     hero: {
-      headline: "Uneven pavers? We re-level them the right way.",
+      headline: "Uneven pavers in Ottawa? We re-level them the right way.",
       subheadline:
-        "We lift, correct the base, and reinstall with the proper slope so your surface looks clean and feels safe again.",
+        "We lift, correct the base, and reinstall with proper slope so your driveway or walkway looks clean and feels safe again.",
     },
     benefits: [
       {
@@ -448,30 +440,32 @@ export const SERVICES: Service[] = [
       {
         question: "Can you level only a small section?",
         answer:
-          "Yes. We can isolate problem areas and blend the repair in cleanly.",
+          "Yes, we do this all the time. We can lift just the affected section, fix the base underneath, and reinstall the pavers so the repair blends in with the rest of the surface. There's no need to redo the entire area if the problem is localized to one spot.",
       },
       {
         question: "Do you need to remove all pavers?",
-        answer: "Not always. We lift only what’s needed for a stable fix.",
+        answer:
+          "Not usually. We only remove the pavers in the area that's actually affected, plus a small buffer around it to make sure we're getting the full extent of the base issue. This keeps the job faster and more affordable while still giving you a solid, long-lasting fix.",
       },
       {
         question: "Will it happen again?",
         answer:
-          "We address root causes like base depth and drainage to reduce recurrence.",
+          "Our goal is to fix the cause, not just the symptom. We dig down to see what went wrong with the base, whether it's poor compaction, water erosion, or tree roots, and we correct it properly. In Ottawa, freeze-thaw cycles are a major factor, so we make sure the base depth and drainage are set up to handle that.",
       },
       {
         question: "Is leveling noisy or messy?",
         answer:
-          "There’s some lifting and compaction, but we keep the site clean and controlled.",
+          "There's some noise from the plate compactor, and we do need to move material around, but it's not nearly as disruptive as a full installation. We protect the surrounding area, keep our workspace tidy, and clean up everything when we're done. Most leveling jobs are wrapped up in a single day.",
       },
       {
         question: "Do you re-sand joints afterward?",
-        answer: "Yes. Re-sanding is critical for paver lock-in and stability.",
+        answer:
+          "Yes, always. Re-sanding the joints is a critical final step because it's what locks the pavers together and keeps them from shifting. We sweep sand into every joint, compact it, and top it off. If your budget allows, we can use polymeric sand for even better weed resistance and joint stability.",
       },
       {
         question: "Can you improve water pooling?",
         answer:
-          "Yes. Slope corrections and drainage work can solve pooling issues.",
+          "Yes, and honestly this is one of the main reasons people call us. We can adjust the slope of the leveled area so water drains properly instead of sitting on the surface. In some cases we'll also add a drain or extend the grading to move water further from your foundation, especially if pooling has been an ongoing problem.",
       },
     ],
     gallery: [
@@ -496,16 +490,16 @@ export const SERVICES: Service[] = [
     name: "Pressure Washing + Resanding",
     short: "Deep clean interlock and refresh joints for a sharp, renewed look.",
     description:
-      "Dirt, moss, algae, and years of weathering can make even quality interlock look tired and worn. Our pressure washing service uses professional-grade equipment to deep clean your pavers without damaging the surface or displacing the base. After washing, we sweep out the old sand from the joints and refill with fresh kiln-dried or polymeric sand to stabilize the surface and reduce weed growth. The result is a dramatic before-and-after difference—your interlock looks refreshed, the colour comes back, and the joints are tight and clean. This service is a great option if your interlock is structurally sound but just needs a facelift. We recommend pressure washing and resanding every few years to keep your surface looking its best.",
+      "Dirt, moss, algae, and years of weathering can make even quality interlock look tired and worn. Our pressure washing service uses professional-grade equipment to deep clean your pavers without damaging the surface or displacing the base. After washing, we sweep out the old sand from the joints and refill with fresh kiln-dried or polymeric sand to stabilize the surface and reduce weed growth. The result is a dramatic before-and-after difference. Your interlock looks refreshed, the colour comes back, and the joints are tight and clean. This service is a great option if your interlock is structurally sound but just needs a facelift. We recommend pressure washing and resanding every few years to keep your surface looking its best.",
     seo: {
       title: `Pressure Washing & Resanding in ${primaryCity}`,
       description:
-        "Pressure washing and resanding for interlock to remove grime and refresh joints. Restore curb appeal fast.",
+        "Pressure washing and resanding for Ottawa interlock driveways, walkways, and patios. Refreshes joints for a clean, durable look.",
     },
     hero: {
-      headline: "Make your interlock look new again.",
+      headline: "Make your Ottawa interlock look new again.",
       subheadline:
-        "We remove buildup safely, then re-sand joints for a clean finish that locks pavers and reduces weed growth.",
+        "We remove buildup safely, then re-sand joints on driveways and patios for a clean finish that locks pavers through Ottawa weather.",
     },
     benefits: [
       {
@@ -549,32 +543,32 @@ export const SERVICES: Service[] = [
       {
         question: "Will pressure washing damage my pavers?",
         answer:
-          "We use the right pressure and technique to protect the surface and joints.",
+          "Not when it's done correctly. We adjust the pressure and use the right nozzle for your specific paver type so we clean thoroughly without etching the surface or blowing out the joint sand prematurely. DIY pressure washers set too high can definitely cause damage, which is why it's worth having it done professionally.",
       },
       {
         question: "Should I do polymeric sand after washing?",
         answer:
-          "If joints are stable and dry conditions allow, polymeric sand is a great upgrade.",
+          "If your joints are in decent shape and the weather cooperates, polymeric sand is a great upgrade after a wash. It hardens in the joints, which means less weed growth and better paver stability compared to regular sand. We can assess the joint condition after washing and let you know if it makes sense for your situation.",
       },
       {
         question: "How long does it take?",
         answer:
-          "Most jobs are completed same day depending on size and drying conditions.",
+          "Most pressure washing and resanding jobs are completed in a single day. A typical driveway takes around 3 to 5 hours including drying time between the wash and resanding. Larger areas or surfaces with heavy buildup might take a bit longer, but we'll give you an estimate upfront.",
       },
       {
         question: "Can you remove oil stains?",
         answer:
-          "Some stains can be improved significantly; results vary by depth and age.",
+          "We can usually improve oil stains significantly, especially if they're relatively fresh. Older stains that have soaked deep into the paver are harder to fully remove, but pressure washing combined with targeted cleaning agents can make a noticeable difference. We'll be upfront about what to expect based on the condition of your surface.",
       },
       {
         question: "How often should I wash?",
         answer:
-          "Many homeowners refresh every 1-3 years depending on shade and traffic.",
+          "Most homeowners in Ottawa benefit from a wash every 2 to 3 years, though areas with a lot of shade or tree cover might need it more often since moisture and organic debris build up faster there. High-traffic driveways also tend to need more frequent attention than a backyard patio that gets lighter use.",
       },
       {
         question: "Will weeds come back?",
         answer:
-          "Maintenance helps; polymeric sand and trimming nearby vegetation reduce regrowth.",
+          "Weeds can return over time since seeds blow in naturally, but proper resanding makes a big difference. Polymeric sand is the best option for keeping weeds out of the joints long term. Keeping nearby garden beds and vegetation trimmed also helps reduce the amount of organic material that ends up on your interlock.",
       },
     ],
     gallery: [
@@ -592,7 +586,6 @@ export const SERVICES: Service[] = [
       },
     ],
     formRules: {
-      showApproxSqFt: true,
       showLastServiceDate: true,
       showWeedIssue: true,
     },
@@ -604,16 +597,16 @@ export const SERVICES: Service[] = [
     short:
       "Lock in joints, reduce weeds, and upgrade the look with polymeric sand finishing.",
     description:
-      "Polymeric sand is a binding material that fills the joints between interlocking pavers and hardens when activated with water. It's a major upgrade over regular sand—it resists washout from rain, prevents weeds and ants from pushing through the joints, and gives the surface a cleaner, more finished look. Our polymeric sand service includes cleaning the joints, removing old sand, sweeping in the new product, compacting it into the gaps, and activating it with a controlled mist. We use premium-grade polymeric sand that's flexible enough to handle expansion and contraction through seasons. This service works great on its own or as the final step after a pressure wash, and it's one of the most cost-effective ways to refresh an aging interlock surface.",
+      "Polymeric sand is a binding material that fills the joints between interlocking pavers and hardens when activated with water. It's a major upgrade over regular sand. It resists washout from rain, prevents weeds and ants from pushing through the joints, and gives the surface a cleaner, more finished look. Our polymeric sand service includes cleaning the joints, removing old sand, sweeping in the new product, compacting it into the gaps, and activating it with a controlled mist. We use premium-grade polymeric sand that's flexible enough to handle expansion and contraction through seasons. This service works great on its own or as the final step after a pressure wash, and it's one of the most cost-effective ways to refresh an aging interlock surface.",
     seo: {
       title: `Polymeric Sand in ${primaryCity}`,
       description:
-        "Professional polymeric sand installation to lock paver joints, reduce weeds, and improve durability and finish.",
+        "Polymeric sand for Ottawa interlock driveways, walkways, and patios. Locks joints and cuts weeds through wet Canadian seasons.",
     },
     hero: {
-      headline: "A clean finish that locks everything in.",
+      headline: "Polymeric sand for Ottawa interlock that locks tight.",
       subheadline:
-        "Polymeric sand strengthens joints, reduces weed growth, and keeps your interlock looking crisp.",
+        "Strengthen joints on driveways, walkways, and patios against washout and weeds through Ottawa freeze-thaw cycles.",
     },
     benefits: [
       {
@@ -657,31 +650,32 @@ export const SERVICES: Service[] = [
       {
         question: "Do I need polymeric sand?",
         answer:
-          "It’s optional but recommended if you want tighter joints and fewer weeds.",
+          "It's not strictly necessary, but we recommend it for most interlock surfaces. Polymeric sand locks the pavers together better than regular sand, reduces weed growth, and resists washout from rain. It's especially worthwhile in Ottawa where heavy rain and snowmelt can quickly erode regular joint sand.",
       },
       {
         question: "How long does it take to cure?",
         answer:
-          "Cure times vary; we’ll provide a clear no-water / no-traffic window.",
+          "Full curing typically takes about 24 to 48 hours, depending on the product and weather conditions. During that time, the surface needs to stay dry and free of foot or vehicle traffic. We always check the forecast before scheduling and will give you a clear timeline for when you can start using the area again.",
       },
       {
         question: "Can polymeric sand be added to old interlock?",
-        answer: "Yes. After proper cleaning and joint prep.",
+        answer:
+          "Yes, it works great on older interlock as long as the joints are properly cleaned and prepped first. We remove the old sand, clean out any debris or weed roots, and make sure the joints are deep enough for the polymeric sand to bond properly. It's one of the best ways to refresh an aging surface without replacing anything.",
       },
       {
         question: "Will it stop all weeds?",
         answer:
-          "It reduces weeds significantly, but no solution is 100% maintenance-free.",
+          "Polymeric sand dramatically reduces weed growth by creating a hardened barrier in the joints that seeds can't push through easily. That said, no product is 100% weed-proof forever. Over the years, a bit of organic material can accumulate on the surface and give weeds a place to sprout, but a quick pull or spot treatment is usually all you need.",
       },
       {
         question: "Can rain ruin it?",
         answer:
-          "Rain during activation/curing can cause issues; we plan around weather.",
+          "Rain before the polymeric sand has fully cured can wash it out of the joints or cause a hazy residue on the paver surface, which is why timing matters. We always check the weather forecast and schedule the work during a dry window with at least 24 hours of no rain expected. If conditions aren't right, we'll reschedule rather than risk a bad result.",
       },
       {
         question: "Does it crack?",
         answer:
-          "Installed correctly, it remains stable; heavy movement can lead to cracks.",
+          "When installed properly, polymeric sand stays flexible enough to handle normal expansion and contraction through Ottawa's seasons. Some minor cracking can happen in areas with heavy vehicle traffic or if the base underneath shifts, but that's usually a sign of a deeper issue. On a stable surface, it holds up really well for years.",
       },
     ],
     gallery: [
@@ -699,7 +693,6 @@ export const SERVICES: Service[] = [
       },
     ],
     formRules: {
-      showApproxSqFt: true,
       showLastServiceDate: true,
       showWeedIssue: true,
     },
@@ -711,16 +704,16 @@ export const SERVICES: Service[] = [
     short:
       "Low-maintenance, always-green turf with proper base prep and drainage.",
     description:
-      "Artificial turf gives you a lush, green lawn year-round without the watering, mowing, or seasonal brown patches that come with natural grass. We install turf over a properly prepared base that includes grading for drainage, compacted aggregate, and a weed barrier. The turf itself is UV-resistant, pet-friendly, and soft underfoot. We secure the edges cleanly against interlock borders, garden beds, or fencing, and infill with sand for a natural feel and added stability. Turf is a great fit for backyards, side yards, pet areas, and rooftop terraces—anywhere you want a clean, low-maintenance green surface. We handle everything from removing the existing lawn or soil to the final brushing and infill.",
+      "Artificial turf gives you a lush, green lawn year-round without the watering, mowing, or seasonal brown patches that come with natural grass. We install turf over a properly prepared base that includes grading for drainage, compacted aggregate, and a weed barrier. The turf itself is UV-resistant, pet-friendly, and soft underfoot. We secure the edges cleanly against interlock borders, garden beds, or fencing, and infill with sand for a natural feel and added stability. Turf is a great fit for backyards, side yards, pet areas, and rooftop terraces, anywhere you want a clean, low-maintenance green surface. We handle everything from removing the existing lawn or soil to the final brushing and infill.",
     seo: {
       title: `Turf Installation in ${primaryCity}`,
       description:
-        "Professional turf installation with proper base, drainage, and clean edging. Great for pets, kids, and low maintenance.",
+        "Artificial turf installation in Ottawa with drainage-focused base prep. Backyards, pet areas, and low-maintenance green space.",
     },
     hero: {
-      headline: "Always-green turf that feels clean and intentional.",
+      headline: "Always-green turf for Ottawa yards, done right.",
       subheadline:
-        "We prep the base and drainage properly, then install turf with clean edges that hold up to use.",
+        "We prep base and drainage for Canadian weather, then install turf with clean edges against patios and walkways.",
     },
     benefits: [
       {
@@ -764,28 +757,32 @@ export const SERVICES: Service[] = [
       {
         question: "Does turf get hot in summer?",
         answer:
-          "It can warm up in direct sun; shade and occasional rinse help reduce heat.",
+          "Artificial turf can get warm in direct sunlight during peak summer days, similar to how a deck or patio heats up. Shaded areas stay much cooler, and a quick rinse with the hose brings the temperature down fast. If your yard gets full sun, we can recommend lighter-coloured turf options that absorb less heat.",
       },
       {
         question: "Is turf safe for pets?",
-        answer: "Yes. We recommend pet-friendly infill and proper drainage.",
+        answer:
+          "Yes, turf is a great option for pet owners. We use pet-friendly infill that helps control odour and makes cleanup easy. The drainage system underneath is designed to handle liquids so nothing pools on the surface. A regular rinse with the hose keeps things fresh and hygienic.",
       },
       {
         question: "How long does turf last?",
         answer:
-          "Quality turf and proper installation can last many years with basic care.",
+          "With quality materials and proper installation, artificial turf typically lasts 15 to 20 years. The base prep is what really determines longevity, which is why we don't cut corners there. Basic maintenance like occasional brushing and rinsing will keep it looking good throughout its lifespan.",
       },
       {
         question: "Will it smell with pets?",
-        answer: "Good drainage, rinsing, and pet infill greatly reduce odor.",
+        answer:
+          "Odour is manageable with the right setup. We install a drainage layer underneath that lets liquids pass through quickly so nothing sits on the surface. Pet-specific infill also helps neutralize odours. A routine rinse with the hose, especially in warmer months, keeps things smelling clean.",
       },
       {
         question: "Can you install on uneven yards?",
-        answer: "Yes. We regrade and prepare a stable base.",
+        answer:
+          "Yes, that's actually very common. We start by removing existing material and regrading the area to create a smooth, properly sloped surface. The compacted base we build ensures the turf sits flat and drains correctly, even if the original yard was bumpy or uneven.",
       },
       {
         question: "Do you include edging?",
-        answer: "Yes. Clean edging keeps the turf tight and prevents lifting.",
+        answer:
+          "Yes, edging is included in every installation. It's what keeps the turf pulled tight and prevents the edges from curling or lifting over time. We secure the turf against whatever borders your yard has, whether that's interlock, garden beds, fencing, or concrete. Clean edges make the whole install look intentional and professional.",
       },
     ],
     gallery: [
@@ -803,7 +800,6 @@ export const SERVICES: Service[] = [
       },
     ],
     formRules: {
-      showApproxSqFt: true,
       showPetFriendly: true,
       showDrainageIssues: true,
     },
@@ -815,16 +811,16 @@ export const SERVICES: Service[] = [
     short:
       "Protect and enhance your interlock with a natural-looking sealant that preserves the original appearance.",
     description:
-      "A natural look sealant protects your interlock without changing its appearance. It penetrates the paver surface to guard against stains, UV fading, oil spills, and moisture absorption—while keeping the original colour and texture of the stone. This is the preferred option if you want protection without a glossy or darkened finish. Our application process starts with a thorough cleaning and drying of the surface, followed by an even coat of a breathable, high-quality sealant. It dries clear and doesn't leave a film or sheen. We recommend reapplying every 3–5 years depending on traffic and exposure. Natural look sealant is ideal for driveways, walkways, patios, and pool decks where you want to preserve the original aesthetic while extending the life of the stone.",
+      "A natural look sealant protects your interlock without changing its appearance. It penetrates the paver surface to guard against stains, UV fading, oil spills, and moisture absorption, while keeping the original colour and texture of the stone. This is the preferred option if you want protection without a glossy or darkened finish. Our application process starts with a thorough cleaning and drying of the surface, followed by an even coat of a breathable, high-quality sealant. It dries clear and doesn't leave a film or sheen. We recommend reapplying every 3-5 years depending on traffic and exposure. Natural look sealant is ideal for driveways, walkways, patios, and pool decks where you want to preserve the original aesthetic while extending the life of the stone.",
     seo: {
       title: `Natural Look Sealant in ${primaryCity}`,
       description:
-        "Professional natural look sealant application for interlock pavers. Protects against stains, weather, and wear while maintaining the original stone appearance.",
+        "Natural-look interlock sealant in Ottawa for driveways, walkways, and patios. Protects from stains and freeze-thaw without gloss.",
     },
     hero: {
-      headline: "Protection that looks natural.",
+      headline: "Natural-look protection for Ottawa interlock.",
       subheadline:
-        "Our natural look sealant protects your interlock from stains, weather, and wear while preserving the authentic appearance of your pavers.",
+        "Seal driveways, walkways, and patios without changing the stone. Helps guard against stains, salt, and moisture in a Canadian climate.",
     },
     benefits: [
       {
@@ -871,32 +867,32 @@ export const SERVICES: Service[] = [
       {
         question: "Will natural look sealant change the color of my pavers?",
         answer:
-          "No. Natural look sealant is designed to protect without altering the appearance or color of your interlock.",
+          "No, that's the whole point of a natural look sealant. It soaks into the paver to provide protection from stains, moisture, and UV exposure without changing the colour or adding any sheen. Your pavers will look exactly the same as they did before, just better protected against the elements.",
       },
       {
         question: "How long does sealant last?",
         answer:
-          "Typically 2-5 years depending on traffic, weather exposure, and maintenance. We'll provide care guidelines.",
+          "Most natural look sealants last between 3 and 5 years before they need reapplication. High-traffic areas like driveways may wear faster than a backyard patio that sees lighter use. Ottawa's winters with salt and freeze-thaw cycles can also affect longevity. We'll let you know when it's time to reapply based on your specific setup.",
       },
       {
         question: "Can sealant be applied to wet pavers?",
         answer:
-          "No. The surface must be completely dry for proper adhesion and performance.",
+          "No, the pavers need to be completely dry for the sealant to absorb and bond properly. If there's any moisture in the stone, the sealant won't adhere well and can turn cloudy or peel. That's why we schedule sealing jobs during dry weather and make sure there's been no rain for at least 24 hours beforehand.",
       },
       {
         question: "Will sealant prevent all stains?",
         answer:
-          "It significantly reduces staining, but prompt cleanup of spills is still recommended for best results.",
+          "Sealant makes your pavers much more resistant to stains by creating a barrier that prevents liquids from soaking in as quickly. That said, if something like oil or red wine sits on the surface for a long time, it can still leave a mark. The key benefit is that it buys you time to clean up spills before they become permanent.",
       },
       {
         question: "Do you clean before sealing?",
         answer:
-          "Yes. Proper cleaning is essential for sealant performance and longevity.",
+          "Yes, thorough cleaning is a mandatory first step. If you seal over dirt, algae, or old stains, you're essentially locking that grime into the paver permanently. We pressure wash the entire surface and let it dry completely before applying any sealant. This prep work is what makes the difference between a sealant job that lasts and one that fails early.",
       },
       {
         question: "Can I walk on it right away?",
         answer:
-          "We'll provide a specific timeline based on the product used, typically 24-48 hours.",
+          "You'll need to stay off the surface for at least 24 to 48 hours while the sealant cures, depending on the product we use and the weather conditions. We'll give you a clear timeline before we leave so you can plan around it. Vehicle traffic usually needs to wait a bit longer than foot traffic.",
       },
     ],
     gallery: [
@@ -914,7 +910,6 @@ export const SERVICES: Service[] = [
       },
     ],
     formRules: {
-      showApproxSqFt: true,
       showLastServiceDate: true,
     },
     tags: ["sealant", "washing"],
@@ -925,16 +920,16 @@ export const SERVICES: Service[] = [
     short:
       "Enhance your interlock with a premium wet look sealant that adds depth and richness to the stone.",
     description:
-      "A wet look sealant enhances the natural colour of your pavers and gives the surface a rich, slightly glossy finish—similar to how the stone looks when it's just been rained on. It deepens the tones in the stone, brings out texture and pattern detail, and provides strong protection against stains, oil, UV fading, and moisture penetration. We clean and prep the surface thoroughly before applying the sealant in even coats. The result is a striking, polished look that makes driveways, walkways, and patios stand out. Wet look sealant is a popular choice for homeowners who want their interlock to make a visual impact. We recommend reapplication every 3–5 years depending on exposure and use.",
+      "A wet look sealant enhances the natural colour of your pavers and gives the surface a rich, slightly glossy finish, similar to how the stone looks when it's just been rained on. It deepens the tones in the stone, brings out texture and pattern detail, and provides strong protection against stains, oil, UV fading, and moisture penetration. We clean and prep the surface thoroughly before applying the sealant in even coats. The result is a striking, polished look that makes driveways, walkways, and patios stand out. Wet look sealant is a popular choice for homeowners who want their interlock to make a visual impact. We recommend reapplication every 3-5 years depending on exposure and use.",
     seo: {
       title: `Wet Look Sealant in ${primaryCity}`,
       description:
-        "Professional wet look sealant application for interlock pavers. Creates a rich, enhanced appearance while providing superior protection against stains and weather.",
+        "Wet-look sealant for Ottawa interlock driveways, walkways, and patios. Rich finish with stain protection for harsh winters.",
     },
     hero: {
-      headline: "A rich, enhanced finish that protects.",
+      headline: "Rich wet-look sealant for Ottawa pavers.",
       subheadline:
-        "Our wet look sealant deepens the color and adds a premium finish to your interlock while providing strong protection against stains and weather damage.",
+        "Deepen color on driveways, walkways, and patios while adding stain protection suited to Ottawa winters.",
     },
     benefits: [
       {
@@ -981,32 +976,32 @@ export const SERVICES: Service[] = [
       {
         question: "How does wet look differ from natural look sealant?",
         answer:
-          "Wet look sealant enhances and deepens the color of your pavers, giving them a richer, more vibrant appearance compared to natural look which preserves the original appearance.",
+          "Natural look sealant protects your pavers without changing how they look, while wet look sealant deepens the colours and adds a slight sheen, similar to how your pavers look right after it rains. Both provide protection against stains, UV, and moisture, but wet look gives you that extra visual punch. It comes down to whether you prefer a subtle or a more dramatic finish.",
       },
       {
         question: "Will wet look sealant make my pavers darker?",
         answer:
-          "Yes. Wet look sealant enhances and deepens the natural colors of your pavers, creating a richer, more vibrant finish.",
+          "Yes, that's one of the main reasons people choose it. The sealant enhances the natural tones in the stone and gives them a deeper, richer look. Lighter-coloured pavers tend to show the most dramatic change. We can apply a test patch on a small area first so you can see exactly how your specific pavers will look before we do the full surface.",
       },
       {
         question: "How long does wet look sealant last?",
         answer:
-          "Typically 2-5 years depending on traffic, weather exposure, and maintenance. We'll provide care guidelines.",
+          "You can expect wet look sealant to last about 3 to 5 years, depending on how much traffic the surface gets and how exposed it is to the elements. Driveways in Ottawa tend to need reapplication sooner than a covered patio because of salt, plowing, and freeze-thaw exposure. We'll give you care tips so you get the most out of each application.",
       },
       {
         question: "Can wet look be applied over existing sealant?",
         answer:
-          "Existing sealant should be removed first for best results. We can assess and prep as needed.",
+          "For the best results, any old sealant should be stripped off before applying a new coat. Layering sealant over an old application can cause peeling, bubbling, or an uneven finish. We'll assess your surface and handle the removal and prep work so the new sealant bonds properly and looks consistent.",
       },
       {
         question: "Is wet look sealant slippery when wet?",
         answer:
-          "Quality wet look sealants are formulated to maintain traction, but we'll discuss options based on your specific needs.",
+          "The products we use are formulated to maintain good traction even when wet, so slipperiness isn't usually an issue. For areas around pools or where you're especially concerned about slip risk, we can add a non-slip additive to the sealant. We'll talk through your specific situation so we can recommend the right product.",
       },
       {
         question: "Do you clean before applying wet look sealant?",
         answer:
-          "Yes. Proper cleaning is essential for achieving the best wet look finish and sealant performance.",
+          "Yes, cleaning is essential. Any dirt, stains, or old sealant residue left on the surface will get locked under the new coat and affect the final appearance. We pressure wash thoroughly and make sure the pavers are fully dry before applying. The cleaner the surface going in, the better the wet look finish turns out.",
       },
     ],
     gallery: [
@@ -1024,7 +1019,6 @@ export const SERVICES: Service[] = [
       },
     ],
     formRules: {
-      showApproxSqFt: true,
       showLastServiceDate: true,
     },
     tags: ["sealant", "washing"],
@@ -1039,12 +1033,12 @@ export const SERVICES: Service[] = [
     seo: {
       title: `Retaining Walls in ${primaryCity}`,
       description:
-        "Professional retaining wall installation with proper base prep, drainage, and structural detailing for long-term stability and curb appeal.",
+        "Ottawa retaining wall contractors for sloped yards. Base, drainage, and tie-ins with walkways, patios, and driveways.",
     },
     hero: {
-      headline: "Retaining walls that look sharp and hold strong.",
+      headline: "Ottawa retaining walls that look sharp and hold strong.",
       subheadline:
-        "Built with proper base, drainage, and alignment so your wall stays stable and your landscape stays protected.",
+        "Proper base, drainage, and alignment for walls that stabilize slopes and tie cleanly into your walkway or patio.",
     },
     benefits: [
       {
@@ -1097,32 +1091,32 @@ export const SERVICES: Service[] = [
       {
         question: "Do retaining walls need drainage?",
         answer:
-          "Yes. Proper drainage behind the wall is essential to reduce pressure and improve long-term performance.",
+          "Yes, drainage is one of the most important parts of a retaining wall build. Without it, water builds up behind the wall and creates hydrostatic pressure that can push the wall forward or cause it to fail over time. We install drainage stone and relief paths behind every wall we build so water can escape and the structure stays stable through Ottawa's wet seasons and spring thaw.",
       },
       {
         question: "Do I need a permit for a retaining wall?",
         answer:
-          "It depends on wall height and local code requirements. We can guide you on what is needed for your project.",
+          "In Ottawa, walls over a certain height typically require a building permit, and the threshold varies depending on your municipality. Walls that are close to property lines or that retain significant grade changes may also need engineering. We'll assess your project and let you know exactly what's required so there are no surprises.",
       },
       {
         question: "How long do retaining walls last?",
         answer:
-          "With proper base prep, drainage, and installation, retaining walls can last for decades.",
+          "A well-built retaining wall with proper drainage and a solid base can easily last 25 years or more. The key factors are the quality of the base, how well the drainage works, and whether the wall was built to handle the actual load it's retaining. Cutting corners on any of those leads to early failure, which is why we don't skip steps.",
       },
       {
         question: "Can you build retaining walls on sloped backyards?",
         answer:
-          "Yes. Sloped yards are one of the most common use cases and often benefit the most from properly designed walls.",
+          "Yes, sloped backyards are actually the most common reason people need retaining walls. A well-placed wall can turn a steep, unusable slope into tiered flat areas for patios, gardens, or play space. We assess the grade and soil conditions to design a wall system that handles the load and works with your landscape plans.",
       },
       {
         question: "Can retaining walls be combined with steps or patios?",
         answer:
-          "Absolutely. We regularly integrate retaining walls with staircases, patio areas, and walkways for a cohesive layout.",
+          "Absolutely, and that's one of the best ways to get value out of a retaining wall project. We regularly build walls that incorporate built-in staircases, transition into patio surfaces, or frame a walkway. Planning these elements together ensures everything ties in cleanly and the drainage, grading, and materials all work as one system.",
       },
       {
         question: "What type of blocks do you use?",
         answer:
-          "We use quality retaining wall systems selected for your project height, load conditions, and desired look.",
+          "We work with established retaining wall systems from manufacturers like Permacon and Techo-Bloc, selected based on your project's height, load requirements, and the look you want. For shorter garden walls, a standard block system works great. Taller walls that retain more soil may need a geogrid-reinforced system for added strength. We'll recommend the right product for your specific situation.",
       },
     ],
     gallery: [
@@ -1140,10 +1134,7 @@ export const SERVICES: Service[] = [
       },
     ],
     formRules: {
-      showApproxSqFt: true,
       showStylePreference: true,
-      showTimeline: true,
-      showBudgetRange: true,
       showDrainageIssues: true,
     },
     tags: ["interlock", "patio"],
@@ -1158,12 +1149,12 @@ export const SERVICES: Service[] = [
     seo: {
       title: `Interlock Staircases in ${primaryCity}`,
       description:
-        "Custom outdoor staircases built with proper rise/run, stable base support, and clean interlock integration for safe, long-lasting access.",
+        "Outdoor interlock stairs in Ottawa for front entrances, walkways, and patio levels. Safe rise and run and solid construction.",
     },
     hero: {
-      headline: "Outdoor staircases that feel solid and look premium.",
+      headline: "Ottawa outdoor staircases that feel solid and look premium.",
       subheadline:
-        "Built for safe daily use with precise dimensions, strong support, and clean design continuity.",
+        "Safe daily access with precise steps, strong support, and clean ties to your front entrance, walkway, or patio.",
     },
     benefits: [
       {
@@ -1216,53 +1207,50 @@ export const SERVICES: Service[] = [
       {
         question: "Do outdoor stairs settle over time?",
         answer:
-          "They can if base prep is weak. With proper excavation, compaction, and support, movement is minimized.",
+          "They can if the base wasn't built right, which is unfortunately common with older builds. We excavate to the right depth, compact the base in layers, and build a solid foundation for each step so everything stays put. Ottawa's freeze-thaw cycles put extra stress on outdoor stairs, which is why proper base prep matters even more here.",
       },
       {
         question: "Can you match the staircase to existing interlock?",
         answer:
-          "Yes. We can often match or closely blend materials, colours, and edge details for a cohesive look.",
+          "Yes, we do this regularly. If your pavers are still being manufactured, we can source the same product for a seamless match. Even if the exact product isn't available anymore, we can find something very close or use complementary materials and borders to tie everything together visually.",
       },
       {
         question: "How do you make sure stairs are safe?",
         answer:
-          "We focus on consistent rise/run dimensions, stable treads, and proper drainage to reduce slip and trip risk.",
+          "Safety comes down to consistency and stability. Every step needs to have the same rise and run so your body naturally knows what to expect as you walk up or down. We also make sure treads are solidly set with no wobble, and we build in proper drainage so water doesn't pool on the steps and freeze in winter.",
       },
       {
         question: "Can stairs be combined with retaining walls?",
         answer:
-          "Yes. Many projects integrate walls and stairs together for both function and visual balance.",
+          "Yes, this is actually one of the most popular combinations we do. When you have a grade change that needs a retaining wall, adding stairs into the wall design gives you functional access between levels without taking up extra yard space. It also looks great because everything is built from the same materials and the transitions are clean.",
       },
       {
         question: "Do you offer front entrance staircase upgrades?",
         answer:
-          "Absolutely. Front steps are one of the most common projects and a major curb-appeal upgrade.",
+          "Absolutely, front entrance stairs are one of our most popular projects. Upgrading old concrete or crumbling steps with clean interlock or stone treads makes a huge difference in curb appeal. We handle everything from removing the old steps to building a proper foundation and installing new risers and treads that match or complement your existing walkway or driveway.",
       },
       {
         question: "How long does a staircase project take?",
         answer:
-          "Most projects are completed in a few days depending on size, access, and complexity.",
+          "Most staircase projects take 2 to 4 days from start to finish. A simple 3 or 4 step front entrance can sometimes be done in a day or two, while larger multi-level staircases integrated with retaining walls take longer. We'll give you a clear timeline after the site visit so you can plan accordingly.",
       },
     ],
     gallery: [
       {
-        src: "/images/workexample/work2done.jpeg",
-        alt: "Interlock staircase with clean front entry finish",
+        src: "/images/workexample/farsideafter.jpeg",
+        alt: "Front entrance staircase with curved steps and retaining wall in Ottawa",
       },
       {
-        src: "/images/workexample/work3done.jpeg",
-        alt: "Backyard staircase connecting patio levels",
+        src: "/images/workexample/frontstairafter.jpeg",
+        alt: "Curved interlock staircase at front door after rebuild",
       },
       {
-        src: "/images/img-service/interlock-installation.webp",
-        alt: "Outdoor stone staircase integrated with walkway",
+        src: "/images/workexample/staircase-project-2.jpeg",
+        alt: "Driveway and staircase project with two-tone paver design",
       },
     ],
     formRules: {
-      showApproxSqFt: true,
       showStylePreference: true,
-      showTimeline: true,
-      showBudgetRange: true,
       showApproxArea: true,
     },
     tags: ["interlock", "patio"],

@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/Button";
 export const metadata: Metadata = buildMetadata({
   title: "About",
   description:
-    "Learn about Stoneworks Interlock — premium interlock and hardscaping in Ottawa. Strong base work, clean finishing, honest timelines, and clear communication.",
+    "Learn about Stoneworks Interlock: premium interlock and hardscaping in Ottawa. Strong base work, clean finishing, honest timelines, and clear communication.",
   path: "/about/",
 });
 
@@ -36,7 +36,7 @@ export default function AboutPage() {
             </p>
             <p className="mt-3 text-sm leading-7 text-zinc-600">
               Whether you&apos;re upgrading your front entrance, fixing a sinking walkway, or building a
-              backyard patio from scratch, we bring the same standard of care to every job — big or
+              backyard patio from scratch, we bring the same standard of care to every job, big or
               small. We&apos;re not the biggest crew in town, and that&apos;s by design. It means the people
               quoting your project are the same people building it.
             </p>
@@ -60,7 +60,7 @@ export default function AboutPage() {
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-zinc-200">
               <Image
                 src="/images/workexample/work1done.jpeg"
-                alt="Stoneworks Interlock — completed project"
+                alt="Stoneworks Interlock completed project"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
@@ -84,7 +84,7 @@ export default function AboutPage() {
             <p className="mt-2 text-sm leading-7 text-zinc-600">
               Every project starts below the surface. We excavate to the right depth, use the
               correct granular material, and compact in proper lifts. This is what prevents
-              sinking, shifting, and cracking years down the line — and it&apos;s where most shortcuts
+              sinking, shifting, and cracking years down the line, and it&apos;s where most shortcuts
               happen in this industry.
             </p>
           </Card>
@@ -94,7 +94,7 @@ export default function AboutPage() {
             <p className="mt-2 text-sm leading-7 text-zinc-600">
               We cut clean edges, set tight joints, and make sure every transition looks
               intentional. Curves, borders, steps, and tie-ins to existing structures are all
-              handled with care. The finishing is what people see — and we take it seriously.
+              handled with care. The finishing is what people see, and we take it seriously.
             </p>
           </Card>
           <Card className="p-6">
@@ -135,14 +135,14 @@ export default function AboutPage() {
               to a random subcontractor. You deal with us directly, start to finish.
             </p>
             <p>
-              Our work covers the full range of interlock and hardscaping services — installation,
+              Our work covers the full range of interlock and hardscaping services: installation,
               repair, leveling, pressure washing, polymeric sand, turf, and sealant. We&apos;ve built
               driveways in Kanata, patios in Barrhaven, repaired walkways in Orleans, and washed and
               resanded surfaces across the city. Every project gets the same attention to detail,
               regardless of size.
             </p>
             <p>
-              We&apos;re proud of the reputation we&apos;re building — one job at a time. If you&apos;re looking for
+              We&apos;re proud of the reputation we&apos;re building, one job at a time. If you&apos;re looking for
               a contractor who shows up, communicates clearly, and delivers a clean result, give us a
               call.
             </p>
@@ -217,7 +217,7 @@ export default function AboutPage() {
             },
             {
               title: "We stand behind our work",
-              text: "Every project comes with a workmanship warranty. If something isn't right, we come back and fix it — no questions, no runaround.",
+              text: "Every project comes with a workmanship warranty. If something isn't right, we come back and fix it. No questions, no runaround.",
             },
             {
               title: "Local knowledge",
@@ -298,7 +298,7 @@ export default function AboutPage() {
           </h2>
           <p className="mx-auto mt-3 max-w-lg text-sm leading-7 text-zinc-600">
             Whether you need a new driveway, a patio repair, or just want to freshen up your
-            interlock with a wash and resand — we&apos;re here to help. Call us for a free, no-pressure
+            interlock with a wash and resand, we&apos;re here to help. Call us for a free, no-pressure
             quote.
           </p>
           <div className="mt-7 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">

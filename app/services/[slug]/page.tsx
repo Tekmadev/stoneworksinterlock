@@ -2,6 +2,7 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Phone } from "lucide-react";
 import { BUSINESS } from "@/config/business";
 import { SERVICES, getServiceBySlug } from "@/data/services";
 import { getAllBlogPosts } from "@/data/blog";
@@ -12,6 +13,7 @@ import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import { Card } from "@/components/ui/Card";
+import { TrackedCallButton } from "@/components/TrackedCallButton";
 
 export const dynamicParams = false;
 
@@ -69,12 +71,13 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             <p className="mt-3 text-sm leading-7 text-zinc-600">
               {service.hero.subheadline}
             </p>
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <Button href={`/contact/?service=${service.slug}`}>
+            <div className="mt-7 flex flex-col gap-3 md:flex-row">
+              <TrackedCallButton placement="service_hero" className="gap-2">
+                <Phone className="h-4 w-4" />
+                Call {BUSINESS.phone}
+              </TrackedCallButton>
+              <Button href={`/contact/?service=${service.slug}`} variant="secondary">
                 Get Free Quote
-              </Button>
-              <Button href="/services/" variant="secondary">
-                View all services
               </Button>
             </div>
 
@@ -158,10 +161,14 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             <div className="mt-8 rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm shadow-black/5">
               <p className="text-sm font-semibold">Want a fast quote?</p>
               <p className="mt-2 text-sm leading-7 text-zinc-600">
-                Share your address/city, photos, and approximate size. We will respond quickly.
+                Call us directly or send us photos and details through the form. We respond quickly.
               </p>
-              <Button className="mt-5 w-full" href={`/contact/?service=${service.slug}`}>
-                Request Quote
+              <TrackedCallButton placement="service_sidebar" className="mt-5 w-full gap-2">
+                <Phone className="h-4 w-4" />
+                Call Now
+              </TrackedCallButton>
+              <Button className="mt-2 w-full" variant="secondary" href={`/contact/?service=${service.slug}`}>
+                Request Quote (Form)
               </Button>
             </div>
           </div>
@@ -189,6 +196,28 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       </Section>
 
       <Section className="pt-0">
+        <div className="rounded-3xl border border-zinc-200 bg-[radial-gradient(80%_60%_at_20%_0%,rgba(201,161,59,0.14),transparent_60%)] p-8 shadow-sm shadow-black/5 sm:p-10">
+          <div className="flex flex-col items-center gap-4 text-center">
+            <h2 className="text-2xl font-semibold tracking-tight">
+              Ready to get started on your {service.name.toLowerCase()} project?
+            </h2>
+            <p className="max-w-lg text-sm leading-7 text-zinc-600">
+              Call us today for a free estimate. We serve {BUSINESS.primaryCity} and surrounding areas including {BUSINESS.serviceAreas.slice(1, 5).join(", ")}, and more.
+            </p>
+            <div className="flex flex-col gap-3 md:flex-row">
+              <TrackedCallButton placement="service_cta_banner" size="lg" className="gap-2">
+                <Phone className="h-4 w-4" />
+                Call {BUSINESS.phone}
+              </TrackedCallButton>
+              <Button href={`/contact/?service=${service.slug}`} variant="secondary" size="lg">
+                Get Free Quote
+              </Button>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      <Section className="pt-0">
         <h2 className="text-2xl font-semibold tracking-tight">FAQ</h2>
         <p className="mt-2 text-sm leading-7 text-zinc-600">
           Common questions about {service.name.toLowerCase()}.
@@ -196,14 +225,18 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         <div className="mt-6">
           <Accordion items={service.faqs} />
         </div>
-        <div className="mt-8 flex justify-center">
-          <Button href={`/contact/?service=${service.slug}`}>
+        <div className="mt-8 flex flex-col items-center gap-3 md:flex-row md:justify-center">
+          <TrackedCallButton placement="service_faq_bottom" className="gap-2">
+            <Phone className="h-4 w-4" />
+            Call {BUSINESS.phone}
+          </TrackedCallButton>
+          <Button href={`/contact/?service=${service.slug}`} variant="secondary">
             Get Free Quote for {service.name}
           </Button>
         </div>
       </Section>
 
-      {/* Related services — internal cross-links for SEO */}
+      {/* Related services - internal cross-links for SEO */}
       {(() => {
         const related = SERVICES.filter((s) => s.slug !== service.slug).slice(0, 4);
         return (
@@ -236,7 +269,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         );
       })()}
 
-      {/* Related blog posts — internal links */}
+      {/* Related blog posts - internal links */}
       {(() => {
         const relatedPosts = getAllBlogPosts()
           .filter((p) => p.relatedServices?.includes(service.slug))

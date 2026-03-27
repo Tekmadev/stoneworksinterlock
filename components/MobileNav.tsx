@@ -72,7 +72,7 @@ function MobileNavList({ activeHref }: { activeHref: string }) {
                             href={`/services/${s.slug}/`}
                             className="block rounded-xl px-3 py-2 text-sm text-zinc-700 hover:bg-zinc-50 hover:text-zinc-950"
                           >
-                            {s.name}
+                            {s.name} Ottawa
                           </Link>
                         </li>
                       ))}

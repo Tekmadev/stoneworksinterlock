@@ -12,6 +12,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { ServiceCard } from "@/components/ServiceCard";
 import { QuoteForm } from "@/components/QuoteForm";
 import { FadeIn } from "@/components/motion/FadeIn";
+import { AnimatedCounter } from "@/components/motion/AnimatedCounter";
 import { WorkMasonry } from "@/components/WorkMasonry";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { HeroCallButton } from "@/components/HeroCallButton";
@@ -20,9 +21,9 @@ import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 
 export const metadata: Metadata = buildMetadata({
-  title: `${BUSINESS.name} - Interlock & Hardscaping in ${BUSINESS.primaryCity}`,
+  title: `${BUSINESS.name} | Ottawa Interlock Installation, Repair & Hardscaping`,
   description:
-    `Call ${BUSINESS.phone} for a free quote. High-end interlock installation, repair, leveling, retaining walls, staircases, pressure washing/resanding, polymeric sand, patios, and turf in ${BUSINESS.primaryCity}.`,
+    `Ottawa's trusted interlock experts. Call ${BUSINESS.phone} for a free quote on driveway installation, patio installation, interlock repair, paver leveling, retaining walls, staircases, pressure washing, polymeric sand, and turf in ${BUSINESS.primaryCity} and surrounding areas.`,
   path: "/",
 });
 
@@ -37,15 +38,20 @@ export default function Home() {
         <main className="relative mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <div>
+              <div className="mb-4 inline-block rounded-full border border-amber-300/60 bg-amber-50 px-4 py-1.5">
+                <p className="text-sm font-semibold text-amber-800">
+                  Limited Time: 20% Off All Services
+                </p>
+              </div>
               <h1 className="text-4xl font-semibold tracking-tight text-zinc-950 sm:text-5xl">
-                Call for a free quote on premium interlock in Ottawa.
+                Ottawa&apos;s interlock experts. Driveways, patios &amp; repairs.
               </h1>
               <p className="mt-4 max-w-xl text-base leading-7 text-zinc-600">
-                Interlock installation in Ottawa, repairs, and leveling. Built
-                for clean lines and freeze/thaw durability by Ottawa interlock
-                contractors homeowners trust.
+                20+ years of experience in interlock installation, patio construction,
+                driveway repairs, and paver leveling. Built for clean lines and freeze/thaw
+                durability by Ottawa contractors homeowners trust.
               </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <div className="mt-8 flex flex-col gap-3 md:flex-row">
                 <HeroCallButton />
                 <Button href="/contact/" variant="secondary" size="lg">
                   Get Free Quote (Form)
@@ -77,6 +83,37 @@ export default function Home() {
       </div>
 
       <Section>
+        <FadeIn>
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+            <Card className="p-6 text-center">
+              <p className="text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">
+                <AnimatedCounter end={20} suffix="+" />
+              </p>
+              <p className="mt-1 text-sm text-zinc-600">Years experience</p>
+            </Card>
+            <Card className="p-6 text-center">
+              <p className="text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">
+                <AnimatedCounter end={500} suffix="+" />
+              </p>
+              <p className="mt-1 text-sm text-zinc-600">Projects completed</p>
+            </Card>
+            <Card className="p-6 text-center">
+              <p className="text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">
+                <AnimatedCounter end={100} suffix="%" />
+              </p>
+              <p className="mt-1 text-sm text-zinc-600">Satisfaction rate</p>
+            </Card>
+            <Card className="p-6 text-center">
+              <p className="text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">
+                <AnimatedCounter end={24} suffix="hr" />
+              </p>
+              <p className="mt-1 text-sm text-zinc-600">Quote response</p>
+            </Card>
+          </div>
+        </FadeIn>
+      </Section>
+
+      <Section className="pt-0">
         <FadeIn>
           <div className="max-w-2xl">
             <h2 className="text-2xl font-semibold tracking-tight">

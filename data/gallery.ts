@@ -7,7 +7,8 @@ export type GalleryItem = {
     | "patio"
     | "repair"
     | "washing"
-    | "turf";
+    | "turf"
+    | "staircase";
 };
 
 export const GALLERY_ITEMS: GalleryItem[] = [
@@ -82,6 +83,36 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     src: "/images/img-service/turf-inst.webp",
     alt: "Turf installation",
     category: "turf",
+  },
+  {
+    id: "g13",
+    src: "/images/workexample/farsideafter.jpeg",
+    alt: "Front entrance staircase with retaining wall and driveway",
+    category: "staircase",
+  },
+  {
+    id: "g14",
+    src: "/images/workexample/frontstairafter.jpeg",
+    alt: "Curved interlock staircase at front entrance",
+    category: "staircase",
+  },
+  {
+    id: "g15",
+    src: "/images/workexample/staircase-project-2.jpeg",
+    alt: "Staircase and driveway with two-tone paver design",
+    category: "staircase",
+  },
+  {
+    id: "g16",
+    src: "/images/workexample/backsideafter.jpeg",
+    alt: "Curved dark paver step detail from above",
+    category: "staircase",
+  },
+  {
+    id: "g17",
+    src: "/images/workexample/frontstairbefore.jpeg",
+    alt: "Front staircase before repair and rebuild",
+    category: "staircase",
   },
 ];
 

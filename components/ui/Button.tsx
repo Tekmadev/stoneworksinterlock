@@ -28,7 +28,7 @@ export function Button(props: ButtonProps) {
   const { className, variant = "primary", size = "md" } = props;
 
   const base =
-    "inline-flex items-center justify-center gap-2 rounded-xl font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:opacity-50 disabled:pointer-events-none";
+    "inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:opacity-50 disabled:pointer-events-none";
 
   const variants: Record<NonNullable<ButtonProps["variant"]>, string> = {
     primary:
@@ -39,20 +39,32 @@ export function Button(props: ButtonProps) {
   };
 
   const sizes: Record<NonNullable<ButtonProps["size"]>, string> = {
-    sm: "h-10 px-4 text-sm",
-    md: "h-11 px-5 text-sm",
-    lg: "h-12 px-6 text-base",
+    sm: "h-10 text-xs sm:text-sm",
+    md: "h-11 text-xs sm:text-sm",
+    lg: "h-12 text-sm sm:text-base",
   };
 
   const cls = cn(base, variants[variant], sizes[size], className);
 
   const isLink = (p: ButtonProps): p is ButtonAsLink => typeof (p as ButtonAsLink).href === "string";
 
+  const paddings: Record<NonNullable<ButtonProps["size"]>, string> = {
+    sm: "clamp(16px, 3vw, 28px)",
+    md: "clamp(20px, 4vw, 40px)",
+    lg: "clamp(24px, 5vw, 48px)",
+  };
+
+  const baseStyle = {
+    borderRadius: "9999px",
+    paddingLeft: paddings[size],
+    paddingRight: paddings[size],
+  } as const;
+
   if (isLink(props)) {
     const { href, target, rel, onClick, children } = props;
     const style = variant === "primary" 
-      ? { backgroundColor: "var(--accent, #c9a13b)" } 
-      : undefined;
+      ? { ...baseStyle, backgroundColor: "var(--accent, #c9a13b)" } 
+      : baseStyle;
     return (
       <Link className={cls} href={href} target={target} rel={rel} onClick={onClick} style={style}>
         {children}
@@ -62,10 +74,9 @@ export function Button(props: ButtonProps) {
 
   const { children, ...rest } = props;
   
-  // Add inline background for primary variant as fallback
   const style = variant === "primary" 
-    ? { backgroundColor: "var(--accent, #c9a13b)" } 
-    : undefined;
+    ? { ...baseStyle, backgroundColor: "var(--accent, #c9a13b)" } 
+    : baseStyle;
   
   return (
     <button className={cls} style={style} {...rest}>

@@ -10,6 +10,7 @@ const categories = [
   { key: "all", label: "All" },
   { key: "interlock", label: "Interlock" },
   { key: "patio", label: "Patios" },
+  { key: "staircase", label: "Staircases" },
   { key: "repair", label: "Repairs" },
   { key: "washing", label: "Washing" },
   { key: "turf", label: "Turf" },

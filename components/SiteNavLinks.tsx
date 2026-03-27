@@ -43,7 +43,7 @@ function ServicesDropdown() {
                 href={`/services/${s.slug}/`}
                 className="block rounded-lg px-3 py-2 text-sm text-zinc-700 transition-colors hover:bg-zinc-50 hover:text-zinc-950"
               >
-                {s.name}
+                {s.name} Ottawa
               </Link>
             </li>
           ))}

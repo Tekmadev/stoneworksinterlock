@@ -105,11 +105,11 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-8 border-t border-zinc-200/70 pt-6">
-          <p className="text-sm font-semibold">All Services</p>
+          <p className="text-sm font-semibold">All Services in Ottawa</p>
           <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm text-zinc-600">
             {SERVICES.map((s) => (
               <Link key={s.slug} className="hover:text-zinc-950 hover:underline" href={`/services/${s.slug}/`}>
-                {s.name}
+                {s.name} Ottawa
               </Link>
             ))}
           </div>

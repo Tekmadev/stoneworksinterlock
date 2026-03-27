@@ -63,10 +63,7 @@ export function QuoteForm({ variant = "full", className, initial }: QuoteFormPro
   );
 
   // Conditional fields (stored even if hidden)
-  const [approxSqFt, setApproxSqFt] = useState("");
   const [stylePreference, setStylePreference] = useState<"modern" | "classic" | "">("");
-  const [timeline, setTimeline] = useState("");
-  const [budgetRange, setBudgetRange] = useState("");
   const [issueType, setIssueType] = useState("");
   const [approxArea, setApproxArea] = useState("");
   const [urgency, setUrgency] = useState("");
@@ -151,7 +148,7 @@ export function QuoteForm({ variant = "full", className, initial }: QuoteFormPro
       return;
     }
 
-    if (!fullName.trim() || !phone.trim() || !email.trim() || !postalCode.trim() || !city.trim()) {
+    if (!fullName.trim() || !phone.trim() || !email.trim() || !postalCode.trim()) {
       setStatus("error");
       setError("Please fill in all required fields.");
       return;
@@ -203,7 +200,7 @@ export function QuoteForm({ variant = "full", className, initial }: QuoteFormPro
         minute: "2-digit",
       });
 
-      const addressLine = address.trim() || "—";
+      const addressLine = address.trim() || "N/A";
 
       const detailPairs: { label: string; value: string }[] = [];
       const addDetail = (label: string, value: string) => {
@@ -212,11 +209,8 @@ export function QuoteForm({ variant = "full", className, initial }: QuoteFormPro
         detailPairs.push({ label, value: v });
       };
 
-      addDetail("Approx. Square Footage", approxSqFt ? `${approxSqFt.trim()} sq ft` : "");
       addDetail("Approx. Area", approxArea);
       addDetail("Style Preference", stylePreference);
-      addDetail("Timeline", timeline);
-      addDetail("Budget Range", budgetRange);
       addDetail("Urgency", urgency);
       addDetail("Issue Type", issueType);
       addDetail("Last Service Date", lastServiceDate);
@@ -244,10 +238,7 @@ export function QuoteForm({ variant = "full", className, initial }: QuoteFormPro
         submittedAt,
         projectDetailsText,
 
-        approxSqFt: approxSqFt.trim(),
         stylePreference: stylePreference,
-        timeline: timeline.trim(),
-        budgetRange: budgetRange.trim(),
         issueType: issueType.trim(),
         approxArea: approxArea.trim(),
         urgency: urgency.trim(),
@@ -500,37 +491,6 @@ export function QuoteForm({ variant = "full", className, initial }: QuoteFormPro
               </div>
             </div>
 
-            <div className="grid gap-3 md:grid-cols-2">
-              <div className="grid gap-1.5">
-                <label className={labelCls} htmlFor="city">
-                  City *
-                </label>
-                <input
-                  id="city"
-                  name="city"
-                  value={city}
-                  onChange={(e) => setCity(e.target.value)}
-                  className={inputBase}
-                  placeholder="Ottawa"
-                  autoComplete="address-level2"
-                />
-              </div>
-              <div className="grid gap-1.5">
-                <label className={labelCls} htmlFor="address">
-                  Address (optional)
-                </label>
-                <input
-                  id="address"
-                  name="address"
-                  value={address}
-                  onChange={(e) => setAddress(e.target.value)}
-                  className={inputBase}
-                  placeholder="Street address"
-                  autoComplete="street-address"
-                />
-              </div>
-            </div>
-
             <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
               <Button type="button" variant="secondary" onClick={() => setStep(1)}>
                 Back
@@ -540,7 +500,7 @@ export function QuoteForm({ variant = "full", className, initial }: QuoteFormPro
                 <Button
                   type="button"
                   onClick={() => {
-                    if (!fullName.trim() || !phone.trim() || !email.trim() || !city.trim()) {
+                    if (!fullName.trim() || !phone.trim() || !email.trim()) {
                       setStatus("error");
                       setError("Please fill in your contact details.");
                       return;
@@ -563,22 +523,8 @@ export function QuoteForm({ variant = "full", className, initial }: QuoteFormPro
         ) : null}
 
         {/* Conditional fields */}
-        {(rules.showApproxSqFt || rules.showApproxArea) && variant === "full" && step === 3 ? (
-          <div className="grid gap-3 md:grid-cols-3">
-            {rules.showApproxSqFt ? (
-              <div className="grid gap-1.5">
-                <label className={labelCls} htmlFor="approxSqFt">
-                  Approx sq ft
-                </label>
-                <input
-                  id="approxSqFt"
-                  value={approxSqFt}
-                  onChange={(e) => setApproxSqFt(e.target.value)}
-                  className={inputBase}
-                  placeholder="e.g. 350"
-                />
-              </div>
-            ) : null}
+        {(rules.showApproxArea || rules.showUrgency) && variant === "full" && step === 3 ? (
+          <div className="grid gap-3 md:grid-cols-2">
             {rules.showApproxArea ? (
               <div className="grid gap-1.5">
                 <label className={labelCls} htmlFor="approxArea">
@@ -628,35 +574,6 @@ export function QuoteForm({ variant = "full", className, initial }: QuoteFormPro
           </div>
         ) : null}
 
-        {rules.showTimeline && variant === "full" && step === 3 ? (
-          <div className="grid gap-1.5">
-            <label className={labelCls} htmlFor="timeline">
-              Timeline
-            </label>
-            <input
-              id="timeline"
-              value={timeline}
-              onChange={(e) => setTimeline(e.target.value)}
-              className={inputBase}
-              placeholder="e.g. Next 2-4 weeks"
-            />
-          </div>
-        ) : null}
-
-        {rules.showBudgetRange && variant === "full" && step === 3 ? (
-          <div className="grid gap-1.5">
-            <label className={labelCls} htmlFor="budgetRange">
-              Budget range
-            </label>
-            <input
-              id="budgetRange"
-              value={budgetRange}
-              onChange={(e) => setBudgetRange(e.target.value)}
-              className={inputBase}
-              placeholder="e.g. $5k-$10k"
-            />
-          </div>
-        ) : null}
 
         {rules.showIssueType && variant === "full" && step === 3 ? (
           <div className="grid gap-1.5">

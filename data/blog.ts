@@ -28,7 +28,7 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "interlock-installation-ottawa-base-prep",
     title: `Interlock Installation in ${city}: What “Proper Base Prep” Really Means`,
     description:
-      "A practical breakdown of excavation depth, compaction, grading, and edge restraint—so your interlock stays level through freeze/thaw.",
+      "A practical breakdown of excavation depth, compaction, grading, and edge restraint, so your interlock stays level through freeze/thaw.",
     datePublished: "2026-01-23",
     dateModified: "2026-01-23",
     category: "Interlock",
@@ -40,7 +40,7 @@ export const BLOG_POSTS: BlogPost[] = [
     content: {
       intro: [
         "If you’ve ever seen interlock sink, shift, or start pooling water after a season or two, it usually comes back to base prep.",
-        "Here’s what “proper base prep” should include on an Ottawa project—explained in plain English.",
+        "Here’s what “proper base prep” should include on an Ottawa project, explained in plain English.",
         "When quotes look far apart, the difference is often in what happens underground. The surface can look similar on day one, but base quality is what decides how it performs after two or three winters.",
       ],
       sections: [
@@ -48,14 +48,14 @@ export const BLOG_POSTS: BlogPost[] = [
           heading: "1) Excavation depth (it’s not one-size-fits-all)",
           paragraphs: [
             "Walkways, patios, and driveways don’t need the same base depth. A driveway typically requires a deeper, stronger base because of vehicle load.",
-            "Ottawa’s freeze/thaw cycles make depth and compaction especially important—shallow or inconsistent excavation is a common cause of future settling.",
+            "Ottawa’s freeze/thaw cycles make depth and compaction especially important. Shallow or inconsistent excavation is a common cause of future settling.",
           ],
         },
         {
           heading: "2) Compaction in lifts (not all at once)",
           paragraphs: [
             "Compaction should be done in layers (“lifts”), not by dumping all base material and compacting once.",
-            "Layered compaction creates a denser base that resists shifting—especially at edges and transitions.",
+            "Layered compaction creates a denser base that resists shifting, especially at edges and transitions.",
           ],
         },
         {
@@ -134,7 +134,7 @@ export const BLOG_POSTS: BlogPost[] = [
     content: {
       intro: [
         "Polymeric sand can make interlock look cleaner, reduce weeds, and help lock pavers together.",
-        "But it’s not magic—and if it’s installed at the wrong time (or on a dirty surface), results can disappoint.",
+        "But it’s not magic, and if it’s installed at the wrong time (or on a dirty surface), results can disappoint.",
         "Homeowners often treat polymeric sand as a cosmetic add-on, but it performs best when the surface is stable, clean, and drainage issues are already addressed.",
       ],
       sections: [
@@ -159,7 +159,7 @@ export const BLOG_POSTS: BlogPost[] = [
           paragraphs: ["Hold off if:"],
           bullets: [
             "The surface is still shifting/sinking (leveling should come first).",
-            "There’s ongoing drainage/pooling water—fix slope and water flow first.",
+            "There’s ongoing drainage/pooling water. Fix slope and water flow first.",
             "It’s too wet/cold to cure properly (weather timing matters).",
           ],
         },
@@ -217,7 +217,7 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     content: {
       intro: [
-        "Uneven pavers are more than an eyesore—they’re a trip hazard and can cause water to pool and freeze.",
+        "Uneven pavers are more than an eyesore. They’re a trip hazard and can cause water to pool and freeze.",
         "Leveling is usually the best-value fix when the pavers themselves are still in good shape.",
         "The key is identifying whether the problem is isolated settlement or a deeper base/drainage issue. That decision determines whether repair or partial rebuild is the smarter investment.",
       ],

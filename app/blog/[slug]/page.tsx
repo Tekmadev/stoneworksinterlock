@@ -166,7 +166,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               </div>
             </Card>
 
-            {/* Related services — internal links */}
+            {/* Related services - internal links */}
             {post.relatedServices && post.relatedServices.length > 0 && (
               <Card className="p-6">
                 <p className="text-sm font-semibold text-zinc-950">Related services</p>
@@ -189,7 +189,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               </Card>
             )}
 
-            {/* More from the blog — internal links */}
+            {/* More from the blog - internal links */}
             {(() => {
               const otherPosts = getAllBlogPosts().filter((p) => p.slug !== post.slug).slice(0, 3);
               if (otherPosts.length === 0) return null;
