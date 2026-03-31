@@ -32,7 +32,6 @@ export type QuoteLeadPayload = {
   projectDetailsText?: string;
   // Conditional fields
   approxSqFt?: string;
-  stylePreference?: string;
   timeline?: string;
   budgetRange?: string;
   issueType?: string;
@@ -50,10 +49,20 @@ export async function sendQuoteLead(payload: QuoteLeadPayload) {
   const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "";
   const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "";
 
+  const urls = payload.photoUrls ?? [];
+  const photoVars: Record<string, string> = {
+    photo_1: urls[0] ?? "",
+    photo_2: urls[1] ?? "",
+    photo_3: urls[2] ?? "",
+    photo_4: urls[3] ?? "",
+    photo_5: urls[4] ?? "",
+  };
+
   const templateParams = {
     ...payload,
-    photoUrls: payload.photoUrls?.join("\n") || "",
-    photoCount: payload.photoUrls?.length ? String(payload.photoUrls.length) : "0",
+    photoUrls: urls.join("\n"),
+    photoCount: urls.length ? String(urls.length) : "0",
+    ...photoVars,
   };
 
   return await emailjs.send(serviceId, templateId, templateParams, { publicKey });

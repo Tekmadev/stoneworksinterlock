@@ -59,16 +59,6 @@ export default function ContactPage() {
 
             <div className="mt-8 grid gap-4">
               <Card className="p-6">
-                <p className="text-sm font-semibold">What to include for the fastest quote</p>
-                <ul className="mt-3 space-y-2 text-sm text-zinc-600">
-                  <li>City + postal code</li>
-                  <li>Approximate size (sq ft or rough dimensions)</li>
-                  <li>Photos of the area (optional but recommended)</li>
-                  <li>Timeline and any urgency</li>
-                </ul>
-              </Card>
-
-              <Card className="p-6">
                 <p className="text-sm font-semibold">Business details</p>
                 <p className="mt-2 text-sm text-zinc-600">{BUSINESS.name}</p>
                 <p className="mt-1 text-sm text-zinc-600">

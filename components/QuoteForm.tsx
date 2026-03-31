@@ -63,7 +63,6 @@ export function QuoteForm({ variant = "full", className, initial }: QuoteFormPro
   );
 
   // Conditional fields (stored even if hidden)
-  const [stylePreference, setStylePreference] = useState<"modern" | "classic" | "">("");
   const [issueType, setIssueType] = useState("");
   const [approxArea, setApproxArea] = useState("");
   const [urgency, setUrgency] = useState("");
@@ -210,7 +209,6 @@ export function QuoteForm({ variant = "full", className, initial }: QuoteFormPro
       };
 
       addDetail("Approx. Area", approxArea);
-      addDetail("Style Preference", stylePreference);
       addDetail("Urgency", urgency);
       addDetail("Issue Type", issueType);
       addDetail("Last Service Date", lastServiceDate);
@@ -238,7 +236,6 @@ export function QuoteForm({ variant = "full", className, initial }: QuoteFormPro
         submittedAt,
         projectDetailsText,
 
-        stylePreference: stylePreference,
         issueType: issueType.trim(),
         approxArea: approxArea.trim(),
         urgency: urgency.trim(),
@@ -555,25 +552,6 @@ export function QuoteForm({ variant = "full", className, initial }: QuoteFormPro
             ) : null}
           </div>
         ) : null}
-
-        {rules.showStylePreference && variant === "full" && step === 3 ? (
-          <div className="grid gap-1.5">
-            <label className={labelCls} htmlFor="stylePreference">
-              Style preference
-            </label>
-            <select
-              id="stylePreference"
-              className={inputBase}
-              value={stylePreference}
-              onChange={(e) => setStylePreference(e.target.value as "modern" | "classic" | "")}
-            >
-              <option value="">Select…</option>
-              <option value="modern">Modern</option>
-              <option value="classic">Classic</option>
-            </select>
-          </div>
-        ) : null}
-
 
         {rules.showIssueType && variant === "full" && step === 3 ? (
           <div className="grid gap-1.5">

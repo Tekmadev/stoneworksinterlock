@@ -171,44 +171,9 @@
                 Project Details
               </h2>
 
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-details-box" style="background-color: #fafafa; border-radius: 4px; padding: 16px;">
-                <tr>
-                  <td class="email-detail-row" style="padding: 6px 0;">
-                    <strong class="email-detail-label" style="color: #52525b; font-size: 13px;">Style Preference:</strong>
-                    <span class="email-detail-value" style="color: #0b0d0f; font-size: 15px; margin-left: 8px; text-transform: capitalize;">{{stylePreference}}</span>
-                  </td>
-                </tr>
-                <!-- <tr>
-                  <td class="email-detail-row" style="padding: 6px 0;">
-                    <strong class="email-detail-label" style="color: #52525b; font-size: 13px;">Issue Type:</strong>
-                    <span class="email-detail-value" style="color: #0b0d0f; font-size: 15px; margin-left: 8px;">{{issueType}}</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="email-detail-row" style="padding: 6px 0;">
-                    <strong class="email-detail-label" style="color: #52525b; font-size: 13px;">Last Service Date:</strong>
-                    <span class="email-detail-value" style="color: #0b0d0f; font-size: 15px; margin-left: 8px;">{{lastServiceDate}}</span>
-                  </td>
-                </tr> -->
-                <!-- <tr>
-                  <td class="email-detail-row" style="padding: 6px 0;">
-                    <strong class="email-detail-label" style="color: #52525b; font-size: 13px;">Weed Issue:</strong>
-                    <span class="email-detail-value" style="color: #0b0d0f; font-size: 15px; margin-left: 8px; text-transform: capitalize;">{{weedIssue}}</span>
-                  </td>
-                </tr> -->
-                <!-- <tr>
-                  <td class="email-detail-row" style="padding: 6px 0;">
-                    <strong class="email-detail-label" style="color: #52525b; font-size: 13px;">Pet Friendly Required:</strong>
-                    <span class="email-detail-value" style="color: #0b0d0f; font-size: 15px; margin-left: 8px; text-transform: capitalize;">{{petFriendly}}</span>
-                  </td>
-                </tr> -->
-                <!-- <tr>
-                  <td class="email-detail-row" style="padding: 6px 0;">
-                    <strong class="email-detail-label" style="color: #52525b; font-size: 13px;">Drainage Issues:</strong>
-                    <span class="email-detail-value" style="color: #0b0d0f; font-size: 15px; margin-left: 8px; text-transform: capitalize;">{{drainageIssues}}</span>
-                  </td>
-                </tr> -->
-              </table>
+              <div class="email-details-box" style="background-color: #fafafa; border-radius: 4px; padding: 16px;">
+                <p style="margin: 0; color: #0b0d0f; font-size: 15px; line-height: 1.8; white-space: pre-wrap; word-wrap: break-word;">{{projectDetailsText}}</p>
+              </div>
             </td>
           </tr>
 
@@ -236,9 +201,43 @@
                 <p style="margin: 0 0 12px 0; color: #52525b; font-size: 13px;">
                   Number of photos: <strong>{{photoCount}}</strong>
                 </p>
-                <div class="email-photo-urls" style="color: #0b0d0f; font-size: 13px; line-height: 1.8; font-family: monospace; word-break: break-all;">
-                  {{photoUrls}}
-                </div>
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                  {{#if photo_1}}
+                  <tr>
+                    <td style="padding: 4px 0;">
+                      <a href="{{photo_1}}" style="color: #c9a13b; font-size: 13px; text-decoration: underline; word-break: break-all;">Photo 1</a>
+                    </td>
+                  </tr>
+                  {{/if}}
+                  {{#if photo_2}}
+                  <tr>
+                    <td style="padding: 4px 0;">
+                      <a href="{{photo_2}}" style="color: #c9a13b; font-size: 13px; text-decoration: underline; word-break: break-all;">Photo 2</a>
+                    </td>
+                  </tr>
+                  {{/if}}
+                  {{#if photo_3}}
+                  <tr>
+                    <td style="padding: 4px 0;">
+                      <a href="{{photo_3}}" style="color: #c9a13b; font-size: 13px; text-decoration: underline; word-break: break-all;">Photo 3</a>
+                    </td>
+                  </tr>
+                  {{/if}}
+                  {{#if photo_4}}
+                  <tr>
+                    <td style="padding: 4px 0;">
+                      <a href="{{photo_4}}" style="color: #c9a13b; font-size: 13px; text-decoration: underline; word-break: break-all;">Photo 4</a>
+                    </td>
+                  </tr>
+                  {{/if}}
+                  {{#if photo_5}}
+                  <tr>
+                    <td style="padding: 4px 0;">
+                      <a href="{{photo_5}}" style="color: #c9a13b; font-size: 13px; text-decoration: underline; word-break: break-all;">Photo 5</a>
+                    </td>
+                  </tr>
+                  {{/if}}
+                </table>
               </div>
             </td>
           </tr>

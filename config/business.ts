@@ -68,10 +68,10 @@ export const BUSINESS: BusinessInfo = {
   // Optional: set when you confirm the correct inbox for quote requests
   email: "stoneworksinterlock@gmail.com",
   address: {
-    street: "840 Montréal Rd",
-    city: "Ottawa",
+    street: "1740 Comstock Rd",
+    city: "Gloucester",
     region: "ON",
-    postalCode: "K1K 4W3",
+    postalCode: "K1B 5L2",
     country: "CA",
   },
   // Optional: add precise coordinates for stronger LocalBusiness schema
