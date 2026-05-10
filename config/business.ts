@@ -63,8 +63,8 @@ export const BUSINESS: BusinessInfo = {
   siteUrl: "https://www.stoneworksinterlock.com",
   name: "Stoneworks Interlock",
   legalName: "Stoneworks Interlock",
-  phone: "+1 (613) 850-8158",
-  whatsappPhone: "+1 (613) 850-8158",
+  phone: "+1 (613) 621-9757",
+  whatsappPhone: "+1 (613) 621-9757",
   // Optional: set when you confirm the correct inbox for quote requests
   email: "stoneworksinterlock@gmail.com",
   address: {
@@ -74,8 +74,7 @@ export const BUSINESS: BusinessInfo = {
     postalCode: "K1B 5L2",
     country: "CA",
   },
-  // Optional: add precise coordinates for stronger LocalBusiness schema
-  // geo: { latitude: 45.4215, longitude: -75.6972 },
+  geo: { latitude: 45.4112, longitude: -75.5481 },
   primaryCity: "Ottawa",
   serviceAreas: [
     "Ottawa",
@@ -103,7 +102,7 @@ export const BUSINESS: BusinessInfo = {
   // Optional: fill these for stronger SEO + rich results
   googleSiteVerification: "",
   schemaLocalBusinessType: "PavingContractor",
-  logoPath: "/images/swil_logo-removebg.png",
+  logoPath: "/stonework-logo-removebg.png",
   defaultImagePath: "/images/hero.png",
   priceRange: "$$",
   googleMapsUrl: "",

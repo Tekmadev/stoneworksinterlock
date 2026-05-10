@@ -21,7 +21,7 @@ export function SiteNav({ className }: { className?: string }) {
         <Link href="/" className="group inline-flex h-full items-center gap-3">
           <span className="relative h-full w-[220px] sm:w-[300px]">
             <Image
-              src="/images/swil_logo-removebg.png"
+              src="/stonework-logo-removebg.png"
               alt={`${BUSINESS.name} logo`}
               fill
               priority

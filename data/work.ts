@@ -51,9 +51,9 @@ export const WORK_ITEMS: WorkItem[] = [
   },
   {
     id: "w7",
-    src: "/images/img-service/patio-install2.webp",
-    alt: "Backyard patio project in Ottawa",
-    serviceLabel: "Patio Installation",
+    src: "/images/workexample/retaining-wall.jpeg",
+    alt: "Retaining wall project in Ottawa",
+    serviceLabel: "Retaining Walls",
     neighborhood: "Manotick",
   },
   {

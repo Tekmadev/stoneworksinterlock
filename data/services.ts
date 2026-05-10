@@ -1121,15 +1121,15 @@ export const SERVICES: Service[] = [
     ],
     gallery: [
       {
-        src: "/images/workexample/work1done.jpeg",
+        src: "/images/workexample/retaining-wall.jpeg",
         alt: "Retaining wall with clean stone finish in Ottawa",
       },
       {
-        src: "/images/img-service/interlock-installation.webp",
+        src: "/images/workexample/retaining-wall-2.jpg",
         alt: "Backyard retaining wall integrated with interlock",
       },
       {
-        src: "/images/workexample/work2done.jpeg",
+        src: "/images/workexample/retaining-wall-3.jpg",
         alt: "Tiered retaining wall and walkway transition",
       },
     ],

@@ -8,7 +8,8 @@ export type GalleryItem = {
     | "repair"
     | "washing"
     | "turf"
-    | "staircase";
+    | "staircase"
+    | "retaining";
 };
 
 export const GALLERY_ITEMS: GalleryItem[] = [
@@ -113,6 +114,24 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     src: "/images/workexample/frontstairbefore.jpeg",
     alt: "Front staircase before repair and rebuild",
     category: "staircase",
+  },
+  {
+    id: "g18",
+    src: "/images/workexample/retaining-wall.jpeg",
+    alt: "Retaining wall with clean stone finish in Ottawa",
+    category: "retaining",
+  },
+  {
+    id: "g19",
+    src: "/images/workexample/retaining-wall-2.jpg",
+    alt: "Backyard retaining wall integrated with interlock",
+    category: "retaining",
+  },
+  {
+    id: "g20",
+    src: "/images/workexample/retaining-wall-3.jpg",
+    alt: "Tiered retaining wall and walkway transition",
+    category: "retaining",
   },
 ];
 

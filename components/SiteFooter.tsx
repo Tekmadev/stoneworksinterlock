@@ -18,7 +18,7 @@ export function SiteFooter() {
             <Link href="/" className="inline-flex items-center gap-3">
               <span className="relative h-16 w-[260px] sm:h-20 sm:w-[340px]">
                 <Image
-                  src="/images/swil_logo-removebg.png"
+                  src="/stonework-logo-removebg.png"
                   alt={`${BUSINESS.name} logo`}
                   fill
                   sizes="(min-width: 640px) 340px, 260px"

@@ -216,7 +216,7 @@ export function MobileNav({ className }: { className?: string }) {
                 <div className="flex items-center justify-between border-b border-zinc-200/70 px-4 py-3">
                   <div className="flex items-center gap-3">
                     <Image
-                      src="/images/swil_logo-removebg.png"
+                      src="/stonework-logo-removebg.png"
                       alt={`${BUSINESS.name} logo`}
                       width={160}
                       height={40}

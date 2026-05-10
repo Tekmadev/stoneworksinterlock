@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { getDownloadURL, ref as storageRef, uploadBytes } from "firebase/storage";
 import { sendQuoteLead, type QuoteLeadPayload } from "@/lib/emailjs";
+import { compressImage } from "@/lib/compress-image";
 
 type QuoteFormVariant = "short" | "full";
 
@@ -175,10 +176,11 @@ export function QuoteForm({ variant = "full", className, initial }: QuoteFormPro
             const uploaded: string[] = [];
 
             for (const file of limited) {
-              const safeName = file.name.replace(/[^\w.\-]+/g, "_");
+              const ready = await compressImage(file);
+              const safeName = ready.name.replace(/[^\w.\-]+/g, "_");
               const path = `leads/${new Date().toISOString().slice(0, 10)}/${crypto.randomUUID()}_${safeName}`;
               const r = storageRef(storage, path);
-              await uploadBytes(r, file, { contentType: file.type || "application/octet-stream" });
+              await uploadBytes(r, ready, { contentType: ready.type || "application/octet-stream" });
               uploaded.push(await getDownloadURL(r));
             }
 
@@ -445,7 +447,7 @@ export function QuoteForm({ variant = "full", className, initial }: QuoteFormPro
                   value={phone}
                   onChange={(e) => setPhone(normalizeNorthAmericanPhone(e.target.value))}
                   className={inputBase}
-                  placeholder="(613) 850-8158"
+                  placeholder="(613) 621-9757"
                   inputMode="tel"
                   autoComplete="tel"
                 />

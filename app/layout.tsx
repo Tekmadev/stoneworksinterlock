@@ -89,6 +89,10 @@ export default function RootLayout({
         ) : null}
         <JsonLd data={organizationJsonLd()} />
         <JsonLd data={websiteJsonLd()} />
+        <Script
+          src="https://elfsightcdn.com/platform.js"
+          strategy="lazyOnload"
+        />
         <SiteNav />
         <div className="min-h-[calc(100svh-4rem)]">{children}</div>
         <SiteFooter />

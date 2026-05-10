@@ -4,7 +4,6 @@ import Image from "next/image";
 import { Hammer, Layers, Zap } from "lucide-react";
 import { BUSINESS } from "@/config/business";
 import { SERVICES } from "@/data/services";
-import { TESTIMONIALS } from "@/data/testimonials";
 import { WORK_ITEMS } from "@/data/work";
 import { getAllBlogPosts } from "@/data/blog";
 import { buildMetadata, localBusinessJsonLd } from "@/lib/seo";
@@ -270,22 +269,18 @@ export default function Home() {
       <Section className="pt-0">
         <FadeIn>
           <h2 className="text-2xl font-semibold tracking-tight">
-            Testimonials
+            What our customers are saying
           </h2>
+          <p className="mt-2 text-sm leading-7 text-zinc-600">
+            Real reviews from Ottawa homeowners on Google.
+          </p>
         </FadeIn>
         <FadeIn delay={0.08}>
-          <div className="mt-6 grid gap-4 md:grid-cols-3">
-            {TESTIMONIALS.map((t) => (
-              <Card key={t.name} className="p-6">
-                <p className="text-sm leading-7 text-zinc-800">“{t.quote}”</p>
-                <div className="mt-4 text-xs text-zinc-500">
-                  <p className="font-semibold text-zinc-900">{t.name}</p>
-                  <p>
-                    {t.location} • {t.service}
-                  </p>
-                </div>
-              </Card>
-            ))}
+          <div className="mt-6">
+            <div
+              className="elfsight-app-bf6897cb-c4a9-43d0-97ad-a9669bacb6fe"
+              data-elfsight-app-lazy
+            />
           </div>
         </FadeIn>
       </Section>

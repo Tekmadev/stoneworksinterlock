@@ -49,20 +49,15 @@ export async function sendQuoteLead(payload: QuoteLeadPayload) {
   const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "";
   const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "";
 
-  const urls = payload.photoUrls ?? [];
-  const photoVars: Record<string, string> = {
-    photo_1: urls[0] ?? "",
-    photo_2: urls[1] ?? "",
-    photo_3: urls[2] ?? "",
-    photo_4: urls[3] ?? "",
-    photo_5: urls[4] ?? "",
-  };
-
   const templateParams = {
-    ...payload,
-    photoUrls: urls.join("\n"),
-    photoCount: urls.length ? String(urls.length) : "0",
-    ...photoVars,
+    fullName: payload.fullName,
+    phone: payload.phone,
+    email: payload.email,
+    preferredContactMethod: payload.preferredContactMethod,
+    serviceName: payload.serviceName,
+    projectDetailsText: payload.projectDetailsText,
+    message: payload.message,
+    submittedAt: payload.submittedAt,
   };
 
   return await emailjs.send(serviceId, templateId, templateParams, { publicKey });

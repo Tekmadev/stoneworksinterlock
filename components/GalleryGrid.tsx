@@ -11,6 +11,7 @@ const categories = [
   { key: "interlock", label: "Interlock" },
   { key: "patio", label: "Patios" },
   { key: "staircase", label: "Staircases" },
+  { key: "retaining", label: "Retaining Walls" },
   { key: "repair", label: "Repairs" },
   { key: "washing", label: "Washing" },
   { key: "turf", label: "Turf" },
