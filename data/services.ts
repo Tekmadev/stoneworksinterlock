@@ -1122,15 +1122,15 @@ export const SERVICES: Service[] = [
     gallery: [
       {
         src: "/images/workexample/retaining-wall.jpeg",
-        alt: "Retaining wall with clean stone finish in Ottawa",
+        alt: "Curved tiered retaining wall edging a manicured lawn in Ottawa",
       },
       {
         src: "/images/workexample/retaining-wall-2.jpg",
-        alt: "Backyard retaining wall integrated with interlock",
+        alt: "Curved retaining wall holding a raised garden bed at a stone home",
       },
       {
         src: "/images/workexample/retaining-wall-3.jpg",
-        alt: "Tiered retaining wall and walkway transition",
+        alt: "Multi-tier retaining wall with planted terraces and capped finish",
       },
     ],
     formRules: {
@@ -1237,16 +1237,16 @@ export const SERVICES: Service[] = [
     ],
     gallery: [
       {
-        src: "/images/workexample/farsideafter.jpeg",
-        alt: "Front entrance staircase with curved steps and retaining wall in Ottawa",
+        src: "/images/workexample/frontstairafter.jpeg",
+        alt: "Clean curved interlock staircase at a front entrance in Ottawa",
       },
       {
-        src: "/images/workexample/frontstairafter.jpeg",
-        alt: "Curved interlock staircase at front door after rebuild",
+        src: "/images/workexample/staircase-project-3.jpeg",
+        alt: "Curved four-step interlock staircase at a front entrance",
       },
       {
         src: "/images/workexample/staircase-project-2.jpeg",
-        alt: "Driveway and staircase project with two-tone paver design",
+        alt: "Front entrance interlock stairs flowing into a curved driveway",
       },
     ],
     formRules: {
