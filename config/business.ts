@@ -103,7 +103,7 @@ export const BUSINESS: BusinessInfo = {
   // Optional: fill these for stronger SEO + rich results
   googleSiteVerification: "",
   schemaLocalBusinessType: "PavingContractor",
-  logoPath: "/images/swil_logo-removebg.png",
+  logoPath: "/stonework-logo-removebg.png",
   defaultImagePath: "/images/hero.png",
   priceRange: "$$",
   googleMapsUrl: "",
