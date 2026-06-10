@@ -6,7 +6,7 @@ import { Phone } from "lucide-react";
 import { BUSINESS } from "@/config/business";
 import { SERVICES, getServiceBySlug } from "@/data/services";
 import { getAllBlogPosts } from "@/data/blog";
-import { absoluteUrl, breadcrumbJsonLd, buildMetadata, faqJsonLd, serviceJsonLd } from "@/lib/seo";
+import { absoluteUrl, breadcrumbJsonLd, buildMetadata, faqJsonLd, howToJsonLd, serviceJsonLd, speakableJsonLd } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
 import { Accordion } from "@/components/ui/Accordion";
 import { Badge } from "@/components/ui/Badge";
@@ -55,11 +55,26 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
     areaServed: BUSINESS.serviceAreas,
   });
 
+  const pageUrl = absoluteUrl(`/services/${service.slug}/`);
+
+  const howToLd = howToJsonLd({
+    name: `How to ${service.name.toLowerCase()} in Ottawa`,
+    description: service.seo.description,
+    steps: service.process.map((step) => ({
+      name: step.title,
+      text: step.description,
+    })),
+  });
+
+  const speakableLd = speakableJsonLd(["h1", ".speakable-intro"], pageUrl);
+
   return (
     <div>
       <JsonLd data={breadcrumbs} />
       <JsonLd data={serviceLd} />
       <JsonLd data={faqLd} />
+      <JsonLd data={howToLd} />
+      <JsonLd data={speakableLd} />
 
       <Section className="pt-14">
         <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
@@ -68,7 +83,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             <h1 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-950 sm:text-4xl">
               {service.name} in {BUSINESS.primaryCity}
             </h1>
-            <p className="mt-3 text-sm leading-7 text-zinc-600">
+            <p className="speakable-intro mt-3 text-sm leading-7 text-zinc-600">
               {service.hero.subheadline}
             </p>
             <div className="mt-7 flex flex-col gap-3 md:flex-row">
@@ -168,7 +183,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 Call Now
               </TrackedCallButton>
               <Button className="mt-2 w-full" variant="secondary" href={`/contact/?service=${service.slug}`}>
-                Request Quote (Form)
+                Get a Free Quote
               </Button>
             </div>
           </div>

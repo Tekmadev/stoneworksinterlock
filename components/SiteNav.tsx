@@ -38,7 +38,11 @@ export function SiteNav() {
       initial={{ y: -16, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 1, ease: EASE_CINEMA, delay: 0.15 }}
-      className="fixed top-0 inset-x-0 z-40"
+      className="fixed inset-x-0 z-40"
+      style={{
+        top: "var(--banner-h, 0px)",
+        transition: "top 0.4s cubic-bezier(0.22,1,0.36,1)",
+      }}
     >
       <div
         className={`transition-all duration-500 ease-cinema ${

@@ -260,8 +260,70 @@ export function serviceJsonLd(input: {
     provider: {
       "@id": absoluteUrl("/#localbusiness"),
     },
-    areaServed: input.areaServed,
+    areaServed: input.areaServed.map((area) => ({
+      "@type": "City",
+      name: area,
+      "@id": `https://www.wikidata.org/wiki/${encodeURIComponent(area)}`,
+    })),
     url: input.url,
+    serviceType: input.name,
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "CAD",
+      priceSpecification: {
+        "@type": "PriceSpecification",
+        priceCurrency: "CAD",
+        description: "Contact us for a free quote. Pricing varies by project size and scope.",
+      },
+      eligibleRegion: {
+        "@type": "City",
+        name: "Ottawa",
+        addressCountry: "CA",
+      },
+      availability: "https://schema.org/InStock",
+    },
+  };
+}
+
+export function howToJsonLd(input: {
+  name: string;
+  description: string;
+  steps: { name: string; text: string }[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: input.name,
+    description: input.description,
+    step: input.steps.map((s, i) => ({
+      "@type": "HowToStep",
+      position: i + 1,
+      name: s.name,
+      text: s.text,
+    })),
+    tool: [
+      { "@type": "HowToTool", name: "Professional interlock crew" },
+      { "@type": "HowToTool", name: "Plate compactor" },
+      { "@type": "HowToTool", name: "Granular A base material" },
+    ],
+    supply: [
+      { "@type": "HowToSupply", name: "Interlock pavers" },
+      { "@type": "HowToSupply", name: "Polymeric sand" },
+      { "@type": "HowToSupply", name: "Edge restraints" },
+    ],
+  };
+}
+
+export function speakableJsonLd(cssSelectors: string[], url: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": url,
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: cssSelectors,
+    },
+    url,
   };
 }
 
