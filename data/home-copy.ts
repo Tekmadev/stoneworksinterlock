@@ -4,14 +4,14 @@
  */
 export const homeCopy = {
   hero: {
-    eyebrow: "Ottawa interlock contractor",
-    line1: "Ottawa pavers,",
-    line2Pre: "built to ",
-    line2Italic: "outlast",
+    eyebrow: "Top rated interlock contractors in Ottawa",
+    line1: "Interlock",
+    line2Pre: "Installation ",
+    line2Italic: "Ottawa",
     line2Post: "",
-    line3: "every winter.",
+    line3: "Driveways, Patios, Repairs.",
     subhead:
-      "Stoneworks Interlock is an Ottawa hardscape contractor building driveways, patios, walkways and repairs that look sharp the day they go in and still hold their line twenty winters later. Twenty plus years on the tools. Five hundred plus finished projects. Free quote back to you within twenty four hours.",
+      "Transform your property with expert interlock installation, repair, and restoration in Ottawa. We build high quality driveways, patios, walkways, and outdoor spaces using proper base preparation, advanced compaction, and proven installation methods designed to handle Ottawa freeze thaw conditions without sinking or shifting.",
     primaryCta: "Get a free quote",
     secondaryCta: "Or call us directly",
     note: "Serving Ottawa, Kanata, Nepean, Barrhaven, Orleans, Stittsville, Manotick, Gloucester and the rest of the region.",

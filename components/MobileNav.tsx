@@ -12,6 +12,7 @@ import { SERVICES } from "@/data/services";
 
 const LINKS = [
   { href: "/services/", label: "Services", hasDropdown: true },
+  { href: "/projects/", label: "Projects" },
   { href: "/gallery/", label: "Gallery" },
   { href: "/blog/", label: "Journal" },
   { href: "/about/", label: "About" },

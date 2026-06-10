@@ -199,37 +199,38 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      {/* Why homeowners trust us */}
+      {/* Why Choose Stoneworks Interlock */}
       <Section className="pt-0">
-        <h2 className="text-2xl font-semibold tracking-tight">Why homeowners trust us</h2>
+        <h2 className="text-2xl font-semibold tracking-tight">Why Choose Stoneworks Interlock?</h2>
         <p className="mt-2 max-w-2xl text-sm leading-7 text-zinc-600">
-          Real reasons people choose Stoneworks Interlock over other contractors.
+          We build interlock the right way, focusing on long-term durability, clean workmanship,
+          and reliable service you can trust.
         </p>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {[
             {
-              title: "We do the work ourselves",
-              text: "No subcontractors, no middlemen. The crew that shows up is our crew. You're not handed off to someone you've never met.",
+              title: "Built for Ottawa freeze-thaw conditions",
+              text: "Every installation is designed to handle Ottawa's harsh winters. Proper base depth and drainage prevent sinking, heaving, and early failure.",
             },
             {
-              title: "Transparent pricing",
-              text: "You'll get a clear, itemized quote before any work starts. No hidden fees, no surprise add-ons. The price we agree on is the price you pay.",
+              title: "Proper base preparation",
+              text: "We excavate to the right depth, compact in lifts, and grade for drainage before a single paver goes down. This is what prevents sinking and shifting.",
             },
             {
-              title: "We stand behind our work",
-              text: "Every project comes with a workmanship warranty. If something isn't right, we come back and fix it. No questions, no runaround.",
+              title: "Clean, precise installation",
+              text: "Tight joints, straight lines, sharp edge cuts, and a professional finish on every project. The details matter and we take them seriously.",
             },
             {
-              title: "Local knowledge",
-              text: "We know Ottawa's soil, frost lines, drainage patterns, and permit requirements. That local experience translates to better results and fewer surprises.",
+              title: "Honest, transparent pricing",
+              text: "You get a clear written quote before any work starts. No hidden surprises, no add-ons mid-project. The number we agree on is the number you pay.",
             },
             {
-              title: "Responsive communication",
-              text: "We answer calls, reply to messages, and keep you updated throughout the project. You'll never be left wondering what's happening with your job.",
+              title: "Fast, reliable service",
+              text: "We respond to quote requests within 24 hours, show up on time, and keep communication clear throughout. You always know where things stand.",
             },
             {
-              title: "Clean, safe job sites",
-              text: "We protect your lawn, gardens, and surrounding areas. Tools and materials are organized, and we clean up daily. Your property is treated with care.",
+              title: "Experienced local team",
+              text: "We are based in Ottawa and work across the region. Our crew knows the soil, the frost lines, and the drainage conditions specific to this area.",
             },
           ].map((item) => (
             <Card key={item.title} className="p-6">
@@ -307,7 +308,7 @@ export default function AboutPage() {
               Call {BUSINESS.phone}
             </Button>
             <Button href="/contact/" variant="secondary" size="lg">
-              Get Free Quote (Form)
+              Get a Free Quote
             </Button>
           </div>
         </div>

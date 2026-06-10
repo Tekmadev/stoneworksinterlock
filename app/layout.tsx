@@ -8,6 +8,8 @@ import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { JsonLd } from "@/components/JsonLd";
 import { LenisProvider } from "@/components/motion/LenisProvider";
+import { PromoBanner } from "@/components/PromoBanner";
+import { PromoModal } from "@/components/PromoModal";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 
 const dmSans = DM_Sans({
@@ -169,6 +171,8 @@ gtag('config', '${gaId}');
             </Script>
           </>
         ) : null}
+        <PromoBanner />
+        <PromoModal />
         <LenisProvider>
           <SiteNav />
           <main className="relative">{children}</main>

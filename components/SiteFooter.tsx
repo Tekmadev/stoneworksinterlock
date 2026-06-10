@@ -47,9 +47,8 @@ export function SiteFooter() {
               <span className="italic text-onyx-60"> Interlock</span>
             </div>
             <p className="mt-7 max-w-md text-[15px] leading-[1.55] text-onyx-75">
-              Built in Ottawa. We work the Ottawa region all season, from spring
-              site visits through late autumn installs. The quality of the base
-              is the quality of the build.
+              Premium interlock built to last in Ottawa. Strong base work, clean
+              lines, and every detail done right.
             </p>
             <div className="mt-6 font-mono text-[10px] tracking-[0.2em] uppercase text-onyx-60">
               {BUSINESS.address?.street}, {BUSINESS.address?.city},{" "}
