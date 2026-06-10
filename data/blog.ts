@@ -359,8 +359,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: "Maintenance",
     tags: ["interlock maintenance", "pressure washing", "polymeric sand", "sealing", "ottawa"],
     cover: {
-      src: "/images/img-service/cleaned-paver.webp",
-      alt: "Cleaned and restored interlock pavers in Ottawa",
+      src: "/images/img-service/pressure-wash.webp",
+      alt: "Pressure washing interlock pavers in Ottawa",
     },
     content: {
       intro: [
