@@ -53,56 +53,61 @@ export const SERVICES: Service[] = [
     slug: "interlock-installation",
     name: "Interlock Installation",
     short:
-      "New driveways, walkways, and front entrances with a strong base and premium finish.",
+      "Expert driveway, walkway, and patio installations built on a solid base with a clean finish.",
     description:
-      "Interlock installation is one of the most effective ways to upgrade your home's curb appeal and add lasting value to your property. We handle every step, from removing old surfaces and excavating the site, to building a properly compacted granular base that prevents settling and shifting over time. Our team lays each paver with precision, cutting clean edges at borders, curves, and transitions. We use quality edge restraints and polymeric sand to lock everything in place. Whether it's a driveway that needs to handle vehicle traffic, a front walkway that sets the tone for your home, or a side path connecting your backyard, we build it to look sharp and hold up through Ottawa's freeze-thaw cycles. Every project includes a final walkthrough so you know exactly how to care for your new surface.",
+      "We install interlock driveways, walkways, patios, and front entrances for Ottawa homeowners who want a surface that looks sharp and holds up. Every project starts with proper excavation and a compacted granular base. We build to the right depth for your soil conditions and usage, whether that is a pedestrian walkway or a driveway that handles daily vehicle traffic. Pavers are laid in your chosen pattern, edges are cut clean, and the whole surface is locked in with quality edge restraints and polymeric sand. We focus on getting the base right because that is what determines how your interlock performs through Ottawa freeze thaw cycles. Corners, transitions, curves, and border details are handled with care so the finished product looks intentional and precise.",
     seo: {
-      title: `Interlock Installation in ${primaryCity}`,
+      title: `Interlock Installation Ottawa | Driveways, Patios & Walkways`,
       description:
-        "Driveway, walkway, and patio interlock installation in Ottawa. Premium pavers, excavation, base prep, and edges built for freeze-thaw.",
+        "Interlock installation in Ottawa for driveways, patios, and walkways. Proper excavation, base prep, and clean finishes built for Ottawa winters.",
     },
     hero: {
-      headline: "Interlock installation in Ottawa that looks premium and stays level.",
+      headline: "Interlock installation in Ottawa. Built right from the base up.",
       subheadline:
-        "We build from the base up for Ottawa homes: excavation, compaction, and clean edges for a crisp finish through freeze-thaw cycles.",
+        "Driveways, patios, and walkways installed with proper excavation, compacted base, and clean edges designed to handle Ottawa freeze thaw cycles without sinking.",
     },
     benefits: [
       {
-        title: "Strong base work",
+        title: "Proper base preparation",
         description:
-          "Proper excavation and compaction to prevent shifting and sinking.",
+          "Every installation starts with excavation and compaction to the correct depth for your usage and soil type.",
       },
       {
-        title: "Clean, modern layout",
+        title: "Clean, precise installation",
         description:
-          "Straight lines, smooth transitions, and crisp cuts where they matter.",
+          "Straight lines, smooth cuts at borders and curves, and tight joints throughout.",
       },
       {
-        title: "Low maintenance",
+        title: "Ottawa climate ready",
         description:
-          "Interlock is easy to maintain and looks great with routine cleaning.",
+          "Base depth, edge restraints, and drainage are all set up to handle freeze thaw conditions without shifting.",
+      },
+      {
+        title: "Adds lasting value",
+        description:
+          "Quality interlock improves curb appeal and holds its appearance with simple routine care.",
       },
     ],
     process: [
       {
-        title: "Site check + measurements",
+        title: "Consultation and site review",
         description:
-          "We confirm access, drainage, and layout to avoid surprises.",
+          "We confirm access, drainage, existing materials, and project scope before any work starts.",
       },
       {
-        title: "Excavation + base",
+        title: "Excavation and base preparation",
         description:
-          "We dig, grade, and compact with the right materials and lifts.",
+          "We dig to the correct depth, add compacted granular base in lifts, and establish proper slope for drainage.",
       },
       {
-        title: "Install + edges",
+        title: "Paver installation",
         description:
-          "We set pavers, cut clean edges, and lock everything in place.",
+          "We lay pavers in your chosen pattern, cut edges cleanly, and secure borders with edge restraints.",
       },
       {
-        title: "Jointing + final walkthrough",
+        title: "Jointing and final cleanup",
         description:
-          "We finish joints, clean up, and review care steps with you.",
+          "We sweep and compact polymeric sand into joints, clean the surface, and walk you through care and maintenance.",
       },
     ],
     pricingFactors: [
@@ -168,54 +173,61 @@ export const SERVICES: Service[] = [
     slug: "patio-installation",
     name: "Patio Installation",
     short:
-      "Backyard patios designed for hosting, lounging, and clean outdoor flow.",
+      "Backyard patio installations designed for outdoor living with proper drainage and a premium finish.",
     description:
-      "A well-built patio transforms your backyard into a functional living space, perfect for entertaining, relaxing, or simply enjoying the outdoors. We design and install patios using premium interlocking pavers with layouts tailored to your yard's shape, slope, and how you plan to use the space. The process starts with careful site assessment, grading for drainage, and building a solid compacted base. From there, we lay the pavers in your chosen pattern (running bond, herringbone, or custom), cut precise edges, and finish with polymeric sand joints. We can also integrate steps, retaining walls, fire pit pads, or lighting conduit if you're planning those down the road. The result is a clean, level surface that drains properly, holds up to weather, and looks great for years.",
+      "A well-built patio gives your backyard a real purpose. We design and install interlock patios for Ottawa homeowners who want a surface that drains properly, stays level, and looks great for years. We start by assessing your yard shape, slope, and how you plan to use the space. From there we excavate, prepare a compacted base with proper drainage grading, and install pavers in your chosen pattern. We handle all the finishing details including cut edges, border courses, and transitions to adjacent structures like decks, stairs, or garden beds. We can also rough in conduit for lighting or plan access for future features. The result is a patio that is built to last through Ottawa winters and comfortable to use all season long.",
     seo: {
-      title: `Patio Installation in ${primaryCity}`,
+      title: `Patio Installation Ottawa | Backyard Interlock Patios`,
       description:
-        "Ottawa patio contractors for backyard patio design and install. Interlock, drainage, and finishes built for Canadian seasons.",
+        "Patio installation in Ottawa using premium interlock pavers. Proper base, drainage, and custom layouts for backyards and outdoor entertaining spaces.",
     },
     hero: {
-      headline: "Ottawa patios built for outdoor living.",
+      headline: "Patio installation in Ottawa that gives your backyard real purpose.",
       subheadline:
-        "Backyard patio design and install in Ottawa with layout, drainage, and interlock details suited to Canadian seasons.",
+        "Custom interlock patios designed for Ottawa backyards, with proper drainage, compacted base, and clean finishes that hold up through Canadian seasons.",
     },
     benefits: [
       {
-        title: "Better outdoor flow",
+        title: "More usable outdoor space",
         description:
-          "Create zones for seating, dining, and pathways that feel intentional.",
+          "Turn a sloped or underused backyard into a functional patio for entertaining, dining, or relaxing.",
       },
       {
-        title: "Durable surface",
+        title: "Drains properly",
         description:
-          "Proper base + quality materials for a patio that stays level.",
+          "We grade every patio surface so water moves away from your house and does not pool.",
       },
       {
-        title: "Higher curb appeal",
+        title: "Stays level year after year",
         description:
-          "A premium patio adds value and makes your backyard feel finished.",
+          "Proper base prep and edge restraints keep the surface stable through Ottawa freeze thaw cycles.",
+      },
+      {
+        title: "Designed around how you use it",
+        description:
+          "We plan zones, transitions, and access points that match the way you actually want to use your yard.",
       },
     ],
     process: [
       {
-        title: "Design + layout",
+        title: "Design and layout planning",
         description:
-          "We confirm shape, borders, steps, and how you'll use the space.",
+          "We review your yard, confirm shape, borders, drainage direction, and any tie-ins to decks or walkways.",
       },
       {
-        title: "Excavation + drainage",
-        description: "We prep the base and ensure water moves away correctly.",
-      },
-      {
-        title: "Installation",
+        title: "Excavation and drainage prep",
         description:
-          "We set pavers/slabs, cut details cleanly, and lock edges.",
+          "We excavate to the right depth, build a compacted granular base, and set the correct grade for drainage.",
       },
       {
-        title: "Final clean + handoff",
-        description: "We leave a clean site and explain care/maintenance.",
+        title: "Paver installation",
+        description:
+          "We lay pavers in your chosen pattern, cut edges cleanly, and lock in borders with edge restraints.",
+      },
+      {
+        title: "Finishing and site cleanup",
+        description:
+          "We joint with polymeric sand, clean up the site, and walk you through care and maintenance.",
       },
     ],
     pricingFactors: [
@@ -280,50 +292,56 @@ export const SERVICES: Service[] = [
     slug: "interlock-repair",
     name: "Interlock Repair",
     short:
-      "Fix sunken areas, shifting borders, and loose pavers to restore a clean, safe surface.",
+      "Sunken pavers, shifting borders, and failed bases repaired to restore a safe, level surface.",
     description:
-      "Over time, interlock surfaces can develop sunken spots, shifted pavers, cracked edges, or loose border stones, often caused by base erosion, tree roots, poor drainage, or normal wear. Our repair service addresses the root cause, not just the surface. We lift and remove affected pavers, assess and rebuild the base where needed, re-compact, and re-lay the stones so the surface is level, stable, and safe again. We also replace damaged pavers, tighten edge restraints, and resand joints. Whether it's a small trip hazard on a walkway or a larger section of driveway that's settled, we'll restore it to look and perform like it should. Repairs are usually completed in a day or two depending on scope.",
+      "Interlock surfaces sink, shift, and crack for specific reasons. Usually it comes down to base failure, poor drainage, or edge restraints that have given out over time. Our repair service starts with diagnosing why the area failed, not just patching what you can see. We lift the affected pavers, assess and rebuild the base, compact it correctly, and reinstall everything level and tight. We also address any drainage issues that contributed to the problem so the same area does not fail again. Whether it is a trip hazard on a front walkway, a sunken section in the driveway, or border stones that have shifted out, we fix the root cause and blend the repair into the surrounding surface so it looks clean when we are done.",
     seo: {
-      title: `Interlock Repair in ${primaryCity}`,
+      title: `Interlock Repair Ottawa | Sunken Pavers & Base Repair`,
       description:
-        "Local Ottawa interlock repair for driveways, walkways, and patios. Sinking, shifting, and loose pavers fixed with base and edge work.",
+        "Interlock repair in Ottawa for sunken driveways, shifted walkways, and failed bases. We diagnose the root cause and fix it properly.",
     },
     hero: {
-      headline: "Interlock repair in Ottawa that blends in and holds up.",
+      headline: "Interlock repair in Ottawa. We fix the cause, not just the surface.",
       subheadline:
-        "We diagnose base, edges, and drainage on Ottawa properties and fix problems so your surface stays level and safe.",
+        "Sunken pavers, cracked edges, and shifting borders are a sign of base failure. We lift, rebuild, and reinstall so your surface is level, stable, and safe.",
     },
     benefits: [
       {
-        title: "Safer surface",
-        description: "Reduce trip hazards and improve traction and drainage.",
+        title: "Fixes the root cause",
+        description:
+          "We diagnose base failure, drainage issues, and edge problems before touching a single paver.",
       },
       {
-        title: "Restore curb appeal",
+        title: "Eliminates trip hazards",
         description:
-          "Bring back crisp lines and an even surface without full replacement.",
+          "Sunken and uneven pavers are a liability. We restore a safe, even surface.",
       },
       {
-        title: "Targeted fixes",
+        title: "Restores curb appeal",
         description:
-          "We focus on problem areas, rebuild base where needed, and re-install properly.",
+          "Properly repaired interlock looks clean and blends with the surrounding surface.",
+      },
+      {
+        title: "Prevents further damage",
+        description:
+          "Addressing drainage and base issues stops the problem from spreading to adjacent areas.",
       },
     ],
     process: [
       {
-        title: "Assessment",
+        title: "Diagnosis and assessment",
         description:
-          "We identify why the area failed (water, base, or edging).",
+          "We identify the cause of failure, whether it is base erosion, drainage problems, or failing edge restraints.",
       },
       {
-        title: "Lift + rebuild base",
+        title: "Lift and base rebuild",
         description:
-          "We pull pavers, correct grade, and compact layers properly.",
+          "We remove the affected pavers, excavate, correct the base and grading, and compact in lifts.",
       },
       {
-        title: "Reinstall + jointing",
+        title: "Reinstall and joint",
         description:
-          "We reinstall, cut cleanly, and re-sand joints for lock-in.",
+          "We reinstall pavers, cut cleanly where needed, re-sand joints, and compact for a stable lock.",
       },
     ],
     pricingFactors: [
@@ -488,48 +506,56 @@ export const SERVICES: Service[] = [
   {
     slug: "pressure-washing-resanding",
     name: "Pressure Washing + Resanding",
-    short: "Deep clean interlock and refresh joints for a sharp, renewed look.",
+    short: "Professional interlock cleaning and joint resanding to bring back the look and stability of your surface.",
     description:
-      "Dirt, moss, algae, and years of weathering can make even quality interlock look tired and worn. Our pressure washing service uses professional-grade equipment to deep clean your pavers without damaging the surface or displacing the base. After washing, we sweep out the old sand from the joints and refill with fresh kiln-dried or polymeric sand to stabilize the surface and reduce weed growth. The result is a dramatic before-and-after difference. Your interlock looks refreshed, the colour comes back, and the joints are tight and clean. This service is a great option if your interlock is structurally sound but just needs a facelift. We recommend pressure washing and resanding every few years to keep your surface looking its best.",
+      "Interlock surfaces collect dirt, moss, algae, and organic staining over the years. Joint sand erodes and weeds start pushing through. Pressure washing and resanding is the most effective way to restore the look and stability of your interlock without replacing anything. We use professional equipment calibrated for interlock to clean deeply without damaging the paver surface or displacing the base. After washing, we remove the old joint sand and replace it with fresh kiln-dried or polymeric sand, compacted into every joint for a tight, weed-resistant finish. The transformation is dramatic. Colour comes back, joints tighten up, and the surface looks clean and maintained again. We recommend doing this every two to three years depending on your level of traffic and tree cover.",
     seo: {
-      title: `Pressure Washing & Resanding in ${primaryCity}`,
+      title: `Pressure Washing & Resanding Ottawa | Interlock Cleaning`,
       description:
-        "Pressure washing and resanding for Ottawa interlock driveways, walkways, and patios. Refreshes joints for a clean, durable look.",
+        "Pressure washing and resanding for Ottawa interlock driveways, walkways, and patios. Professional cleaning, fresh joints, and restored colour.",
     },
     hero: {
-      headline: "Make your Ottawa interlock look new again.",
+      headline: "Pressure washing and resanding for Ottawa interlock. Like new again.",
       subheadline:
-        "We remove buildup safely, then re-sand joints on driveways and patios for a clean finish that locks pavers through Ottawa weather.",
+        "We clean years of buildup from your pavers and replace worn joint sand to restore colour, stability, and a clean finished look.",
     },
     benefits: [
       {
-        title: "Instant curb appeal",
+        title: "Dramatic visual restoration",
         description:
-          "Wash away grime and bring back the original tone of the stone.",
+          "Professional cleaning removes staining, algae, and grime that makes interlock look old and neglected.",
       },
       {
-        title: "Refreshed joints",
-        description: "Resanding tightens the system and reduces shifting.",
+        title: "Tighter, more stable joints",
+        description:
+          "Fresh polymeric or kiln-dried sand locks pavers together and reduces movement.",
       },
       {
-        title: "Weed reduction",
+        title: "Reduces weed growth",
         description:
-          "Clean joints plus proper sand helps limit weeds over time.",
+          "Clean, properly filled joints give weed seeds far less room to establish.",
+      },
+      {
+        title: "Extends surface lifespan",
+        description:
+          "Keeping joints full and pavers clean prevents accelerated wear and base erosion.",
       },
     ],
     process: [
       {
-        title: "Pre-check",
-        description: "We confirm surface condition and pressure-safe approach.",
-      },
-      {
-        title: "Wash",
-        description: "We clean evenly without damaging pavers or joint lines.",
-      },
-      {
-        title: "Resand",
+        title: "Surface inspection",
         description:
-          "We sweep and compact sand into joints for a finished look.",
+          "We check paver condition, joint depth, staining, and any areas that need extra attention before starting.",
+      },
+      {
+        title: "Pressure washing",
+        description:
+          "We wash the entire surface using professional equipment set for interlock, removing buildup without damaging pavers.",
+      },
+      {
+        title: "Resanding and compaction",
+        description:
+          "We sweep sand into all joints, compact it in, and ensure a full, tight finish across the surface.",
       },
     ],
     pricingFactors: [
@@ -1027,56 +1053,61 @@ export const SERVICES: Service[] = [
     slug: "retaining-walls",
     name: "Retaining Walls",
     short:
-      "Engineered retaining walls for grade support, drainage control, and a clean finished landscape.",
+      "Structural retaining walls built for slope control, drainage, and a clean finished landscape.",
     description:
-      "Retaining walls are built to hold back soil, manage elevation changes, and make sloped yards functional and safe. A properly built wall does more than look good; it protects your property from washout, erosion, and long-term movement. We start by assessing grade, load, and drainage so the wall is designed for your site conditions. Then we excavate, prepare a stable base, install drainage stone and relief paths, and build with quality wall systems that are installed to manufacturer standards. Whether you need a low garden wall, a multi-tier backyard wall, or structural support along a driveway or walkway, we focus on clean lines, reliable stability, and a finish that integrates with your interlock and landscaping.",
+      "Retaining walls hold back soil, manage grade changes, and make sloped Ottawa yards usable and safe. A properly built wall does more than look good. It controls erosion, manages water movement, and stays stable through years of freeze thaw cycles and seasonal soil expansion. We start with a site assessment that looks at grade, load, drainage, and your plans for the surrounding area. We excavate to the right depth, prepare a compacted base, install drainage stone and weeping tile behind the wall, and build with quality block systems designed to handle the load your site requires. Whether you need a low garden wall, a multi-tier retaining system, or a structural wall tied into stairs and a patio, we build to last and design details that integrate cleanly with your interlock and landscape.",
     seo: {
-      title: `Retaining Walls in ${primaryCity}`,
+      title: `Retaining Walls Ottawa | Structural & Garden Walls`,
       description:
-        "Ottawa retaining wall contractors for sloped yards. Base, drainage, and tie-ins with walkways, patios, and driveways.",
+        "Retaining wall installation in Ottawa for sloped yards, drainage control, and landscape structure. Built with proper base, drainage, and clean finishes.",
     },
     hero: {
-      headline: "Ottawa retaining walls that look sharp and hold strong.",
+      headline: "Retaining walls in Ottawa. Built to hold, designed to last.",
       subheadline:
-        "Proper base, drainage, and alignment for walls that stabilize slopes and tie cleanly into your walkway or patio.",
+        "Structural and decorative retaining walls for Ottawa yards with proper base, drainage behind the wall, and clean integration with your interlock or patio.",
     },
     benefits: [
       {
-        title: "Slope control + safety",
+        title: "Stops erosion and washout",
         description:
-          "Stabilize elevation changes and reduce erosion or washout risk.",
+          "A properly built wall with drainage controls soil movement and protects your property through heavy rain and snowmelt.",
       },
       {
-        title: "Drainage-minded build",
+        title: "Manages water and drainage",
         description:
-          "We design with drainage behind the wall to reduce hydrostatic pressure.",
+          "We install drainage stone and relief paths behind every wall to prevent hydrostatic pressure buildup.",
       },
       {
-        title: "Premium curb appeal",
+        title: "Turns slopes into usable space",
         description:
-          "Clean wall lines and integrated finishes that elevate the whole property.",
+          "Tiered walls create flat areas for patios, gardens, and lawns where a slope once made the yard unusable.",
+      },
+      {
+        title: "Clean integration with interlock",
+        description:
+          "We detail wall caps and transitions to tie in cleanly with steps, patios, and walkways.",
       },
     ],
     process: [
       {
-        title: "Site assessment + layout",
+        title: "Site assessment and wall design",
         description:
-          "We evaluate grade, loads, and drainage, then map the wall alignment and height.",
+          "We assess grade, load, drainage, and layout to determine the right wall system, height, and drainage approach.",
       },
       {
-        title: "Excavate + base prep",
+        title: "Excavation and base preparation",
         description:
-          "We dig to depth, compact the base, and establish proper leveling for stability.",
+          "We excavate to the correct depth, compact the base, and establish level courses for a plumb, stable wall.",
       },
       {
-        title: "Wall build + drainage",
+        title: "Wall construction and drainage",
         description:
-          "We install courses, backfill with drainage stone, and include relief as required.",
+          "We build courses with the correct setback, backfill with drainage stone, and install weeping tile where required.",
       },
       {
-        title: "Finish + tie-ins",
+        title: "Capping and tie-ins",
         description:
-          "We cap and detail the wall, then blend transitions into steps, patio, or interlock.",
+          "We cap the wall, detail the top course, and blend transitions to any connected stairs, patio, or interlock.",
       },
     ],
     pricingFactors: [
@@ -1143,56 +1174,61 @@ export const SERVICES: Service[] = [
     slug: "staircases",
     name: "Interlock Staircases",
     short:
-      "Custom outdoor staircases built for safe access, clean transitions, and premium visual impact.",
+      "Custom outdoor staircases built for safe access, clean transitions, and lasting visual impact.",
     description:
-      "Outdoor staircases connect levels, improve access, and create a finished architectural look across your front entrance, side yard, or backyard. A quality staircase needs precise rise/run consistency, proper foundation support, and clean tie-ins to surrounding interlock or landscape features. We design and build interlock and block stair systems that are both durable and comfortable to use, with attention to tread depth, edge alignment, and long-term stability. Whether you need a small front entry staircase, wide backyard terrace steps, or stairs integrated into a retaining wall design, we build with safety, drainage, and visual balance in mind so the result feels intentional and high-end.",
+      "Outdoor stairs connect levels, make your property accessible, and add a finished look to your front entrance, backyard, or landscaped yard. Good stairs start with consistent rise and run geometry, a solid structural base, and details that tie in cleanly to the interlock or walls they are connected to. We design and build interlock and block stair systems that are comfortable to use daily and stable through Ottawa winters. We factor in tread depth, drainage off the steps, and edge alignment so nothing shifts or creates a hazard through freeze thaw cycles. Whether it is a three-step front entrance upgrade, wide backyard terrace steps, or a staircase integrated into a retaining wall, we build with safety and appearance in equal measure.",
     seo: {
-      title: `Interlock Staircases in ${primaryCity}`,
+      title: `Interlock Staircases Ottawa | Outdoor Steps & Entrance Stairs`,
       description:
-        "Outdoor interlock stairs in Ottawa for front entrances, walkways, and patio levels. Safe rise and run and solid construction.",
+        "Outdoor interlock staircases and front entrance steps in Ottawa. Consistent rise and run, structural base, and clean ties to driveways and patios.",
     },
     hero: {
-      headline: "Ottawa outdoor staircases that feel solid and look premium.",
+      headline: "Interlock staircases in Ottawa. Solid footing and a clean finish.",
       subheadline:
-        "Safe daily access with precise steps, strong support, and clean ties to your front entrance, walkway, or patio.",
+        "Front entrance stairs, backyard steps, and retaining wall staircases built with precise geometry, structural prep, and clean integration with your interlock.",
     },
     benefits: [
       {
-        title: "Safe elevation transitions",
+        title: "Safe and consistent geometry",
         description:
-          "Consistent step geometry and stable construction for confident footing.",
+          "Every step is built with matching rise and run so stairs feel natural and predictable underfoot.",
       },
       {
-        title: "Integrated design",
+        title: "Structural base for Ottawa winters",
         description:
-          "Stairs that tie in seamlessly with your driveway, walkway, patio, or wall.",
+          "Proper excavation and foundation work prevents settling and ice-related movement through freeze thaw cycles.",
       },
       {
-        title: "Durable through seasons",
+        title: "Front entrance impact",
         description:
-          "Proper base and drainage reduce shifting through Ottawa freeze/thaw cycles.",
+          "New front stairs dramatically improve curb appeal and set the tone for the entire property.",
+      },
+      {
+        title: "Integrates with walls and patios",
+        description:
+          "We design stair transitions that tie in cleanly to retaining walls, driveways, and patio surfaces.",
       },
     ],
     process: [
       {
-        title: "Measure + stair design",
+        title: "Measurement and stair design",
         description:
-          "We calculate rise/run and layout based on code-minded, comfortable stair geometry.",
+          "We calculate rise and run based on your grade change and design steps that are comfortable and safe to walk daily.",
       },
       {
-        title: "Excavation + structural prep",
+        title: "Excavation and structural base",
         description:
-          "We build a stable base and supports to handle daily traffic and seasonal movement.",
+          "We build a solid foundation to handle daily foot traffic and resist seasonal movement from frost.",
       },
       {
-        title: "Install treads/risers + edges",
+        title: "Tread and riser installation",
         description:
-          "We install step components with tight alignment and clean side transitions.",
+          "We set each step component with consistent alignment, tight edges, and clean transitions on both sides.",
       },
       {
-        title: "Detail + final walkthrough",
+        title: "Final details and walkthrough",
         description:
-          "We complete finishing details, confirm consistency, and review care guidance with you.",
+          "We complete any finishing cuts, check every step for consistency, and review care and winter maintenance with you.",
       },
     ],
     pricingFactors: [
