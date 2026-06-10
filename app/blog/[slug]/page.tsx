@@ -134,7 +134,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                     href="/contact/"
                     className="inline-flex items-center justify-center rounded-xl border border-zinc-200 bg-white px-5 py-2 text-sm font-semibold text-zinc-950 hover:bg-zinc-50"
                   >
-                    Get Free Quote (Form)
+                    Get a Free Quote
                   </Link>
                 </div>
               </Card>
