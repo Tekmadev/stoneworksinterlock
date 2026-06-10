@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { DM_Sans, Geist_Mono, Instrument_Serif } from "next/font/google";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { BUSINESS } from "@/config/business";
 import { SiteNav } from "@/components/SiteNav";
@@ -173,6 +174,7 @@ gtag('config', '${gaId}');
           <main className="relative">{children}</main>
           <SiteFooter />
         </LenisProvider>
+        <Analytics />
       </body>
     </html>
   );
