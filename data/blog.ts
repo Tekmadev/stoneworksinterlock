@@ -359,8 +359,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: "Maintenance",
     tags: ["interlock maintenance", "pressure washing", "polymeric sand", "sealing", "ottawa"],
     cover: {
-      src: "/images/img-service/pressure-wash.webp",
-      alt: "Pressure washing interlock pavers in Ottawa",
+      src: "/images/workexample/work2done.jpeg",
+      alt: "Clean, well-maintained interlock driveway in Ottawa",
     },
     content: {
       intro: [
@@ -505,8 +505,8 @@ export const BLOG_POSTS: BlogPost[] = [
     category: "Maintenance",
     tags: ["pressure washing", "interlock sealing", "maintenance timing", "ottawa"],
     cover: {
-      src: "/images/img-service/pressure-wash.webp",
-      alt: "Pressure washing interlock pavers in Ottawa",
+      src: "/images/B-A-polimetric-sanding.jpg",
+      alt: "Before and after interlock pressure washing and resanding in Ottawa",
     },
     content: {
       intro: [
