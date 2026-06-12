@@ -129,6 +129,19 @@ export async function saveQuoteLeadToFirestore(payload: QuoteLeadPayload) {
   return { ok: true as const, id: ref.id };
 }
 
+export function saveClickEvent(event: string, placement: string) {
+  if (!hasFirebaseConfig()) return;
+  const db = getFirebaseDb();
+  if (!db) return;
+  const page = typeof window !== "undefined" ? window.location.pathname : "";
+  addDoc(collection(db, "click_events"), {
+    event,
+    placement,
+    page,
+    createdAt: serverTimestamp(),
+  }).catch(() => {});
+}
+
 export async function subscribeNewsletterEmail(emailRaw: string) {
   if (!hasFirebaseConfig()) {
     return { ok: false as const, reason: "firebase_not_configured" as const };

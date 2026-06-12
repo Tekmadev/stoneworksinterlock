@@ -6,6 +6,7 @@ import { BUSINESS } from "@/config/business";
 import { SERVICES, type ServiceSlug } from "@/data/services";
 import { toWhatsAppHref } from "@/lib/format";
 import { Button } from "@/components/ui/Button";
+import { trackClick } from "@/lib/track";
 
 function isServiceSlug(value: string): value is ServiceSlug {
   return SERVICES.some((s) => s.slug === value);
@@ -32,6 +33,7 @@ export function ContactQueryCtas() {
       href={toWhatsAppHref(BUSINESS.whatsappPhone, whatsappMsg)}
       variant="secondary"
       className="gap-2"
+      onClick={() => trackClick("whatsapp_click", "contact_page")}
     >
       <MessageCircle className="h-4 w-4" />
       WhatsApp

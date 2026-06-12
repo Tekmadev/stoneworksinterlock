@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { trackClick } from "@/lib/track";
 
 const STORAGE_KEY = "sw_promo_banner_v1";
 const BANNER_H = 44;
@@ -59,7 +60,7 @@ export function PromoBanner() {
                 20% off select interlock services in Ottawa{" "}
                 <Link
                   href="/contact/"
-                  onClick={dismiss}
+                  onClick={() => { dismiss(); trackClick("cta_click", "promo_banner", { type: "quote" }); }}
                   className="font-semibold underline underline-offset-2 hover:text-canvas/80 transition-colors ml-1.5"
                 >
                   Book now &rarr;

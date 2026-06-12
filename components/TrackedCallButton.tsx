@@ -1,7 +1,7 @@
 "use client";
 
 import { BUSINESS } from "@/config/business";
-import { trackGaEvent } from "@/lib/ga";
+import { trackClick } from "@/lib/track";
 import { Button } from "@/components/ui/Button";
 
 function toTelHref(phone: string) {
@@ -26,12 +26,7 @@ export function TrackedCallButton({
       size={size}
       variant={variant}
       className={className}
-      onClick={() => {
-        trackGaEvent("phone_call_click", {
-          placement,
-          phone: BUSINESS.phone,
-        });
-      }}
+      onClick={() => trackClick("phone_call_click", placement, { phone: BUSINESS.phone })}
     >
       {children}
     </Button>

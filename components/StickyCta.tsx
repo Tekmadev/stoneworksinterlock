@@ -1,6 +1,9 @@
+"use client";
+
 import { Phone } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { TrackedCallButton } from "@/components/TrackedCallButton";
+import { trackClick } from "@/lib/track";
 
 export function StickyCta() {
   return (
@@ -12,7 +15,12 @@ export function StickyCta() {
               <Phone className="h-4 w-4" />
               Call
             </TrackedCallButton>
-            <Button href="/contact/" variant="secondary" size="md">
+            <Button
+              href="/contact/"
+              variant="secondary"
+              size="md"
+              onClick={() => trackClick("cta_click", "sticky", { type: "quote" })}
+            >
               Get a Quote
             </Button>
           </div>
@@ -21,5 +29,3 @@ export function StickyCta() {
     </div>
   );
 }
-
-

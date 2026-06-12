@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { Phone } from "lucide-react";
 import { BUSINESS } from "@/config/business";
 import { EASE_CINEMA } from "@/lib/motion";
-import { trackGaEvent } from "@/lib/ga";
+import { trackClick } from "@/lib/track";
 import { MobileNav } from "@/components/MobileNav";
 
 const NAV_LINKS = [
@@ -84,12 +84,7 @@ export function SiteNav() {
           <div className="flex items-center gap-2 md:gap-3">
             <a
               href={toTelHref(BUSINESS.phone)}
-              onClick={() =>
-                trackGaEvent("phone_call_click", {
-                  placement: "nav",
-                  phone: BUSINESS.phone,
-                })
-              }
+              onClick={() => trackClick("phone_call_click", "nav", { phone: BUSINESS.phone })}
               className="hidden sm:inline-flex items-center gap-2 rounded-full border border-onyx/15 bg-canvas-soft px-4 py-2 text-[13px] font-medium text-onyx hover:bg-onyx hover:text-canvas transition-all duration-300 ease-cinema"
             >
               <Phone className="h-3.5 w-3.5" />
@@ -97,6 +92,7 @@ export function SiteNav() {
             </a>
             <Link
               href="/contact/"
+              onClick={() => trackClick("cta_click", "nav", { type: "quote" })}
               className="inline-flex items-center gap-1.5 rounded-full bg-onyx px-4 md:px-5 py-2 text-[13px] font-medium text-canvas hover:bg-copper transition-colors duration-300 ease-cinema"
             >
               <span>Free quote</span>

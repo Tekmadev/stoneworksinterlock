@@ -6,6 +6,7 @@ import { X, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { BUSINESS } from "@/config/business";
 import { toTelHref } from "@/lib/format";
+import { trackClick } from "@/lib/track";
 
 const STORAGE_KEY = "sw_promo_modal_v1";
 
@@ -96,14 +97,14 @@ export function PromoModal() {
               <div className="mt-7 flex flex-col sm:flex-row gap-3">
                 <Link
                   href="/contact/"
-                  onClick={close}
+                  onClick={() => { close(); trackClick("cta_click", "promo_modal", { type: "quote" }); }}
                   className="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-onyx px-6 py-3.5 text-[14px] font-medium text-canvas hover:bg-copper transition-colors duration-300"
                 >
                   Get a free quote &rarr;
                 </Link>
                 <a
                   href={toTelHref(BUSINESS.phone)}
-                  onClick={close}
+                  onClick={() => { close(); trackClick("phone_call_click", "promo_modal"); }}
                   className="flex-1 inline-flex items-center justify-center gap-2 rounded-full border border-onyx/20 px-6 py-3.5 text-[14px] font-medium text-onyx hover:bg-onyx hover:text-canvas transition-colors duration-300"
                 >
                   <Phone className="h-4 w-4" />

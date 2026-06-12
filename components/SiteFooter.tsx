@@ -8,6 +8,7 @@ import { SERVICES } from "@/data/services";
 import { toTelHref, toWhatsAppHref } from "@/lib/format";
 import { EASE_CINEMA } from "@/lib/motion";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
+import { trackClick } from "@/lib/track";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -123,6 +124,7 @@ export function SiteFooter() {
                     href={toWhatsAppHref(BUSINESS.whatsappPhone, whatsappMsg)}
                     target="_blank"
                     rel="noreferrer"
+                    onClick={() => trackClick("whatsapp_click", "footer")}
                     className="hover:text-onyx underline-grow"
                   >
                     WhatsApp

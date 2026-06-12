@@ -49,6 +49,14 @@ type NewsletterSub = {
   created_at?: FsTimestamp;
 };
 
+type ClickEvent = {
+  id: string;
+  event?: string;
+  placement?: string;
+  page?: string;
+  createdAt?: FsTimestamp;
+};
+
 // ── Constants ──────────────────────────────────────────────────────
 
 const SESSION_KEY = "sw_admin_v1";
@@ -172,7 +180,8 @@ export function AdminDashboard() {
   const [filterStatus, setFilterStatus] = useState("all");
   const [sort, setSort] = useState<"newest" | "oldest">("newest");
   const [expanded, setExpanded] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState<"leads" | "subscribers">("leads");
+  const [activeTab, setActiveTab] = useState<"leads" | "subscribers" | "clicks">("leads");
+  const [clickEvents, setClickEvents] = useState<ClickEvent[]>([]);
 
   useEffect(() => {
     if (sessionStorage.getItem(SESSION_KEY) === "1") setAuthed(true);
@@ -209,7 +218,15 @@ export function AdminDashboard() {
         ),
       )
       .catch(() => {});
-    return unsub;
+
+    const clickQ = query(collection(db, "click_events"), orderBy("createdAt", "desc"));
+    const unsubClicks = onSnapshot(
+      clickQ,
+      (snap) => setClickEvents(snap.docs.map((d) => ({ id: d.id, ...(d.data() as Omit<ClickEvent, "id">) }))),
+      () => {},
+    );
+
+    return () => { unsub(); unsubClicks(); };
   }, [authed]);
 
   function login(e: React.FormEvent) {
@@ -324,6 +341,49 @@ export function AdminDashboard() {
     const weeks = Math.max((Date.now() - oldest) / (7 * 86_400_000), 1);
     return (leads.length / weeks).toFixed(1);
   }, [leads]);
+
+  // ── Click event breakdowns ───────────────────────────────────────
+
+  const sevenDaysAgo = Date.now() - 7 * 86_400_000;
+  const thirtyDaysAgo = Date.now() - 30 * 86_400_000;
+
+  const clickStats = useMemo(() => {
+    const recent = clickEvents.filter((e) => tsToMs(e.createdAt) >= thirtyDaysAgo);
+    const byEvent: Record<string, number> = {};
+    const byPlacement: Record<string, number> = {};
+    const byPage: Record<string, number> = {};
+    for (const e of recent) {
+      const ev = e.event ?? "unknown";
+      byEvent[ev] = (byEvent[ev] ?? 0) + 1;
+      const pl = e.placement ?? "unknown";
+      byPlacement[pl] = (byPlacement[pl] ?? 0) + 1;
+      if (e.page) byPage[e.page] = (byPage[e.page] ?? 0) + 1;
+    }
+    return {
+      total7d: clickEvents.filter((e) => tsToMs(e.createdAt) >= sevenDaysAgo).length,
+      total30d: recent.length,
+      byEvent: Object.entries(byEvent).sort((a, b) => b[1] - a[1]),
+      byPlacement: Object.entries(byPlacement).sort((a, b) => b[1] - a[1]),
+      byPage: Object.entries(byPage).sort((a, b) => b[1] - a[1]).slice(0, 8),
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [clickEvents]);
+
+  const EVENT_LABELS: Record<string, string> = {
+    phone_call_click: "Phone Call",
+    cta_click: "Get a Quote",
+    whatsapp_click: "WhatsApp",
+  };
+
+  const PLACEMENT_LABELS: Record<string, string> = {
+    nav: "Nav bar",
+    hero: "Hero section",
+    sticky: "Sticky bar (mobile)",
+    footer: "Footer",
+    promo_banner: "Promo banner",
+    promo_modal: "Promo modal",
+    contact_page: "Contact page",
+  };
 
   // ── Filtered leads ───────────────────────────────────────────────
 
@@ -569,7 +629,7 @@ export function AdminDashboard() {
 
         {/* ── Tabs ── */}
         <div className="flex gap-1 rounded-xl border border-zinc-200 bg-white p-1 shadow-sm w-fit">
-          {(["leads", "subscribers"] as const).map((tab) => (
+          {(["leads", "clicks", "subscribers"] as const).map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
@@ -581,7 +641,9 @@ export function AdminDashboard() {
             >
               {tab === "leads"
                 ? `Leads (${filtered.length})`
-                : `Newsletter (${subs.length})`}
+                : tab === "clicks"
+                  ? `Clicks (${clickStats.total30d})`
+                  : `Newsletter (${subs.length})`}
             </button>
           ))}
         </div>
@@ -788,6 +850,120 @@ export function AdminDashboard() {
               )}
             </div>
           </>
+        ) : activeTab === "clicks" ? (
+          /* ── Clicks tab ── */
+          <div className="space-y-4">
+            {/* Click summary cards */}
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+              <StatCard label="Clicks (7 days)" value={clickStats.total7d} />
+              <StatCard label="Clicks (30 days)" value={clickStats.total30d} />
+              <StatCard
+                label="Call Clicks (30d)"
+                value={clickStats.byEvent.find(([e]) => e === "phone_call_click")?.[1] ?? 0}
+              />
+              <StatCard
+                label="Quote Clicks (30d)"
+                value={clickStats.byEvent.find(([e]) => e === "cta_click")?.[1] ?? 0}
+              />
+            </div>
+
+            <div className="grid gap-4 md:grid-cols-2">
+              {/* By event type */}
+              <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
+                <p className="mb-4 text-sm font-semibold text-zinc-900">By Button Type (last 30 days)</p>
+                {clickStats.byEvent.length === 0 ? (
+                  <p className="text-xs text-zinc-400">No click data yet. It will appear here once visitors start clicking buttons.</p>
+                ) : (
+                  <div className="space-y-3">
+                    {clickStats.byEvent.map(([event, count]) => (
+                      <div key={event}>
+                        <div className="mb-1 flex items-center justify-between text-xs">
+                          <span className="text-zinc-600">{EVENT_LABELS[event] ?? event}</span>
+                          <span className="font-semibold text-zinc-900">
+                            {count}
+                            <span className="ml-1 font-normal text-zinc-400">
+                              ({clickStats.total30d ? Math.round((count / clickStats.total30d) * 100) : 0}%)
+                            </span>
+                          </span>
+                        </div>
+                        <div className="h-1.5 overflow-hidden rounded-full bg-zinc-100">
+                          <div
+                            className="h-full rounded-full bg-[#b8612c]"
+                            style={{ width: `${clickStats.total30d ? (count / clickStats.total30d) * 100 : 0}%` }}
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* By placement */}
+              <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
+                <p className="mb-4 text-sm font-semibold text-zinc-900">By Location on Site (last 30 days)</p>
+                {clickStats.byPlacement.length === 0 ? (
+                  <p className="text-xs text-zinc-400">No data yet.</p>
+                ) : (
+                  <div className="space-y-2">
+                    {clickStats.byPlacement.map(([placement, count]) => (
+                      <div key={placement} className="flex items-center justify-between">
+                        <span className="text-sm text-zinc-600">{PLACEMENT_LABELS[placement] ?? placement}</span>
+                        <span className="text-sm font-semibold text-zinc-900">{count}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* By page */}
+            {clickStats.byPage.length > 0 && (
+              <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
+                <p className="mb-4 text-sm font-semibold text-zinc-900">Top Pages Where Buttons Are Clicked</p>
+                <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+                  {clickStats.byPage.map(([page, count]) => (
+                    <div key={page} className="rounded-xl bg-zinc-50 px-3 py-2.5">
+                      <p className="text-[11px] text-zinc-400 truncate">{page || "/"}</p>
+                      <p className="text-lg font-bold text-zinc-900">{count}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Recent click log */}
+            <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm">
+              <div className="border-b border-zinc-100 bg-zinc-50 px-4 py-3">
+                <p className="text-sm font-semibold text-zinc-900">Recent Clicks</p>
+              </div>
+              {clickEvents.length === 0 ? (
+                <div className="py-12 text-center text-sm text-zinc-400">No clicks recorded yet.</div>
+              ) : (
+                <div className="overflow-x-auto">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="border-b border-zinc-100 text-left text-[11px] font-semibold uppercase tracking-wider text-zinc-400">
+                        <th className="px-4 py-3">Time</th>
+                        <th className="px-4 py-3">Button</th>
+                        <th className="px-4 py-3">Where</th>
+                        <th className="px-4 py-3">Page</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {clickEvents.slice(0, 100).map((e) => (
+                        <tr key={e.id} className="border-b border-zinc-100">
+                          <td className="whitespace-nowrap px-4 py-2.5 text-xs text-zinc-500">{formatDate(e.createdAt)}</td>
+                          <td className="px-4 py-2.5 text-xs font-medium text-zinc-700">{EVENT_LABELS[e.event ?? ""] ?? e.event ?? "—"}</td>
+                          <td className="px-4 py-2.5 text-xs text-zinc-500">{PLACEMENT_LABELS[e.placement ?? ""] ?? e.placement ?? "—"}</td>
+                          <td className="px-4 py-2.5 text-xs text-zinc-400">{e.page || "/"}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </div>
+          </div>
         ) : (
           /* ── Newsletter subscribers tab ── */
           <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm">
