@@ -408,7 +408,7 @@ export function AdminDashboard() {
 
   if (!authed) {
     return (
-      <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-zinc-50 p-4">
+      <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-zinc-50 p-4" data-lenis-prevent>
         <div className="w-full max-w-sm">
           <div className="mb-8 text-center">
             <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#b8612c] text-2xl font-bold text-white">
@@ -453,7 +453,7 @@ export function AdminDashboard() {
   // ── Dashboard ────────────────────────────────────────────────────
 
   return (
-    <div className="fixed inset-0 z-[9999] overflow-auto bg-zinc-50 font-sans">
+    <div className="fixed inset-0 z-[9999] overflow-auto bg-zinc-50 font-sans" data-lenis-prevent>
       {/* Header */}
       <header className="sticky top-0 z-10 border-b border-zinc-200 bg-white/95 backdrop-blur-sm">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
