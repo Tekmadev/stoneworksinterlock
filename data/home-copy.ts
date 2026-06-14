@@ -15,6 +15,10 @@ export const homeCopy = {
     primaryCta: "Get a free quote",
     secondaryCta: "Or call us directly",
     note: "Serving Ottawa, Kanata, Nepean, Barrhaven, Orleans, Stittsville, Manotick, Gloucester and the rest of the region.",
+    promo: {
+      tag: "Limited offer",
+      text: "20% off select interlock services",
+    },
   },
 
   brandRibbon: [

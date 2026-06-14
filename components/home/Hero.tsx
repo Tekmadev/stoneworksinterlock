@@ -59,10 +59,20 @@ export function Hero() {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: EASE_CINEMA, delay: 0.1 }}
-            className="font-mono text-[11px] tracking-[0.18em] uppercase text-onyx-60 mb-6 md:mb-8 inline-flex items-center gap-2"
+            className="mb-6 md:mb-8 flex flex-wrap items-center gap-x-4 gap-y-3"
           >
-            <span className="h-px w-8 bg-onyx-30" />
-            {homeCopy.hero.eyebrow}
+            <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-onyx-60 inline-flex items-center gap-2">
+              <span className="h-px w-8 bg-onyx-30" />
+              {homeCopy.hero.eyebrow}
+            </span>
+            <span className="inline-flex items-center gap-2 rounded-full border border-copper/40 bg-copper/10 px-3 py-1.5 font-mono text-[10.5px] tracking-[0.14em] uppercase text-copper">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-copper opacity-70" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-copper" />
+              </span>
+              <span className="font-semibold">{homeCopy.hero.promo.tag}:</span>{" "}
+              {homeCopy.hero.promo.text}
+            </span>
           </motion.div>
 
           <h1
