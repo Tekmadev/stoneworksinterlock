@@ -23,10 +23,10 @@ export function PhasesSection() {
       style={{ height: `${PHASES.length * 90}vh` }}
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden">
-        <div className="absolute inset-0 grid grid-cols-1 lg:grid-cols-12 max-w-[1400px] mx-auto px-5 md:px-10 items-center">
+        <div className="absolute inset-0 grid grid-cols-1 lg:grid-cols-12 max-w-[1400px] mx-auto px-5 md:px-10 gap-y-7 md:gap-y-9 lg:gap-x-14 items-center pt-[calc(var(--banner-h,0px)+4.5rem)] pb-6 lg:pt-0 lg:pb-0">
           {/* Side text column */}
           <div className="relative col-span-1 lg:col-span-5 z-10 order-2 lg:order-1">
-            <div className="mb-6 md:mb-10">
+            <div className="mb-5 md:mb-10">
               <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-onyx-60">
                 From the first walk-through to the handoff
               </p>
@@ -42,7 +42,7 @@ export function PhasesSection() {
           </div>
 
           {/* Image column */}
-          <div className="relative col-span-1 lg:col-span-7 h-[52svh] md:h-[60svh] lg:h-[78vh] order-1 lg:order-2">
+          <div className="relative col-span-1 lg:col-span-7 h-[40svh] md:h-[52svh] lg:h-[78vh] order-1 lg:order-2">
             <div className="relative w-full h-full rounded-[var(--radius-card)] overflow-hidden border border-onyx-10 shadow-[0_30px_60px_-30px_rgba(20,20,15,0.35)]">
               {PHASES.map((p, i) => (
                 <PhaseImage
@@ -71,7 +71,7 @@ function SideText({
   scrollYProgress: MotionValue<number>;
 }) {
   return (
-    <div className="relative h-[42vh] md:h-[44vh] lg:h-[60vh]">
+    <div className="relative h-[38vh] md:h-[44vh] lg:h-[60vh]">
       <div className="relative w-full h-full">
         {PHASES.map((p, i) => (
           <PhraseLayer

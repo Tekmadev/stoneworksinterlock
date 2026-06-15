@@ -54,16 +54,16 @@ export function SiteNav() {
         <div className="mx-auto max-w-[1400px] px-5 md:px-10 h-16 md:h-[72px] flex items-center justify-between">
           <Link
             href="/"
-            className="group inline-flex h-full items-center leading-none"
+            className="group inline-flex h-full shrink-0 items-center leading-none"
             aria-label={`${BUSINESS.name} home`}
           >
-            <span className="relative h-full w-[210px] sm:w-[260px] md:w-[300px] py-2">
+            <span className="relative h-full w-[160px] sm:w-[260px] md:w-[300px] py-2">
               <Image
                 src={BUSINESS.logoPath ?? "/stonework-logo-removebg.png"}
                 alt={`${BUSINESS.name} logo`}
                 fill
                 priority
-                sizes="(min-width: 768px) 300px, (min-width: 640px) 260px, 210px"
+                sizes="(min-width: 768px) 300px, (min-width: 640px) 260px, 160px"
                 className="object-contain object-left"
               />
             </span>
@@ -93,7 +93,7 @@ export function SiteNav() {
             <Link
               href="/contact/"
               onClick={() => trackClick("cta_click", "nav", { type: "quote" })}
-              className="inline-flex items-center gap-1.5 rounded-full bg-onyx px-4 md:px-5 py-2 text-[13px] font-medium text-canvas hover:bg-copper transition-colors duration-300 ease-cinema"
+              className="inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full bg-onyx px-4 md:px-5 py-2 text-[13px] font-medium text-canvas hover:bg-copper transition-colors duration-300 ease-cinema"
             >
               <span>Free quote</span>
               <span aria-hidden>→</span>
