@@ -65,10 +65,10 @@ export function Hero() {
               <span className="h-px w-8 bg-onyx-30" />
               {homeCopy.hero.eyebrow}
             </span>
-            <span className="inline-flex items-center gap-2 rounded-full border border-copper/40 bg-copper/10 px-3 py-1.5 font-mono text-[10.5px] tracking-[0.14em] uppercase text-copper">
+            <span className="inline-flex items-center gap-2 rounded-full bg-copper px-3.5 py-1.5 font-mono text-[10.5px] tracking-[0.14em] uppercase text-canvas shadow-sm shadow-onyx/20">
               <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-copper opacity-70" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-copper" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-canvas opacity-70" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-canvas" />
               </span>
               <span className="font-semibold">{homeCopy.hero.promo.tag}:</span>{" "}
               {homeCopy.hero.promo.text}
